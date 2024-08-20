@@ -1,6 +1,10 @@
 export const AuthErrorMessages: any = {
-  user: {
-    required: 'it is required',
-    minlength: 'it is min length',
+  email: {
+    required: 'Email is required',
+    pattern: 'Please enter valid email',
+  },
+  code: {
+    required: 'Code is required',
+    pattern: 'Code should be 4 characters',
   },
 };

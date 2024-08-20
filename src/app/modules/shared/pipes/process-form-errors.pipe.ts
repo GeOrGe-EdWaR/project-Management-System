@@ -19,8 +19,6 @@ export class ProcessFormErrorsPipe implements PipeTransform {
 
     const controlErrors = control.errors ?? {};
 
-    console.log('controlErrors', controlErrors);
-
     for (const error of errorsPriorities) {
       if (controlErrors[error]) {
         return error;

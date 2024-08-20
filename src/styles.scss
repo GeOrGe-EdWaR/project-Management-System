@@ -1,45 +1,57 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
+@import url("./assets/styles/fonts.scss");
+
+:root {
+  --mdc-filled-text-field-container-color: transparent;
+  --mdc-filled-text-field-focus-active-indicator-color: white;
+  --mdc-filled-text-field-focus-active-indicator-color: white;
+  --mdc-filled-text-field-label-text-color: white;
+  --mdc-filled-text-field-indicator-color: white;
+  --mdc-filled-text-field-active-indicator-color: white;
+  --mdc-filled-text-field-input-text-color: white;
+  --mdc-filled-text-field-label-text-color: #f57c00;
+  --mdc-filled-text-field-focus-label-text-color: #f57c00;
+  --mdc-filled-text-field-hover-active-indicator-color: white;
+  --mdc-filled-text-field-input-text-placeholder-color: white;
+  --mdc-filled-text-field-label-text-size: 15px;
+
+  --mdc-extended-fab-label-text-font: inter;
+}
+
 $project-managment-primary: mat.define-palette(mat.$indigo-palette);
-$project-managment-accent: mat.define-palette(
-  mat.$pink-palette,
-  A200,
-  A100,
-  A400
-);
-
-// The warn palette is optional (defaults to red).
+$project-managment-accent: mat.define-palette(mat.$orange-palette, 400);
 $project-managment-warn: mat.define-palette(mat.$red-palette);
+$project-managment-white: white;
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $project-managment-theme: mat.define-light-theme(
   (
     color: (
       primary: $project-managment-primary,
       accent: $project-managment-accent,
       warn: $project-managment-warn,
+      white: $project-managment-white,
     ),
   )
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include mat.all-component-themes($project-managment-theme);
 
-/* You can add global styles to this file, and also import other style files */
+.text-accent {
+  color: mat.get-color-from-palette($project-managment-accent) !important;
+}
+
+// Set background to transparent for the mat-form-field with an outline
+.mat-form-field .mat-form-field-outline {
+  background-color: transparent !important;
+}
+
+// Make sure input background is transparent as well
+.mat-form-field .mat-form-field-infix {
+  background-color: transparent !important;
+}
 
 html,
 body {

@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 import { ProcessFormErrorsPipe } from './pipes/process-form-errors.pipe';
 
@@ -24,6 +25,7 @@ import { SharedComponent } from './shared.component';
     MatInputModule,
     MatDialogModule,
     MatIconModule,
+    MatButtonModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -32,6 +34,8 @@ import { SharedComponent } from './shared.component';
     MatInputModule,
     MatDialogModule,
     MatIconModule,
+    MatButtonModule,
+
     ProcessFormErrorsPipe,
   ],
 })
