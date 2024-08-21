@@ -4,4 +4,6 @@ export const Endpoints = {
   // Authentication
   authBaseUrl: 'api/v1/Users/',
   verifyAccount: 'verify',
+  checkEmail:'reset/request',
+  resetPassword:'reset'
 };
