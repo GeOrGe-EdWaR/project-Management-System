@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +16,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgxDropzoneModule,
+    HttpClientModule
+  ],
+  exports: [
+    NgxDropzoneModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 
 import { ProcessFormErrorsPipe } from './pipes/process-form-errors.pipe';
-
+import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SharedComponent } from './shared.component';
 
 @NgModule({
@@ -24,6 +24,7 @@ import { SharedComponent } from './shared.component';
     MatInputModule,
     MatDialogModule,
     MatIconModule,
+    NgxDropzoneModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -33,6 +34,7 @@ import { SharedComponent } from './shared.component';
     MatDialogModule,
     MatIconModule,
     ProcessFormErrorsPipe,
+    NgxDropzoneModule
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

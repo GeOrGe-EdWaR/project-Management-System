@@ -6,13 +6,13 @@
     <ng-container [ngSwitch]="form.controls.user | processFormErrors">
       <small class="text-danger" *ngSwitchCase="'required'">{{
         AuthErrorMessages.user.required
-      }}</small>
+        }}</small>
       <small class="text-danger" *ngSwitchCase="'minlength'">{{
         AuthErrorMessages.user.minlength
-      }}</small>
+        }}</small>
       <small class="text-danger" *ngSwitchCase="'maxlength'">{{
         AuthErrorMessages.user.maxlength
-      }}</small>
+        }}</small>
     </ng-container>
   </div>
 </form>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthenticationComponent } from './authentication.component';
 import { VerifyAccountComponent } from './components/verify-account/verify-account.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
         path: 'verify-account',
         component: VerifyAccountComponent,
       },
+      {
+        path: "register-account",
+        component: RegisterComponent,
+      }
     ],
   },
 ];
@@ -21,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthenticationRoutingModule {}
+export class AuthenticationRoutingModule { }

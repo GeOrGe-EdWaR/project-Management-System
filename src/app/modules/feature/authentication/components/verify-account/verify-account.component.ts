@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthErrorMessages } from '../../validations/auth-error-messages';
 
 @Component({
+
+
   selector: 'verify-account',
   templateUrl: './verify-account.component.html',
   styleUrls: ['./verify-account.component.scss'],
