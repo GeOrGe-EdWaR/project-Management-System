@@ -1,20 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgxDropzoneModule,
+    HttpClientModule
+  ],
+  exports: [
+    NgxDropzoneModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,49 +1,33 @@
+// Import Angular Material theming and custom fonts
 @use "@angular/material" as mat;
-
-@include mat.core();
-
 @import url("./assets/styles/fonts.scss");
 
-:root {
-  --mdc-filled-text-field-container-color: transparent;
-  --mdc-filled-text-field-focus-active-indicator-color: white;
-  --mdc-filled-text-field-focus-active-indicator-color: white;
-  --mdc-filled-text-field-label-text-color: white;
-  --mdc-filled-text-field-indicator-color: white;
-  --mdc-filled-text-field-active-indicator-color: white;
-  --mdc-filled-text-field-input-text-color: white;
-  --mdc-filled-text-field-label-text-color: #f57c00;
-  --mdc-filled-text-field-focus-label-text-color: #f57c00;
-  --mdc-filled-text-field-hover-active-indicator-color: white;
-  --mdc-filled-text-field-input-text-placeholder-color: white;
-  --mdc-filled-text-field-label-text-size: 15px;
+// Include core styles for Angular Material
+@include mat.core();
 
-  --mdc-extended-fab-label-text-font: inter;
-}
-
-$project-managment-primary: mat.define-palette(mat.$indigo-palette);
-$project-managment-accent: mat.define-palette(mat.$orange-palette, 400);
+// Define custom palettes for Angular Material theme
+$project-managment-primary: mat.define-palette(mat.$indigo-palette); // or mat.$yellow-palette, depending on your preference
+$project-managment-accent: mat.define-palette(mat.$orange-palette, 400); // or mat.$pink-palette, depending on your preference
 $project-managment-warn: mat.define-palette(mat.$red-palette);
 $project-managment-white: white;
 
-$project-managment-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $project-managment-primary,
-      accent: $project-managment-accent,
-      warn: $project-managment-warn,
-      white: $project-managment-white,
-    ),
-  )
-);
+// Create theme object
+$project-managment-theme: mat.define-light-theme((color: (primary: $project-managment-primary,
+        accent: $project-managment-accent,
+        warn: $project-managment-warn,
+        white: $project-managment-white,
+      ),
+    ));
 
+// Include theme styles for all Angular Material components
 @include mat.all-component-themes($project-managment-theme);
 
+// Additional custom styles
 .text-accent {
   color: mat.get-color-from-palette($project-managment-accent) !important;
 }
 
-// Set background to transparent for the mat-form-field with an outline
+// Set background to transparent for mat-form-field with an outline
 .mat-form-field .mat-form-field-outline {
   background-color: transparent !important;
 }
@@ -53,10 +37,12 @@ $project-managment-theme: mat.define-light-theme(
   background-color: transparent !important;
 }
 
+// Global styles
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;

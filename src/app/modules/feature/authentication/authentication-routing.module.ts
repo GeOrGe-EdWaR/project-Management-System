@@ -3,8 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthenticationComponent } from './authentication.component';
 import { VerifyAccountComponent } from './components/verify-account/verify-account.component';
+
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+
+import { RegisterComponent } from './components/register/register.component';
+
 
 const routes: Routes = [
   {
@@ -16,6 +20,7 @@ const routes: Routes = [
         component: VerifyAccountComponent,
       },
       {
+
         path: 'forget-password',
         component: ForgetPasswordComponent,
       },
@@ -24,6 +29,9 @@ const routes: Routes = [
         component: ResetPasswordComponent,
       },
       
+        path: "register-account",
+        component: RegisterComponent,
+      }
     ],
   },
 ];
@@ -32,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthenticationRoutingModule {}
+export class AuthenticationRoutingModule { }

@@ -1,6 +1,7 @@
 <h2 class="text-accent">Verify Account</h2>
 
 <form [formGroup]="verifyForm">
+  <!-- Email Field -->
   <mat-form-field class="w-100" appearance="fill" floatLabel="always">
     <mat-label>Email</mat-label>
     <input
@@ -26,13 +27,14 @@
     </div>
   </mat-form-field>
 
+  <!-- Code Field -->
   <mat-form-field class="w-100" appearance="fill" floatLabel="always">
     <mat-label>Code</mat-label>
     <input
       type="text"
       formControlName="code"
       matInput
-      placeholder="Enter Verification"
+      placeholder="Enter Verification Code"
     />
     <div
       *ngIf="
@@ -50,6 +52,7 @@
     </div>
   </mat-form-field>
 
+  <!-- Submit Button -->
   <div class="text-center mt-4">
     <button
       mat-fab

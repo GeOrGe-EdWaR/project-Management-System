@@ -13,6 +13,8 @@ import { AuthService } from '../../services/auth.service';
 import { VerifyAccountRequest } from '../../models/verify-account-request-model';
 
 @Component({
+
+
   selector: 'verify-account',
   templateUrl: './verify-account.component.html',
   styleUrls: ['./verify-account.component.scss'],
