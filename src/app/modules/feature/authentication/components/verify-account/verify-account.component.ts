@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { ErrorStateMatcher } from '@angular/material/core';
+
+import { AuthValidations } from '../../validations/auth-validations';
+
 import { AuthErrorMessages } from '../../validations/auth-error-messages';
+
+import { AuthService } from '../../services/auth.service';
+
+import { VerifyAccountRequest } from '../../models/verify-account-request-model';
 
 @Component({
 
@@ -10,22 +20,31 @@ import { AuthErrorMessages } from '../../validations/auth-error-messages';
   styleUrls: ['./verify-account.component.scss'],
 })
 export class VerifyAccountComponent {
-  form = new FormGroup({
-    user: new FormControl('', [
+  public AuthErrorMessages = AuthErrorMessages;
+
+  matcher = new ErrorStateMatcher();
+
+  verifyForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    code: new FormControl('', [
       Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(1),
+      Validators.pattern(AuthValidations.verifyCode.pattern),
     ]),
   });
 
-  public AuthErrorMessages = AuthErrorMessages;
+  constructor(private _auth: AuthService, private router: Router) {}
 
-  errorMessages: any;
+  submit(): void {
+    this.verifyForm.markAllAsTouched();
 
-  ngOnInit(): void {
-    // this.form.valueChanges.subscribe(() => {
-    //   this.errorMessages = ProcessFormErrors(this.form, AuthErrorMessages);
-    //   debugger;
-    // });
+    if (this.verifyForm.valid) {
+      this._auth
+        .verifyAccount(this.verifyForm.value as VerifyAccountRequest)
+        .subscribe({
+          next: () => {
+            this.router.navigateByUrl('/auth/login');
+          },
+        });
+    }
   }
 }

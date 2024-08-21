@@ -1,18 +1,46 @@
-<form [formGroup]="form">
-  <label>user</label>
-  <input type="text" formControlName="user" />
+<form [formGroup]="verifyForm">
 
-  <div *ngIf="form.controls.user.touched && form.controls.user.errors">
-    <ng-container [ngSwitch]="form.controls.user | processFormErrors">
-      <small class="text-danger" *ngSwitchCase="'required'">{{
-        AuthErrorMessages.user.required
-        }}</small>
-      <small class="text-danger" *ngSwitchCase="'minlength'">{{
-        AuthErrorMessages.user.minlength
-        }}</small>
-      <small class="text-danger" *ngSwitchCase="'maxlength'">{{
-        AuthErrorMessages.user.maxlength
-        }}</small>
-    </ng-container>
+  <!-- Email Field -->
+  <mat-form-field class="w-100" appearance="fill" floatLabel="always">
+    <mat-label>Email</mat-label>
+    <input type="email" formControlName="email" matInput placeholder="Enter your Email" [errorStateMatcher]="matcher" />
+    <div *ngIf="verifyForm.controls.email.touched && verifyForm.controls.email.errors">
+      <ng-container [ngSwitch]="verifyForm.controls.email | processFormErrors">
+        <mat-error *ngSwitchCase="'required'">{{ AuthErrorMessages.email.required }}</mat-error>
+        <mat-error *ngSwitchCase="'email'">{{ AuthErrorMessages.email.pattern }}</mat-error>
+      </ng-container>
+    </div>
+  </mat-form-field>
+
+  <!-- Code Field -->
+  <mat-form-field class="w-100" appearance="fill" floatLabel="always">
+    <mat-label>Code</mat-label>
+    <input type="text" formControlName="code" matInput placeholder="Enter Verification Code" />
+    <div *ngIf="verifyForm.controls.code.touched && verifyForm.controls.code.errors">
+      <ng-container [ngSwitch]="verifyForm.controls.code | processFormErrors">
+        <mat-error *ngSwitchCase="'required'">{{ AuthErrorMessages.code.required }}</mat-error>
+        <mat-error *ngSwitchCase="'pattern'">{{ AuthErrorMessages.code.pattern }}</mat-error>
+      </ng-container>
+    </div>
+  </mat-form-field>
+
+  <!-- User Field (from refs/heads/master) -->
+  <mat-form-field class="w-100" appearance="fill" floatLabel="always">
+    <mat-label>User</mat-label>
+    <input type="text" formControlName="user" matInput placeholder="Enter your Username" />
+    <div *ngIf="verifyForm.controls.user.touched && verifyForm.controls.user.errors">
+      <ng-container [ngSwitch]="verifyForm.controls.user | processFormErrors">
+        <mat-error *ngSwitchCase="'required'">{{ AuthErrorMessages.user.required }}</mat-error>
+        <mat-error *ngSwitchCase="'minlength'">{{ AuthErrorMessages.user.minlength }}</mat-error>
+        <mat-error *ngSwitchCase="'maxlength'">{{ AuthErrorMessages.user.maxlength }}</mat-error>
+      </ng-container>
+    </div>
+  </mat-form-field>
+
+  <!-- Submit Button -->
+  <div class="text-center mt-4">
+    <button mat-fab extended color="accent" class="text-white w-100" (click)="submit()">
+      Submit
+    </button>
   </div>
 </form>
