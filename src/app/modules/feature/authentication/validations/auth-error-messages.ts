@@ -7,4 +7,15 @@ export const AuthErrorMessages: any = {
     required: 'Code is required',
     pattern: 'Code should be 4 characters',
   },
+  password:{
+    required: 'Password is required',
+    pattern: 'Password should be (fill it when we have regex)',
+  },
+  confirmPassword:{
+    required: 'Password is required',
+    pattern: 'Password should be (fill it when we have regex)',
+    notMatch: 'Your Passwords should Match !'
+  },
+
+  
 };

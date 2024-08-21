@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthenticationComponent } from './authentication.component';
 import { VerifyAccountComponent } from './components/verify-account/verify-account.component';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -13,6 +15,15 @@ const routes: Routes = [
         path: 'verify-account',
         component: VerifyAccountComponent,
       },
+      {
+        path: 'forget-password',
+        component: ForgetPasswordComponent,
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent,
+      },
+      
     ],
   },
 ];
