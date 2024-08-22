@@ -1,163 +1,107 @@
-<div
-  class="row justify-content-center align-items-center min-vh-100 text-capitalize"
->
-  <div class="col-md-8 formbg p-4 rounded rounded-2">
-    <div>
-      <p class="text-white">welcome in PMS</p>
-      <h4 class="text-warning fw-bold fs-2">
-        <span class="border-bottom border-warning">C</span>reate New Account
-      </h4>
-    </div>
-    <!-- regForm -->
-    <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
-      <!-- img dropzone -->
-      <ngx-dropzone
-        (change)="onSelect($event)"
-        class="rounded rounded-circle bg-transparent border-0 mx-auto my-3 overflow-hidden"
-      >
-        <ngx-dropzone-label
-          class="uploadimg w-100 h-100 d-flex justify-content-center align-items-center"
-        >
-          <mat-icon class="mat-18 text-warning">photo_camera</mat-icon>
-        </ngx-dropzone-label>
-        <ngx-dropzone-preview
-          *ngFor="let f of files"
-          [removable]="true"
-          (removed)="onRemove(f)"
-        >
-        </ngx-dropzone-preview>
-      </ngx-dropzone>
-      <!-- input fields -->
-      <div class="row">
-        <div class="col-md-6">
-          <mat-label class="text-warning fs-5">Username</mat-label>
-          <mat-form-field class="w-100 bg-transparent" appearance="fill">
-            <input
-              matInput
-              formControlName="userName"
-              placeholder="Enter your name"
-            />
-            <mat-error
-              *ngIf="registerForm.get('userName')?.hasError('required')"
-            >
-              Username is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
+<div class="row justify-content-center align-items-center min-vh-100 text-capitalize">
+    <div class="col-md-8 formbg p-4 rounded rounded-2">
+        <div>
+            <p class="text-white">welcome in PMS</p>
+            <h4 class="text-warning fw-bold fs-2">
+                <span class="border-bottom border-warning">C</span>reate New Account
+            </h4>
         </div>
-        <div class="col-md-6">
-          <mat-label class="text-warning fs-5">Email</mat-label>
-          <mat-form-field class="w-100" appearance="fill">
-            <input
-              matInput
-              formControlName="email"
-              placeholder="Enter your E-mail"
-            />
-            <mat-error
-              *ngIf="
+        <!-- regForm -->
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
+            <!-- img dropzone -->
+            <ngx-dropzone (change)="onSelect($event)"
+                class="rounded rounded-circle bg-transparent border-0 mx-auto my-3 overflow-hidden">
+                <ngx-dropzone-label class="uploadimg w-100 h-100 d-flex justify-content-center align-items-center">
+                    <mat-icon class="mat-18 text-warning">photo_camera</mat-icon>
+                </ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+            <!-- input fields -->
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-label class="text-warning fs-5">Username</mat-label>
+                    <mat-form-field class="w-100 bg-transparent" appearance="fill">
+                        <input matInput formControlName="userName" placeholder="Enter your name" />
+                        <mat-error *ngIf="registerForm.get('userName')?.hasError('required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-label class="text-warning fs-5">Email</mat-label>
+                    <mat-form-field class="w-100" appearance="fill">
+                        <input matInput formControlName="email" placeholder="Enter your E-mail" />
+                        <mat-error *ngIf="
                 registerForm.get('email')?.hasError('email') &&
                 !registerForm.get('email')?.hasError('required')
-              "
-            >
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
+              ">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <mat-label class="text-warning fs-5">Country</mat-label>
-          <mat-form-field class="w-100">
-            <input
-              matInput
-              formControlName="country"
-              placeholder="Enter your country"
-            />
-            <mat-error
-              *ngIf="registerForm.get('country')?.hasError('required')"
-            >
-              Country is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-label class="text-warning fs-5">Phone Number</mat-label>
-          <mat-form-field class="w-100">
-            <input
-              matInput
-              formControlName="phoneNumber"
-              placeholder="Enter your phone number"
-            />
-            <mat-error
-              *ngIf="registerForm.get('phoneNumber')?.hasError('required')"
-            >
-              Phone number is <strong>required</strong>
-            </mat-error>
-            <mat-error
-              *ngIf="registerForm.get('phoneNumber')?.hasError('pattern')"
-            >
-              Phone number is <strong>invalid</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-label class="text-warning fs-5">Country</mat-label>
+                    <mat-form-field class="w-100">
+                        <input matInput formControlName="country" placeholder="Enter your country" />
+                        <mat-error *ngIf="registerForm.get('country')?.hasError('required')">
+                            Country is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-label class="text-warning fs-5">Phone Number</mat-label>
+                    <mat-form-field class="w-100">
+                        <input matInput formControlName="phoneNumber" placeholder="Enter your phone number" />
+                        <mat-error *ngIf="registerForm.get('phoneNumber')?.hasError('required')">
+                            Phone number is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('phoneNumber')?.hasError('pattern')">
+                            Phone number is <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <mat-label class="text-warning fs-5">Password</mat-label>
-          <mat-form-field class="w-100">
-            <input
-              matInput
-              type="password"
-              formControlName="password"
-              placeholder="Enter your Password"
-            />
-            <mat-error
-              *ngIf="registerForm.get('password')?.hasError('required')"
-            >
-              Password is <strong>required</strong>
-            </mat-error>
-            <mat-error
-              *ngIf="registerForm.get('password')?.hasError('pattern')"
-            >
-              Password minlength is 6 , should contain uppercase and special
-              characters
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-label class="text-warning fs-5">Confirm Password</mat-label>
-          <mat-form-field class="w-100 position-relative">
-            <input
-              matInput
-              type="password"
-              formControlName="confirmPassword"
-              placeholder="Confirm New Password"
-            />
-            <mat-error
-              *ngIf="registerForm.get('confirmPassword')?.hasError('require')"
-            >
-              confirm Password is <strong>required</strong>
-            </mat-error>
-            <mat-error
-              *ngIf="registerForm.get('confirmPassword')?.hasError('notsame')"
-            >
-              Confirm Password does not match Password.
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-label class="text-warning fs-5">Password</mat-label>
+                    <mat-form-field class="w-100">
+                        <input matInput type="password" formControlName="password" placeholder="Enter your Password" />
+                        <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('password')?.hasError('pattern')">
+                            Password minlength is 6 , should contain uppercase and special
+                            characters
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-label class="text-warning fs-5">Confirm Password</mat-label>
+                    <mat-form-field class="w-100 position-relative">
+                        <input matInput type="password" formControlName="confirmPassword"
+                            placeholder="Confirm New Password" />
+                        <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('require')">
+                            confirm Password is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('notsame')">
+                            Confirm Password does not match Password.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
 
-      <button
-        mat-raised-button
-        class="bg-warning border-0 text-white rounded-4 px-5 py-2 w-50 d-block mx-auto"
-        type="submit"
-      >
-        Register
-      </button>
-    </form>
-  </div>
+            <button mat-raised-button class="bg-warning border-0 text-white rounded-4 px-5 py-2 w-50 d-block mx-auto"
+                type="submit">
+                Register
+            </button>
+        </form>
+    </div>
 </div>

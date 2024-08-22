@@ -62,4 +62,4 @@ import { ListComponent } from './list/list.component';
     HomeComponent,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
