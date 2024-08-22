@@ -42,7 +42,8 @@ import { ListComponent } from './list/list.component';
     MatIconModule,
     MatButtonModule, // Added from the remote version
     ProcessFormErrorsPipe,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    HomeComponent
   ],
 })
 export class SharedModule { }
