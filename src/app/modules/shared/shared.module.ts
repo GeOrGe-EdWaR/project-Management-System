@@ -13,9 +13,14 @@ import { MatButtonModule } from '@angular/material/button'; // Added from the re
 import { ProcessFormErrorsPipe } from './pipes/process-form-errors.pipe';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SharedComponent } from './shared.component';
+import { DeleteComponent } from './delete/delete.component';
+import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
-  declarations: [SharedComponent, ProcessFormErrorsPipe],
+  declarations: [SharedComponent, ProcessFormErrorsPipe, DeleteComponent, HomeComponent, NavBarComponent, SideBarComponent, ListComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,
