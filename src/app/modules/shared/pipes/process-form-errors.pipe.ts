@@ -15,6 +15,7 @@ export class ProcessFormErrorsPipe implements PipeTransform {
       'max',
       'email',
       'pattern',
+      'notMatch'
     ];
 
     const controlErrors = control.errors ?? {};
