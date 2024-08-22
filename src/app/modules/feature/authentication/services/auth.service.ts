@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { VerifyAccountRequest } from '../models/verify-account-request-model';
-import { ResetPasswordRequest } from '../models/reset-password-request';
-import { LoginRequest } from '../models/login-request';
-import { jwtDecode } from 'jwt-decode';
+
 
 // The service for authentication-related HTTP requests
 @Injectable({
@@ -22,24 +20,18 @@ export class AuthService {
   }
 
   // Verify account by sending a PUT request
+  // verifyAccount(form: VerifyAccountRequest): Observable<VerifyAccountRequest> {
+  //   return this._http.put<VerifyAccountRequest>(
+  //     `${Endpoints.baseUrl}${Endpoints.authBaseUrl}${Endpoints.verifyAccount}`,
+  //     form
+  //   );
+  // }
+
+
+  // Verify account 
   verifyAccount(form: VerifyAccountRequest): Observable<VerifyAccountRequest> {
     return this._http.put<VerifyAccountRequest>(
-      'Users/verify',form
-    );
-  }
 
-
-
-  checkEmail(email: string): Observable<string> { 
-    return this._http.post<string>(
-      'Users/Reset/Request',email
-    );
-  }
-
-  resetPassword(form: ResetPasswordRequest): Observable<ResetPasswordRequest> {
-    return this._http.post<ResetPasswordRequest>(
-      'Users/Reset',form
-    );
   }
 
 

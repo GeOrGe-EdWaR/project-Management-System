@@ -14,38 +14,3 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ProcessFormErrorsPipe } from './pipes/process-form-errors.pipe';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SharedComponent } from './shared.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HomeComponent } from './home/home.component';
-
-@NgModule({
-  declarations: [SharedComponent, NavbarComponent, SidebarComponent,ProcessFormErrorsPipe, HomeComponent],
-  imports: [
-    CommonModule,
-    SharedRoutingModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    MatDialogModule,
-    MatIconModule,
-    MatButtonModule, // Added from the remote version
-    MatMenuModule,
-    NgxDropzoneModule
-  ],
-  exports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    MatDialogModule,
-    MatIconModule,
-    MatButtonModule, // Added from the remote version
-    MatMenuModule,
-    ProcessFormErrorsPipe,
-    NgxDropzoneModule,
-    NavbarComponent,
-    SidebarComponent
-  ],
-})
-export class SharedModule { }
