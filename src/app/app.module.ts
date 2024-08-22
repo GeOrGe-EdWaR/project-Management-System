@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ToastrModule } from 'ngx-toastr';
+
+import { AppComponent } from './app.component';
+
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { GlobalInterceptor } from './core/global.interceptor';
+import { GlobalInterceptor } from './core/interceptors/global.interceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,19 +20,18 @@ import { GlobalInterceptor } from './core/global.interceptor';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxDropzoneModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  exports: [
-    NgxDropzoneModule,
-    HttpClientModule
+  exports: [NgxDropzoneModule, HttpClientModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      //here we add the interceptor we have created
+      useClass: GlobalInterceptor,
+      // this prperty for multible interceptor
+      multi: true,
+    },
   ],
-  providers: [{
-    provide:HTTP_INTERCEPTORS,
-    //here we add the interceptor we have created
-    useClass:GlobalInterceptor,
-    // this prperty for multible interceptor
-    multi:true,
-  }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

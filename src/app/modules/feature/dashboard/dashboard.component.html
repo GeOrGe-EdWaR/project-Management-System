@@ -1,12 +1,13 @@
 <div class="d-flex align-items-stretch">
+  <sidebar (collapseSidebar)="handleCollapseSidebar($event)"></sidebar>
+  <div
+    [ngClass]="
+      isSidebarCollapsed
+        ? 'content-on-collpased-sidebar'
+        : 'content-on-expanded-sidebar'
+    "
+  >
     <navbar></navbar>
-    <sidebar (collapseSidebar)="handleCollapseSidebar($event)"></sidebar>
-    <div
-      [ngClass]="
-        isSidebarCollapsed
-          ? 'content-on-collpased-sidebar'
-          : 'content-on-expanded-sidebar' "> 
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
   </div>
-  
+</div>

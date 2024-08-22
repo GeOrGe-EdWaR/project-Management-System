@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthErrorMessages } from '../../validations/auth-error-messages';
 import { Router } from '@angular/router';
-import { VerifyAccountRequest } from '../../models/verify-account-request-model';
 import { AuthService } from '../../services/auth.service';
 
 @Component({

@@ -58,6 +58,7 @@ import { ListComponent } from './components/list/list.component';
     NavbarComponent,
     SidebarComponent,
     ListComponent,
+    HomeComponent,
   ],
 })
 export class SharedModule {}
