@@ -6,7 +6,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { GlobalInterceptor } from './core/global.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,13 @@ import { HttpClientModule } from '@angular/common/http';
     NgxDropzoneModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    //here we add the interceptor we have created
+    useClass:GlobalInterceptor,
+    // this prperty for multible interceptor
+    multi:true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

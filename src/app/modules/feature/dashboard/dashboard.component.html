@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<div class="d-flex align-items-stretch">
+    <navbar></navbar>
+    <sidebar (collapseSidebar)="handleCollapseSidebar($event)"></sidebar>
+    <div
+      [ngClass]="
+        isSidebarCollapsed
+          ? 'content-on-collpased-sidebar'
+          : 'content-on-expanded-sidebar' "> 
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

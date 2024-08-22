@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  isSidebarCollapsed = false;
 
+  handleCollapseSidebar(e: boolean): void {
+    this.isSidebarCollapsed = e;
+  }
 }

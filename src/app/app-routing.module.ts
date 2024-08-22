@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
+    { path: '', redirectTo: 'auth', pathMatch: 'full' },
+    {
     path: 'auth',
     loadChildren: () =>
       import('./modules/feature/authentication/authentication.module').then(
