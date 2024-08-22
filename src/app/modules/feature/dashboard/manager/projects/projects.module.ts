@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ViewProjectComponent } from './components/view-project/view-project.component';
 import { AddEditProjectComponent } from './components/add-edit-project/add-edit-project.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
+import { ProjectsListComponent } from './components/projects-list/projects-list.component';
 
 
 
@@ -12,7 +13,8 @@ import { ProjectsRoutingModule } from './projects-routing.module';
   declarations: [
     ProjectsComponent,
     ViewProjectComponent,
-    AddEditProjectComponent
+    AddEditProjectComponent,
+    ProjectsListComponent
   ],
   imports: [
     CommonModule,

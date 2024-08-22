@@ -3,8 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+  isSidebarCollapsed = false;
 
+  handleCollapseSidebar(e: boolean): void {
+    this.isSidebarCollapsed = e;
+  }
 }
