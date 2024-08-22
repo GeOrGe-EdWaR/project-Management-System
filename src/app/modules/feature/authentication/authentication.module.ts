@@ -11,13 +11,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 
-// @NgModule({
-//   declarations: [AuthenticationComponent, VerifyAccountComponent, ForgetPasswordComponent, ResetPasswordComponent],
-
-// import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
-  declarations: [AuthenticationComponent, VerifyAccountComponent, ForgetPasswordComponent,ResetPasswordComponent , RegisterComponent, LoginComponent ],
+  declarations: [AuthenticationComponent, VerifyAccountComponent, ForgetPasswordComponent, ResetPasswordComponent, RegisterComponent, LoginComponent],
   imports: [CommonModule, AuthenticationRoutingModule, SharedModule],
 })
-export class AuthenticationModule {}
+export class AuthenticationModule { }
