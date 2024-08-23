@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-page-header',
@@ -6,11 +6,18 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./page-header.component.scss'],
 })
 export class PageHeaderComponent {
+  @Output() navigateBackEvent = new EventEmitter();
+  @Output() actionBtnEvent = new EventEmitter();
+
   @Input() pageTitle: string = '';
   @Input() navigateBackText: string = '';
   @Input() actionBtnText: string = '';
 
-  handleNavigateBackClick(): void {}
+  handleNavigateBackClick(): void {
+    this.navigateBackEvent.emit();
+  }
 
-  handleActionClick(): void {}
+  handleActionClick(): void {
+    this.actionBtnEvent.emit();
+  }
 }

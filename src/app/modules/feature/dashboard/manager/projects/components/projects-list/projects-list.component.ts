@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
+import { DeleteComponent } from 'src/app/modules/shared/delete/delete.component';
+
 import { Subscription } from 'rxjs';
 
 import { PageEvent } from '@angular/material/paginator';
@@ -12,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ListHeader } from 'src/app/modules/shared/models/list-header.model';
 import { Project } from '../../models/project-model';
 
-import { DeleteComponent } from 'src/app/modules/shared/delete/delete.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects-list',
@@ -40,7 +42,8 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
   constructor(
     private _projects: ProjectsService,
     public dialog: MatDialog,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _router: Router
   ) {
     this.headers = this._projects.listHeaders;
   }
@@ -96,6 +99,10 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
           this._toastr.error('Something went wrong', 'Error');
         },
       });
+  }
+
+  navigateToAddProject(): void {
+    this._router.navigateByUrl('/dashboard/manager/projects/add-edit-project');
   }
 
   ngOnDestroy() {
