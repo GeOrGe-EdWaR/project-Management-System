@@ -9,11 +9,12 @@ import { AuthService } from '../../feature/authentication/services/auth.service'
 })
 export class NavbarComponent {
   userName!: string | null;
-
+  userEmail!: string | null;
   constructor(private _auth: AuthService, private router: Router) {
     this._auth.getProfile();
 
     this.userName = localStorage.getItem('userName');
+    this.userEmail = localStorage.getItem('userEmail')
   }
 
   logout(): void {

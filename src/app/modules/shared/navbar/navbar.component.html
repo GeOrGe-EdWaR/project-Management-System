@@ -1,13 +1,20 @@
-<div class="container-fluid">
-    <nav class="navbar d-flex justify-content-end my-2">
+<div class="container- ms-0">
+    <nav class="navbar d-flex justify-content-between mb-2 shadow-sm">
+      <div class="logo-img">
+        <img src="../../../../assets/images/logo.png" alt="">
+      </div>
       <div class="cursor-pointer">
         <div
           mat-icon-button
           [matMenuTriggerFor]="menu"
           class="px-4 py-2 d-flex align-items-center cursor-pointer"
         >
+       
           <mat-icon>person</mat-icon>
-          <label class="mx-2">{{ userName }}</label>
+          <div class=" d-flex flex-column">
+            <span class="mx-2">{{ userName }}</span>
+            <span class="mx-2">{{ userEmail }}</span>
+          </div>
         </div>
         <mat-menu #menu="matMenu">
           <button mat-menu-item [routerLink]="'/profile'">
