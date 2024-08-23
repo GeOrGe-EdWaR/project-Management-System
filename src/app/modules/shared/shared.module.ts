@@ -20,7 +20,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
-
 @NgModule({
   declarations: [
     SharedComponent,
@@ -43,6 +42,7 @@ import { ListComponent } from './list/list.component';
     MatMenuModule,
     MatPaginatorModule,
     NgxDropzoneModule,
+    
   ],
   exports: [
     ReactiveFormsModule,

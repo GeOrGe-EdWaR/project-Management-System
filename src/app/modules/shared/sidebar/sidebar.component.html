@@ -1,14 +1,9 @@
 <aside class="sidebar" id="sidebar">
     <ul class="list-group">
-      <li class="text-center">
-        <img
-          *ngIf="!isCollapsed; else expandIcon"
-          src="../../../../../../assets/images/logo-without-text.svg"
-          class="mt-3 mb-5"
-          (click)="toggleSideBarExpansion()"
-        />
+      <li class="text-center my-5">
+        <span *ngIf="!isCollapsed; else expandIcon" class="d-flex toggler rounded-start-2 justify-content-center align-items-center" (click)="toggleSideBarExpansion()"> < </span>
         <ng-template #expandIcon>
-          <mat-icon class="text-white my-5" (click)="toggleSideBarExpansion()"
+          <mat-icon class="text-white mt-3" (click)="toggleSideBarExpansion()"
             >menu</mat-icon
           >
         </ng-template>
