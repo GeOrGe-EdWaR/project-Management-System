@@ -36,6 +36,10 @@
                 </span>
               </span>
 
+              <span *ngSwitchCase="'length'">
+                {{ row[column.datafiled] && row[column.datafiled].length }}
+              </span>
+
               <span *ngSwitchCase="'actions'">
                 <button
                   mat-icon-button
@@ -101,5 +105,5 @@
 </ng-container>
 
 <ng-container *ngIf="data && data.length === 0">
-  <!-- <empty-list></empty-list> -->
+  <app-empty-list></app-empty-list>
 </ng-container>

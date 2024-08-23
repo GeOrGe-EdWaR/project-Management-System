@@ -1,1 +1,11 @@
-<p>projects-list works!</p>
+<app-list
+  [headers]="headers"
+  [data]="projectsList"
+  [length]="length"
+  [pageNumber]="pageNumber"
+  [pageSize]="pageSize"
+  (handleViewEvent)="onViewAction($event)"
+  (handleEditEvent)="onEditAction($event)"
+  (handleDeleteEvent)="onDeleteAction($event)"
+  (handlePageEvent)="onPageEvent($event)"
+></app-list>

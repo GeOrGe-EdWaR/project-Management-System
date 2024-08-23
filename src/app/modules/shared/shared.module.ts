@@ -20,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
+import { EmptyListComponent } from './list/empty-list/empty-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ListComponent } from './list/list.component';
     ProcessFormErrorsPipe,
     HomeComponent,
     ListComponent,
+    EmptyListComponent,
   ],
   imports: [
     CommonModule,
