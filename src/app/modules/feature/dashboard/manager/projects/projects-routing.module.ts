@@ -11,12 +11,12 @@ import { ProjectsListComponent } from './components/projects-list/projects-list.
 const routes: Routes = [
   {
     path: '',
-    component: ProjectsListComponent,
+    component: ProjectsComponent,
     children: [
-      { path: '', redirectTo: 'projects', pathMatch: 'full' },
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: 'add-edit-project', component: AddEditProjectComponent },
       { path: 'view-project', component: ViewProjectComponent },
-      { path: 'projects', component: ProjectsListComponent },
+      { path: 'list', component: ProjectsListComponent },
     ],
   },
 ];

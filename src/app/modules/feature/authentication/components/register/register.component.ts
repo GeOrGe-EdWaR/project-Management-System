@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   // 3//declerations
   imgSrc: any = "";
   matcher = new MyErrorStateMatcher();
-
+  hide: boolean = true;
 
 
   // ==================================================

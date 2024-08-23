@@ -22,6 +22,8 @@ import { DeleteComponent } from 'src/app/modules/shared/delete/delete.component'
 export class ProjectsListComponent implements OnInit, OnDestroy {
   projectsList!: Project[];
 
+  searchBytitle: string = '';
+
   length: number = 0;
   pageSize = 10;
   pageNumber = 0;
@@ -49,7 +51,7 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
 
   getProjectsList(): void {
     this.projectsSubscription = this._projects
-      .getProjectsList(this.pageNumber + 1, this.pageSize, '')
+      .getProjectsList(this.pageNumber + 1, this.pageSize, this.searchBytitle)
       .subscribe({
         next: ({ data, totalNumberOfRecords }) => {
           this.length = totalNumberOfRecords;
@@ -91,7 +93,7 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
           this.getProjectsList();
         },
         error: () => {
-          this._toastr.success('Something went wrong');
+          this._toastr.error('Something went wrong', 'Error');
         },
       });
   }

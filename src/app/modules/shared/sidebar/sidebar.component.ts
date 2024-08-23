@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SideBarItem } from '../models/side-bar-item';
+import { SidebarService } from '../services/sidebar.service';
 
 @Component({
   selector: 'sidebar',
@@ -15,8 +16,9 @@ export class SidebarComponent {
 
   isCollapsed = false;
 
-  constructor() {
+  constructor( private _sidebarService: SidebarService) {
   
+    this.routes = this._sidebarService.getRoleRoutes();
     this.collapseSidebar.emit(this.isCollapsed);
   }
 
@@ -29,7 +31,7 @@ export class SidebarComponent {
     this.collapseSidebar.emit(this.isCollapsed);
   }
 
-  // setActiveRoute(routeTo: string): void {
-  //   this.activeRoute = routeTo;
-  // }
+  setActiveRoute(routeTo: string): void {
+    this.activeRoute = routeTo;
+  }
 }

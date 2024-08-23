@@ -1,4 +1,17 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
+
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 import { ListHeader } from '../models/list-header.model';
 
@@ -8,6 +21,9 @@ import { ListHeader } from '../models/list-header.model';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+
   @Output() handleViewEvent = new EventEmitter();
   @Output() handleEditEvent = new EventEmitter();
   @Output() handleDeleteEvent = new EventEmitter();
@@ -20,13 +36,32 @@ export class ListComponent {
   @Input() length: number = 0;
   @Input() pageNumber: number = 0;
   @Input() pageSize: number = 10;
-  @Input() showFirstLastButtons: boolean = true;
-  @Input() showPageSizeOptions: boolean = true;
+  @Input() showFirstLastButtons: boolean = false;
+  @Input() showPageSizeOptions: boolean = false;
   @Input() pageSizeOptions: number[] = [5, 10, 25];
-  @Input() hidePageSize = false;
+  @Input() hidePageSize = true;
   @Input() disabled = false;
 
   imageUrl: string = 'https://upskilling-egypt.com:3003/';
+
+  private _liveAnnouncer = inject(LiveAnnouncer);
+
+  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+  displayedColumns: string[] = [];
+
+  constructor(public _MatPaginatorIntl: MatPaginatorIntl) {}
+
+  ngOnInit(): void {
+    this.displayedColumns = this.headers.map((header) => header.datafiled);
+    this.dataSource = new MatTableDataSource(this.data);
+
+    console.log('this.dataSource', this.dataSource);
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
 
   view(row: any): void {
     this.handleViewEvent.emit(row);
@@ -44,7 +79,25 @@ export class ListComponent {
     this.handleBlockEvent.emit(id);
   }
 
-  paginate(e: any): void {
+  handlePaginate(e: any): void {
     this.handlePageEvent.emit(e);
   }
+
+  handlePaginationSizeChange(pageSize: number): void {
+    this.pageSize = pageSize;
+    this.pageNumber = 0;
+
+    this.handlePageEvent.emit({
+      pageSize: pageSize,
+      pageNumber: this.pageNumber,
+    });
+  }
+
+  // onSort(sortState: Sort) {
+  //   if (sortState.direction) {
+  //     this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  //   } else {
+  //     this._liveAnnouncer.announce('Sorting cleared');
+  //   }
+  // }
 }

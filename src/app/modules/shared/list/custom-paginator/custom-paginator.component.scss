@@ -1,0 +1,26 @@
+.custom-paginator-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  .custom-label {
+    color: #4f4f4f;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+
+    .mat-mdc-select {
+      width: 70px !important;
+      border: 0.7px solid #26385a40;
+      border-radius: 10px;
+      padding: 5px 10px;
+      color: #4f4f4f;
+    }
+  }
+
+  .main-paginator {
+    ::ng-deep .mat-mdc-paginator-range-label {
+      display: none !important;
+    }
+  }
+}
