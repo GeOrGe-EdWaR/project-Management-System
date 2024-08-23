@@ -1,0 +1,42 @@
+.list-container {
+  box-shadow: 0px 2px 4px 0px #00000026;
+}
+
+.table {
+  box-shadow: none;
+
+  th {
+    background-color: #315951e5;
+    color: white;
+
+    font-weight: 500;
+    font-family: Montserrat-Medium;
+
+    padding: 0.5rem 1rem;
+
+    border: 1px solid rgba($color: #315951e5, $alpha: 0.9);
+  }
+
+  tr {
+    vertical-align: middle;
+
+    + .odd {
+      td {
+        background-color: #f5f5f5 !important;
+      }
+    }
+  }
+
+  td {
+    color: #3a3a3d;
+
+    font-weight: 400;
+    font-family: Montserrat;
+
+    padding: 0 1rem !important;
+
+    img {
+      border-radius: 8px;
+    }
+  }
+}

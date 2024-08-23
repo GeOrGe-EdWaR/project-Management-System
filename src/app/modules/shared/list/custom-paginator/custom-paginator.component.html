@@ -1,0 +1,31 @@
+<div class="custom-paginator-container bg-white py-3">
+  <div class="custom-label">
+    Showing
+
+    <mat-select
+      class="mx-2"
+      [(ngModel)]="pageSize"
+      (ngModelChange)="updatePageSize()"
+    >
+      <mat-option *ngFor="let size of pageSizeOptions" [value]="size">
+        {{ size }}
+      </mat-option>
+    </mat-select>
+
+    of {{ paginator.length }} results &nbsp;&nbsp; Page
+    {{ paginator.pageIndex + 1 }} of {{ paginator.getNumberOfPages() }}
+  </div>
+
+  <mat-paginator
+    #paginator
+    class="main-paginator"
+    (page)="paginate($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [hidePageSize]="hidePageSize"
+    [pageIndex]="pageNumber"
+    [disabled]="disabled"
+  >
+  </mat-paginator>
+</div>

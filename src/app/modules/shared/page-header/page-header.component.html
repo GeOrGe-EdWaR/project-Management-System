@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-between align-items-center bg-white p-4">
+  <div>
+    <a *ngIf="navigateBackText" (click)="handleNavigateBackClick()">{{
+      navigateBackText
+    }}</a>
+    <h4 class="title">{{ pageTitle }}</h4>
+  </div>
+
+  <button
+    *ngIf="actionBtnText"
+    mat-raised-button
+    class="w-auto"
+    type="submit"
+    (click)="handleActionClick()"
+  >
+    {{ actionBtnText }}
+  </button>
+</div>

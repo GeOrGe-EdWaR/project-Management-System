@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { SideBarItem } from '../models/side-bar-item';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SidebarService {
-
-  constructor() { }
-
+  constructor() {}
 
   getRoleRoutes(): SideBarItem[] {
     return [
@@ -20,7 +18,7 @@ export class SidebarService {
       {
         text: 'Projects',
         iconClass: 'fa-solid fa-chalkboard-user',
-        routeTo: '',
+        routeTo: '/dashboard/manager/projects/list',
         present: true,
       },
       {
@@ -35,5 +33,6 @@ export class SidebarService {
         routeTo: '/dashboard/admin/users',
         present: false,
       },
-    ];}
+    ];
   }
+}

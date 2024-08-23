@@ -1,10 +1,26 @@
 .page-title {
-    background-image: url(./assets/images/header-bg-svg.svg);
-    border-radius: 15px;
-    color: white;
+  background-image: url(./assets/images/header-bg-svg.svg);
+  border-radius: 15px;
+  color: white;
 
-    span {
-        font-size: 20px;
-        font-weight: 400;
-    }
+  span {
+    font-size: 20px;
+    font-weight: 400;
+  }
 }
+
+// .custom-input {
+//   background-color: white;
+//   padding-top: 0;
+//   padding-bottom: 0;
+//   line-height: 1.5; /* Adjust line-height if needed */
+//   border-radius: inherit; /* Inherit the rounded corners */
+// }
+
+// .custom-icon {
+//   background-color: white;
+//   cursor: pointer;
+//   padding-top: 0;
+//   padding-bottom: 0;
+//   border-radius: inherit; /* Inherit the rounded corners */
+// }
