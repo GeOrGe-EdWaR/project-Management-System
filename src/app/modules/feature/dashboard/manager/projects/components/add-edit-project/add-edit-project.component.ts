@@ -26,7 +26,6 @@ export class AddEditProjectComponent {
     }
   }
 
-
   //get project by id to edit it
   getProjectById(id: number) {
     this._ProjectsService.getProjectById(id).subscribe({
@@ -58,15 +57,14 @@ export class AddEditProjectComponent {
         },
         complete: () => {
           console.log('completed');
-          this.toastr.success('Success', 'project Added successfully');
+          this.toastr.success('Success', 'project edited successfully');
           this._Router.navigate(['/dashboard/manager/projects/list']);
         },
       });
     } else {
-      // edit project function
-      console.log(data.value);
+      // add project function
+
       this._ProjectsService.onAddProject(data.value).subscribe({
-        
         next: (res) => {
           console.log(res);
         },
@@ -75,7 +73,7 @@ export class AddEditProjectComponent {
         },
         complete: () => {
           console.log('completed');
-          this.toastr.success('Success', 'project edited successfully');
+          this.toastr.success('Success', 'project Added successfully');
           this._Router.navigate(['/dashboard/manager/projects/list']);
         },
       });

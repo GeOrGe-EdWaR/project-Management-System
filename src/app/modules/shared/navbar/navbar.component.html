@@ -1,34 +1,36 @@
-<div class="container- ms-0 fixed-top">
-    <nav class="navbar d-flex justify-content-between mb-2 shadow-sm">
-      <div class="logo-img">
-        <img src="../../../../assets/images/logo.png" alt="">
-      </div>
-      <div class="cursor-pointer">
-        <div
-          mat-icon-button
-          [matMenuTriggerFor]="menu"
-          class="px-4 py-2 d-flex align-items-center cursor-pointer"
-        >
-       
+<div class="container- ms-0">
+  <nav class="navbar d-flex justify-content-between mb-2 shadow-sm">
+    <div class="logo-img">
+      <img src="../../../../assets/images/logo.png" alt="" />
+    </div>
+    <div class="cursor-pointer">
+      <div
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        class="px-4 py-2 d-flex align-items-center cursor-pointer"
+      >
         <div class="avatar d-flex me-2">
-          <img class="img-fluid" src="../../../../assets/images/man.jpeg" alt="profile">
-      </div>
-          <div class=" d-flex flex-column">
-            <span class="mx-2">{{ userName }}</span>
-            <span class="mx-2">{{ userEmail }}</span>
-          </div>
+          <img
+            class="img-fluid"
+            src="../../../../assets/images/man.jpeg"
+            alt="profile"
+          />
         </div>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item [routerLink]="'/profile'">
-            <mat-icon>person</mat-icon>
-            <span>Profile</span>
-          </button>
-          <button mat-menu-item (click)="logout()">
-            <mat-icon>logout</mat-icon>
-            <span>Logout</span>
-          </button>
-        </mat-menu>
+        <div class="d-flex flex-column">
+          <span class="mx-2">{{ userName }}</span>
+          <span class="mx-2">{{ userEmail }}</span>
+        </div>
       </div>
-    </nav>
-  </div>
-  
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="'/profile'">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </nav>
+</div>

@@ -50,3 +50,20 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+:root {
+  --mdc-filled-text-field-container-color: transparent;
+  --mdc-filled-text-field-focus-active-indicator-color: white;
+  --mdc-filled-text-field-focus-active-indicator-color: white;
+  --mdc-filled-text-field-label-text-color: white;
+  --mdc-filled-text-field-indicator-color: white;
+  --mdc-filled-text-field-active-indicator-color: white;
+  --mdc-filled-text-field-input-text-color: white;
+  --mdc-filled-text-field-label-text-color: #f57c00;
+  --mdc-filled-text-field-focus-label-text-color: #f57c00;
+  --mdc-filled-text-field-hover-active-indicator-color: white;
+  --mdc-filled-text-field-input-text-placeholder-color: white;
+  --mdc-filled-text-field-label-text-size: 15px;
+
+  // The warn palette is optional (defaults to red).
+  --mdc-extended-fab-label-text-font: inter;
+}

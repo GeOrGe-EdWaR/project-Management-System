@@ -8,11 +8,10 @@
 
   <button
     *ngIf="actionBtnText"
-    mat-raised-button
-    class="w-auto"
+    class="w-auto primary-btn px-5 py-2"
     type="submit"
     (click)="handleActionClick()"
   >
-    {{ actionBtnText }}
+    <i class="fa-solid fa-plus px-1"></i> {{ actionBtnText }}
   </button>
 </div>

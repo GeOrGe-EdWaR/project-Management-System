@@ -57,7 +57,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatSortModule,
     MatTableModule,
     NgxDropzoneModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   exports: [
     FormsModule,

@@ -1,39 +1,38 @@
 .auth-container {
-    background: url(../../images/bg-1.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    min-height: 100vh !important;
-    justify-content: center !important;
-    align-items: center !important;
-    background-size: 100% 100%;
+  background: url(../../images/bg-1.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-size: 100% 100%;
 }
 
 .form-container {
-    background-color: rgba(45, 72, 85, 1) !important;
-    opacity: 0.9;
-    border-radius: 16px;
-    padding: 1.5rem;
+  background-color: rgba(45, 72, 85, 1) !important;
+  opacity: 0.9;
+  border-radius: 16px;
+  padding: 1.5rem;
 }
-
 
 // dropzone styling
 .uploadimg {
-    background-image: url("../../images/WhatsApp Image 2024-08-20 at 22.48.38_2d131585.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url("../../images/USER\ IMG.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 ngx-dropzone {
-    width: 200px;
+  width: 200px;
 }
 
 ngx-dropzone-label {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 // angular material input fields
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-    background-color: "transparent";
+  background-color: "transparent";
 }

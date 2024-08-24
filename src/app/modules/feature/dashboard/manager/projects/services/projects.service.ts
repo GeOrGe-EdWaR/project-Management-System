@@ -74,8 +74,6 @@ export class ProjectsService {
     ];
   }
   onAddProject(data: FormGroup): Observable<any> {
-    console.log(data);
-    
     return this._http.post('Project', data);
   }
   getProjectById(id: number): Observable<any> {

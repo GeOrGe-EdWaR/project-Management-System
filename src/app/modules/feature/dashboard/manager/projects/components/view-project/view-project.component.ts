@@ -28,6 +28,7 @@ export class ViewProjectComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getProjectById(this.pageId);
+    this.addNewProjectForm.disable();
   }
 
   getProjectById(id: number) {
