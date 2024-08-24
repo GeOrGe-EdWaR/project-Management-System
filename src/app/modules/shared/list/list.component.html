@@ -59,6 +59,10 @@
               </button>
               <mat-menu #menu="matMenu">
                 <button
+                  [routerLink]="[
+                    '/dashboard/manager/projects/view-project',
+                    element.id
+                  ]"
                   mat-menu-item
                   *ngIf="header.actions?.isView"
                   (click)="view(element)"
@@ -67,6 +71,10 @@
                   <span>View</span>
                 </button>
                 <button
+                  [routerLink]="[
+                    '/dashboard/manager/projects/add-edit-project',
+                    element.id
+                  ]"
                   mat-menu-item
                   *ngIf="header.actions?.isEdit"
                   (click)="edit(element)"
