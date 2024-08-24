@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { GetProjectsListResponse } from '../models/get-projects-list-response-model';
 import { ListHeader } from 'src/app/modules/shared/models/list-header.model';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -71,5 +72,14 @@ export class ProjectsService {
         },
       },
     ];
+  }
+  onAddProject(data: FormGroup): Observable<any> {
+    return this._http.post('Project', data);
+  }
+  getProjectById(id: number): Observable<any> {
+    return this._http.get(`Project/${id}`);
+  }
+  editProject(id: number, data: FormGroup): Observable<any> {
+    return this._http.put(`Project/${id}`, data);
   }
 }

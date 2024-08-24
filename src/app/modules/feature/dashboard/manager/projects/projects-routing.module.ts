@@ -15,7 +15,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: 'add-edit-project', component: AddEditProjectComponent },
+      { path: 'add-edit-project/:id', component: AddEditProjectComponent },
       { path: 'view-project', component: ViewProjectComponent },
+      { path: 'view-project/:id', component: ViewProjectComponent },
       { path: 'list', component: ProjectsListComponent },
     ],
   },

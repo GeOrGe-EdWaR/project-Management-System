@@ -1,1 +1,39 @@
-<p>view-project works!</p>
+<div class="page-header">
+  <a
+    class="header-link text-decoration-none text-dark p-3"
+    routerLink="/dashboard/manager/projects/list"
+  >
+    <i class="fa-solid fa-arrow-left me-2"></i>View All Projects</a
+  >
+  <h1 class="page-title p-3">view project</h1>
+</div>
+<div class="card mx-auto p-5 m-5 col-8">
+  <div class="dard-body">
+    <form [formGroup]="addNewProjectForm">
+      <div class="py-4">
+        <label class="text-secondary py-3">Title</label>
+        <input
+          [disabled]="true"
+          formControlName="title"
+          type="text"
+          class="form-control rounded-5 text-secondary"
+          placeholder="Name"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+      <div class="py-4">
+        <label class="text-secondary py-3">Description</label>
+        <input
+          [disabled]="true"
+          formControlName="description"
+          type="text"
+          class="form-control rounded-5 text-secondary"
+          placeholder="Description"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+    </form>
+  </div>
+</div>
