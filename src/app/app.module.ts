@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptors/global.interceptor';
+import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,9 +20,11 @@ import { GlobalInterceptor } from './core/interceptors/global.interceptor';
     AppRoutingModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule.forRoot({type:'line-scale'}),
     ToastrModule.forRoot(),
     NgxDropzoneModule,
     HttpClientModule,
+    
   ],
   exports: [NgxDropzoneModule, HttpClientModule],
   providers: [
@@ -31,6 +35,13 @@ import { GlobalInterceptor } from './core/interceptors/global.interceptor';
       // this prperty for multible interceptor
       multi: true,
     },
+    {
+      provide:HTTP_INTERCEPTORS,
+      //here we add the interceptor we have created
+      useClass:SpinnerInterceptor,
+      // this prperty for multible interceptor
+      multi:true,
+    }
   ],
   bootstrap: [AppComponent],
 })

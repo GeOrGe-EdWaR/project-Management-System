@@ -10,6 +10,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddEditProjectComponent {
   pageId: number = 0;
+  addNewProjectForm = new FormGroup({
+    title: new FormControl(null, [Validators.required]),
+    description: new FormControl(null, [Validators.required]),
+  });
   constructor(
     private _ProjectsService: ProjectsService,
     private toastr: ToastrService,
@@ -22,10 +26,7 @@ export class AddEditProjectComponent {
     }
   }
 
-  addNewProjectForm = new FormGroup({
-    title: new FormControl(null, [Validators.required]),
-    description: new FormControl(null, [Validators.required]),
-  });
+
   //get project by id to edit it
   getProjectById(id: number) {
     this._ProjectsService.getProjectById(id).subscribe({
@@ -48,7 +49,7 @@ export class AddEditProjectComponent {
   onSubmit(data: FormGroup) {
     if (this.pageId) {
       // add new project function
-      this._ProjectsService.editProject(this.pageId, data).subscribe({
+      this._ProjectsService.editProject(this.pageId, data.value).subscribe({
         next: (res) => {
           console.log(res);
         },
@@ -63,12 +64,14 @@ export class AddEditProjectComponent {
       });
     } else {
       // edit project function
-      this._ProjectsService.onAddProject(data).subscribe({
+      console.log(data.value);
+      this._ProjectsService.onAddProject(data.value).subscribe({
+        
         next: (res) => {
           console.log(res);
         },
         error: (err) => {
-          console.log(err);
+          // console.log(err);
         },
         complete: () => {
           console.log('completed');

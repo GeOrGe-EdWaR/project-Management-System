@@ -26,6 +26,7 @@ import { EmptyListComponent } from './list/empty-list/empty-list.component';
 import { DeleteComponent } from './delete/delete.component';
 import { CustomPaginatorComponent } from './list/custom-paginator/custom-paginator.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
     MatSortModule,
     MatTableModule,
     NgxDropzoneModule,
+    NgxSpinnerModule
   ],
   exports: [
     FormsModule,
@@ -80,6 +82,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
     DeleteComponent,
     HomeComponent,
     PageHeaderComponent,
+    NgxSpinnerModule
   ],
 })
 export class SharedModule {}

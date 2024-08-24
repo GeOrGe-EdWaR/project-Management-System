@@ -11,6 +11,10 @@ import { ProjectsService } from '../../services/projects.service';
 })
 export class ViewProjectComponent implements OnInit {
   pageId: number = 0;
+  addNewProjectForm = new FormGroup({
+    title: new FormControl(null, [Validators.required]),
+    description: new FormControl(null, [Validators.required]),
+  });
   constructor(
     private _ProjectsService: ProjectsService,
     private toastr: ToastrService,
@@ -25,10 +29,7 @@ export class ViewProjectComponent implements OnInit {
   ngOnInit(): void {
     this.getProjectById(this.pageId);
   }
-  addNewProjectForm = new FormGroup({
-    title: new FormControl(null, [Validators.required]),
-    description: new FormControl(null, [Validators.required]),
-  });
+
   getProjectById(id: number) {
     this._ProjectsService.getProjectById(id).subscribe({
       next: (res) => {
