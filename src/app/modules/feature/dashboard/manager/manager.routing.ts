@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ManagerComponent } from './manager.component';
 import { ManagerChartComponent } from './components/manager-chart/manager-chart.component';
 
+
 const routes: Routes = [
   {
     path: '',

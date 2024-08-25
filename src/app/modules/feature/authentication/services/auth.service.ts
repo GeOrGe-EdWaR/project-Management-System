@@ -16,7 +16,7 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   role: string | null = '';
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   onLogin(data: LoginRequest): Observable<LoginRequest> {
     return this._http.post<LoginRequest>('Users/Login', data);
