@@ -6,35 +6,34 @@ import { AuthService } from '../../feature/authentication/services/auth.service'
   providedIn: 'root',
 })
 export class SidebarService {
-  constructor(private _auth:AuthService) {}
+  constructor(private _auth: AuthService) {}
 
   getRoleRoutes(): SideBarItem[] {
     return [
       {
         text: 'Home',
-        iconName:'home',
+        iconName: 'home',
         routeTo: '/dashboard/home',
         present: true,
       },
       {
         text: 'Users',
-        iconName:'group',
-        routeTo: '/dashboard/manager/users',
+        iconName: 'group',
+        routeTo: '/dashboard/manager/users/list',
         present: this._auth.isManager(),
-
       },
       {
         text: 'Projects',
-        iconName:'work',
+        iconName: 'work',
         routeTo: '/dashboard/manager/projects/list',
         present: true,
       },
       {
         text: 'Tasks',
-        iconName:'task_alt',
+        iconName: 'task_alt',
         routeTo: '/dashboard/manager/tasks/list',
         present: true,
-      }
+      },
     ];
   }
 }

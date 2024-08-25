@@ -14,7 +14,7 @@ export class ProjectsService {
   projectBaseUrl = 'Project/';
   getProjectsListUrl = 'manager';
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   // HTTP Requests
   getProjectsList(
