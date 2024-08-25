@@ -5,14 +5,14 @@ import { SideBarItem } from '../models/side-bar-item';
   providedIn: 'root',
 })
 export class SidebarService {
-  constructor() {}
+  constructor() { }
 
   getRoleRoutes(): SideBarItem[] {
     return [
       {
         text: 'Users',
         iconClass: 'fa-solid fa-users',
-        routeTo: '/dashboard/home',
+        routeTo: '/dashboard/manager/users/list',
         present: true,
       },
       {
@@ -28,7 +28,7 @@ export class SidebarService {
         present: true,
       },
       {
-        text: 'Users',
+        text: 'l',
         iconClass: 'fas fa-user-group',
         routeTo: '/dashboard/admin/users',
         present: false,

@@ -85,4 +85,4 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxSpinnerModule
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

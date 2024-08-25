@@ -1,0 +1,169 @@
+[33mcommit 9831bfb01ac2cc0c32cf33e5b519b9038c009b39[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32marchitecture[m[33m, [m[1;31morigin/architecture[m[33m)[m
+Author: HebaAshraf2070 <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Thu Aug 22 21:49:35 2024 +0300
+
+    styles
+
+[33mcommit 25f784dfd52b09bae5ce55105abc5505a20a5cfc[m
+Merge: d73ee74 dedeec0
+Author: HebaAshraf2070 <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Thu Aug 22 21:48:33 2024 +0300
+
+    Merge branch 'master' of https://github.com/DoaaEssam52/Project-Management into architecture
+
+[33mcommit d73ee74e15245948737cbf80c1685ead4c47b692[m
+Author: HebaAshraf2070 <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Thu Aug 22 21:40:05 2024 +0300
+
+    Your commit message
+
+[33mcommit dedeec097f6b8a79cdfe2d7f58987f1c8455159b[m
+Author: dessam <dessam@kn-it.com>
+Date:   Thu Aug 22 18:54:28 2024 +0300
+
+    moving list component from components to direct shared module
+
+[33mcommit 3773c07e2ed089f192364f5e5ee4a872d58816a6[m
+Merge: 909cf4a 9607582
+Author: dessam <dessam@kn-it.com>
+Date:   Thu Aug 22 18:46:30 2024 +0300
+
+    merging with shared layout and dashboard , init projects list component
+
+[33mcommit 909cf4a0fcbb07b30c91c536941733373865c81c[m
+Author: dessam <dessam@kn-it.com>
+Date:   Thu Aug 22 18:11:32 2024 +0300
+
+    init list component in shared module
+
+[33mcommit 960758221abae92886388b13d03e788dd7904290[m
+Merge: 3253a13 fe465f9
+Author: Heba Ashraf <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Thu Aug 22 17:35:25 2024 +0300
+
+    Merge pull request #3 from DoaaEssam52/architecture
+    
+    architecture
+
+[33mcommit fe465f99f44192385fbb2acc41ad79a84ee906bc[m
+Merge: c0bc934 3253a13
+Author: Heba Ashraf <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Thu Aug 22 17:35:15 2024 +0300
+
+    Merge branch 'master' into architecture
+
+[33mcommit c0bc9346265fa5049c205cc2ec80018b3092d69a[m
+Author: HebaAshraf2070 <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Thu Aug 22 14:18:57 2024 +0300
+
+    architecture
+
+[33mcommit 3253a13aeb2eee23cc71ed4a34b41ac70a50bb41[m
+Merge: 1fb4d83 0a96515
+Author: M-Naill <84335277+M-Naill@users.noreply.github.com>
+Date:   Thu Aug 22 05:43:31 2024 +0300
+
+    Merge pull request #2 from DoaaEssam52/shared-layout
+    
+    Login and basic layout
+
+[33mcommit 0a965150654110f3e703584c06e8ad8ae9589f82[m[33m ([m[1;31morigin/shared-layout[m[33m)[m
+Author: M-Naill <mahmoud.naill7@gmail.com>
+Date:   Thu Aug 22 05:41:49 2024 +0300
+
+    Login and basic layout
+
+[33mcommit 1fb4d83c6348d41434598f79d2ce92cfef15518a[m
+Merge: 0077bf9 4951e18
+Author: M-Naill <84335277+M-Naill@users.noreply.github.com>
+Date:   Wed Aug 21 17:55:39 2024 +0300
+
+    Merge pull request #1 from DoaaEssam52/naill-forget-reset-password
+    
+    forget and reset password
+
+[33mcommit 4951e18213e77d2b690b871773619431807b4d22[m[33m ([m[1;31morigin/naill-forget-reset-password[m[33m)[m
+Merge: 5eaf354 0077bf9
+Author: M-Naill <84335277+M-Naill@users.noreply.github.com>
+Date:   Wed Aug 21 17:55:28 2024 +0300
+
+    Merge branch 'master' into naill-forget-reset-password
+
+[33mcommit 0077bf99d81ecdec61f393c272c80d865bd0c7bf[m
+Author: dessam <dessam@kn-it.com>
+Date:   Wed Aug 21 16:24:38 2024 +0300
+
+    fix conflicts
+
+[33mcommit b240a337ea6c12a2bd2e355db8a238183772ca80[m[33m ([m[1;32mmaster[m[33m)[m
+Merge: 5ef709f e592cd1
+Author: HebaAshraf2070 <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Wed Aug 21 15:45:58 2024 +0300
+
+    Merge branch 'master' of https://github.com/DoaaEssam52/Project-Management
+
+[33mcommit 5ef709fea71909c4cc3fa2cadf2c30f74dd92529[m
+Author: HebaAshraf2070 <152817492+HebaAshraf2070@users.noreply.github.com>
+Date:   Wed Aug 21 15:00:38 2024 +0300
+
+    'register'
+
+[33mcommit 5eaf354a40108472b348a205b706d2283a513a78[m
+Author: M-Naill <mahmoud.naill7@gmail.com>
+Date:   Wed Aug 21 06:10:57 2024 +0300
+
+    forget and reset password
+
+[33mcommit e592cd1f6ed2d59a2db6ecba5391d9a89a018958[m
+Author: dessam <dessam@kn-it.com>
+Date:   Wed Aug 21 01:32:56 2024 +0300
+
+    add fonts , images , endpoints file , handle verify code and customize some mat-input properties
+
+[33mcommit b3e40c930372cbbb176d3f9c00e7d31d814b2bae[m
+Author: dessam <dessam@kn-it.com>
+Date:   Tue Aug 20 21:43:20 2024 +0300
+
+    fix import of bootstrap in angular.json
+
+[33mcommit 3a718fe94456cc9a8810bb33ca520c49c1620dfa[m
+Author: dessam <dessam@kn-it.com>
+Date:   Tue Aug 20 21:16:56 2024 +0300
+
+    add auth service
+
+[33mcommit 2cdbb52c07a341cf137da5743928f08c49b277f4[m
+Author: dessam <dessam@kn-it.com>
+Date:   Tue Aug 20 20:53:26 2024 +0300
+
+    remove package.lock
+
+[33mcommit cd5ceee44abe065fef9356b13f9ce3aa7a3d30ec[m
+Author: dessam <dessam@kn-it.com>
+Date:   Tue Aug 20 20:53:04 2024 +0300
+
+    add angular mat main modules
+
+[33mcommit ac4bcaea9c72db1ed63374a48954a16d00b31658[m
+Author: dessam <dessam@kn-it.com>
+Date:   Tue Aug 20 19:59:07 2024 +0300
+
+    add process-form-errors pipe to prioritize form errors
+
+[33mcommit 77b903cfa9f2d3dde4384498584bfbeb5e0e99ad[m
+Author: dessam <dessam@kn-it.com>
+Date:   Mon Aug 19 23:02:04 2024 +0300
+
+    init structure of project: creating shared module and feature modules like authentication and dashboard
+
+[33mcommit 79050b9f78557187af65692f03442e62e499de6f[m
+Author: dessam <dessam@kn-it.com>
+Date:   Mon Aug 19 22:19:35 2024 +0300
+
+    add bootstrap library
+
+[33mcommit 6ee61f3784d89bb7b02f8b70edd56d315e21308a[m
+Author: dessam <dessam@kn-it.com>
+Date:   Mon Aug 19 21:13:19 2024 +0300
+
+    initial commit

@@ -60,7 +60,7 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
           this.length = totalNumberOfRecords;
           this.projectsList = data;
         },
-        error: () => {},
+        error: () => { },
       });
   }
 
@@ -72,9 +72,9 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
     this.getProjectsList();
   }
 
-  onViewAction(e: any): void {}
+  onViewAction(e: any): void { }
 
-  onEditAction(e: any): void {}
+  onEditAction(e: any): void { }
 
   onDeleteAction(id: number): void {
     this.deleteDialogRef = this.dialog.open(DeleteComponent, {

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManagerComponent } from './manager.component';
 import { ManagerChartComponent } from './components/manager-chart/manager-chart.component';
-import { UsersModule } from './users/users.module';
+
 
 const routes: Routes = [
   {
@@ -33,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ManagerRoutingModule {}
+export class ManagerRoutingModule { }

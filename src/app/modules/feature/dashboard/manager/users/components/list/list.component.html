@@ -1,0 +1,62 @@
+<div class="main-container">
+  <app-page-header pageTitle="Users"></app-page-header>
+  <div class="content mx-3">
+    <div class="card tb bg-white d-flex justify-content-center align-items-center">
+      <div class="table-container">
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Creation Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of listData">
+              <td>{{user.userName}}</td>
+              <td>
+                <span class="status" [ngClass]="{'active': user.isActivated, 'notActive': !user.isActivated}">
+                  {{user.isActivated ? 'Active' : 'Not Active'}}
+                </span>
+              </td>
+              <td>{{user.phoneNumber}}</td>
+              <td>{{user.email}}</td>
+              <td>
+                <ng-container *ngIf="user.task && user.task.length > 0; else noCategory">
+                  <ng-container *ngFor="let taskia of user.task; let isLast = last">
+                    {{ taskia.creationDate | date:'dd/MM/YY'}}
+                  </ng-container>
+                </ng-container>
+                <ng-template #noCategory>
+                  No Category
+                </ng-template>
+              </td>
+              <td>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="openBlockDialog(user)">
+                    <mat-icon>block</mat-icon>
+                    <span>{{user.isActivated ? 'Block' : 'Unblock'}}</span>
+                  </button>
+                  <button mat-menu-item [routerLink]="['/dashboard/manager/users/view-user', user.id]">
+                    <mat-icon color="text-main">visibility</mat-icon>
+                    <span>View</span>
+                  </button>
+                </mat-menu>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <mat-paginator [length]="tableData?.totalNumberOfRecords" [pageSizeOptions]="[5, 10, 25, 50]"
+        [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="handlePageEvent($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
