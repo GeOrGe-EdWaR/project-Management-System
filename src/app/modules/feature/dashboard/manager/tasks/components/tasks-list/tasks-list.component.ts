@@ -99,6 +99,9 @@ export class TasksListComponent {
   onResetAction(): void {
     this.pageNumber = 0;
 
+    this.searchValue = '';
+    this.searchKey = '';
+
     this.getTasksList();
   }
 
