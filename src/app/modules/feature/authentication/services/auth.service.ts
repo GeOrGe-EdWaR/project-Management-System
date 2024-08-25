@@ -40,32 +40,3 @@ export class AuthService {
     return this._http.post('Users/Register', regForm);
   }
 
-  getProfile(): Observable<any> {
-    return this._http.get<any>('Users/currentUser');
-  }
-
-  getUserData() {
-    //get the token from the local storage
-    let encodeToken: any = localStorage.getItem('userToken');
-    let decoded: any = jwtDecode(encodeToken); //token is decoded
-    console.log(decoded);
-    localStorage.setItem('userEmail', decoded.userEmail);
-    localStorage.setItem('userName', decoded.userName);
-    localStorage.setItem('role', decoded.userGroup);
-    this.getRole();
-  }
-
-  getRole() {
-    if (
-      localStorage.getItem('userToken') !== null &&
-      localStorage.getItem('role') !== null
-    ) {
-      this.role = localStorage.getItem('role');
-    }
-  }
-
-  isManager(): boolean {
-    return this.role === 'Manager';
-  }
-
-}

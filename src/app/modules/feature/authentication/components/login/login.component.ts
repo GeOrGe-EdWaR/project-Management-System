@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent {
 
-  hide:boolean=true; 
+  hide: boolean = true;
   public AuthErrorMessages = AuthErrorMessages;
 
   matcher = new ErrorStateMatcher();
@@ -29,31 +29,44 @@ export class LoginComponent {
     ]),
   });
 
-  constructor(private _auth: AuthService, private router: Router , private toastr:ToastrService,) {}
+  constructor(private _auth: AuthService, private router: Router, private toastr: ToastrService,) { }
+
+  // submit(): void {
+  //   this.loginForm.markAllAsTouched();
+
+  //   if (this.loginForm.valid) {
+  //     this._auth
+  //       .onLogin(this.loginForm.value as LoginRequest)
+  //       .subscribe({
+  //         next: (res)=>{
+  //           console.log(res);
+  //           // here we will save the token as it's in the response we are recieving 
+  //           localStorage.setItem('userToken',res.token)
+  //           // then we will use the function from authservice to store the user details 
+  //           this._auth.getProfile();
+  //         },
+  //         error:(err)=>{
+  //           this.toastr.error(err.error.message)
+  //         },
+  //         complete:()=>{
+  //           // here we will add instance from the toaster success
+  //           this.toastr.success('Success', 'Login succesfully');
+  //           this.router.navigate(['/dashboard']) // go to dashboard
+  //         },
+  //       });
+  //   }
+  // }
+
+
+
+
+
 
   submit(): void {
     this.loginForm.markAllAsTouched();
 
     if (this.loginForm.valid) {
-      this._auth
-        .onLogin(this.loginForm.value as LoginRequest)
-        .subscribe({
-          next: (res)=>{
-            console.log(res);
-            // here we will save the token as it's in the response we are recieving 
-            localStorage.setItem('userToken',res.token)
-            // then we will use the function from authservice to store the user details 
-            this._auth.getUserData();
-          },
-          error:(err)=>{
-            this.toastr.error(err.error.message)
-          },
-          complete:()=>{
-            // here we will add instance from the toaster success
-            this.toastr.success('Success', 'Login succesfully');
-            this.router.navigate(['/dashboard']) // go to dashboard
-          },
-        });
+
     }
   }
 }
