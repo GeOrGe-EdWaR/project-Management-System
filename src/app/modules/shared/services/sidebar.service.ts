@@ -12,14 +12,14 @@ export class SidebarService {
     return [
       {
         text: 'Home',
-        iconName:'home',
+        iconName: 'home',
         routeTo: '/dashboard/home',
         present: true,
       },
       {
         text: 'Users',
-        iconName:'group',
-        routeTo: '/dashboard/manager/users',
+        iconName: 'group',
+        routeTo: '/dashboard/manager/users/list',
         present: this._auth.isManager(),
 
       },

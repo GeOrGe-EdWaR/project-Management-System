@@ -88,4 +88,4 @@ import { FilterComponent } from './filter/filter.component';
     FilterComponent,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

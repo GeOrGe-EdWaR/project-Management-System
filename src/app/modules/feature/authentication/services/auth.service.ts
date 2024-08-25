@@ -67,5 +67,4 @@ export class AuthService {
   isManager(): boolean {
     return this.role === 'Manager';
   }
-
 }

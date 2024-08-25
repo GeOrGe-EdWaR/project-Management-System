@@ -8,6 +8,7 @@ import { ManagerChartComponent } from './components/manager-chart/manager-chart.
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { ProjectsModule } from './projects/projects.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ProjectsModule } from './projects/projects.module';
     UsersModule,
     ProjectsModule,
     ManagerChartComponent,
+    MatDialogModule
   ]
 })
 export class ManagerModule { }
