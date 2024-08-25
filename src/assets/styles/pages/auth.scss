@@ -7,11 +7,15 @@
   justify-content: center !important;
   align-items: center !important;
   background-size: 100% 100%;
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .form-container {
-  background-color: rgba(45, 72, 85, 1) !important;
-  opacity: 0.9;
+  background-color: rgba(#315951e5, 0.9) !important;
   border-radius: 16px;
   padding: 1.5rem;
 }
@@ -25,14 +29,10 @@
 }
 
 ngx-dropzone {
-  width: 200px;
+  width: 144px;
+  height: 140px;
 }
 
 ngx-dropzone-label {
   border-radius: 50%;
-}
-
-// angular material input fields
-.mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: "transparent";
 }

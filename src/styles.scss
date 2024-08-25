@@ -5,28 +5,8 @@
 // Include core styles for Angular Material
 @include mat.core();
 
-// Define custom palettes for Angular Material theme
-// $project-managment-primary: mat.define-palette(mat.$indigo-palette);
-// $project-managment-accent: mat.define-palette(mat.$orange-palette, 400);
-// $project-managment-warn: mat.define-palette(mat.$red-palette);
-
-// $project-managment-theme: mat.define-light-theme(
-//   (
-//     color: (
-//       primary: $project-managment-primary,
-//       accent: $project-managment-accent,
-//       warn: $project-managment-warn,
-//     ),
-//   )
-// );
-
 // // Include theme styles for all Angular Material components
 // @include mat.all-component-themes($project-managment-theme);
-
-// Additional custom styles
-// .text-accent {
-//   color: mat.get-color-from-palette($project-managment-accent) !important;
-// }
 
 // Set background to transparent for mat-form-field with an outline
 .mat-form-field .mat-form-field-outline {
@@ -41,6 +21,11 @@
 @import "./assets/styles/layouts.scss";
 
 // Global styles
+
+.mat-typography {
+  font-size: 1rem; // Adjust to your preference
+}
+
 html,
 body {
   height: 100%;
@@ -63,7 +48,9 @@ body {
   --mdc-filled-text-field-hover-active-indicator-color: white;
   --mdc-filled-text-field-input-text-placeholder-color: white;
   --mdc-filled-text-field-label-text-size: 15px;
-
-  // The warn palette is optional (defaults to red).
   --mdc-extended-fab-label-text-font: inter;
+  --mdc-filled-text-field-label-text-font: Inter-Bold;
+  --mdc-filled-text-field-label-text-size: 20px !important;
+  // --mdc-filled-text-field-label-text-tracking: 0.03125em;
+  --mdc-outlined-text-field-label-text-font: Inter;
 }

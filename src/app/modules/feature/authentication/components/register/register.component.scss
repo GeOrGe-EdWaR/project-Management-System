@@ -1,1 +1,7 @@
-@import '../../../../../../assets/styles/layouts';
+@import "../../../../../../assets/styles/layouts";
+
+:host {
+  ::ng-deep img {
+    border-radius: 50% !important;
+  }
+}
