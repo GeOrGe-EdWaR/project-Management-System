@@ -24,7 +24,8 @@ import { Router } from '@angular/router';
 export class ProjectsListComponent implements OnInit, OnDestroy {
   projectsList!: Project[];
 
-  searchBytitle: string = '';
+  searchKey: string = 'title';
+  searchValue: string = '';
 
   length: number = 0;
   pageSize = 10;
@@ -54,7 +55,12 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
 
   getProjectsList(): void {
     this.projectsSubscription = this._projects
-      .getProjectsList(this.pageNumber + 1, this.pageSize, this.searchBytitle)
+      .getProjectsList(
+        this.pageNumber + 1,
+        this.pageSize,
+        this.searchKey,
+        this.searchValue
+      )
       .subscribe({
         next: ({ data, totalNumberOfRecords }) => {
           this.length = totalNumberOfRecords;
@@ -103,6 +109,22 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
 
   navigateToAddProject(): void {
     this._router.navigateByUrl('/dashboard/manager/projects/add-edit-project');
+  }
+
+  onSearchAction(e: any): void {
+    if (e) {
+      this.searchValue = e.searchValue;
+    }
+
+    this.getProjectsList();
+  }
+
+  onResetAction(): void {
+    this.pageNumber = 0;
+
+    this.searchValue = '';
+
+    this.getProjectsList();
   }
 
   ngOnDestroy() {

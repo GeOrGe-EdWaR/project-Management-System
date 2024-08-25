@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { ProcessFormErrorsPipe } from './pipes/process-form-errors.pipe';
 
@@ -26,7 +27,7 @@ import { EmptyListComponent } from './list/empty-list/empty-list.component';
 import { DeleteComponent } from './delete/delete.component';
 import { CustomPaginatorComponent } from './list/custom-paginator/custom-paginator.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     EmptyListComponent,
     CustomPaginatorComponent,
     PageHeaderComponent,
+    FilterComponent,
   ],
   imports: [
     CommonModule,
@@ -73,6 +75,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatSortModule,
     MatTableModule,
     NgxDropzoneModule,
+    NgxSpinnerModule,
 
     ProcessFormErrorsPipe,
 
@@ -82,7 +85,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DeleteComponent,
     HomeComponent,
     PageHeaderComponent,
-    NgxSpinnerModule
+    FilterComponent,
   ],
 })
 export class SharedModule {}

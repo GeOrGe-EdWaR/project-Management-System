@@ -24,7 +24,7 @@ export class SidebarService {
       {
         text: 'Tasks',
         iconClass: 'fa-solid fa-list-check',
-        routeTo: '',
+        routeTo: '/dashboard/manager/tasks/list',
         present: true,
       },
       {
