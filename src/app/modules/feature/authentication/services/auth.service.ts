@@ -40,7 +40,11 @@ export class AuthService {
     return this._http.post('Users/Register', regForm);
   }
 
-  getProfile() {
+  getProfile(): Observable<any> {
+    return this._http.get<any>('Users/currentUser');
+  }
+
+  getUserData() {
     //get the token from the local storage
     let encodeToken: any = localStorage.getItem('userToken');
     let decoded: any = jwtDecode(encodeToken); //token is decoded
@@ -59,4 +63,9 @@ export class AuthService {
       this.role = localStorage.getItem('role');
     }
   }
+
+  isManager(): boolean {
+    return this.role === 'Manager';
+  }
+
 }
