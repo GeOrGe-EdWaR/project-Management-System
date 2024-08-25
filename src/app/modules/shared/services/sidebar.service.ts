@@ -32,7 +32,7 @@ export class SidebarService {
       {
         text: 'Tasks',
         iconName:'task_alt',
-        routeTo: '',
+        routeTo: '/dashboard/manager/tasks/list',
         present: true,
       }
     ];

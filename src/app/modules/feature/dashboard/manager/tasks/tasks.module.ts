@@ -6,13 +6,15 @@ import { ViewTaskComponent } from './components/view-task/view-task.component';
 import { AddEditTaskComponent } from './components/add-edit-task/add-edit-task.component';
 
 import { TasksRoutingModule } from './tasks-routing.module';
+import { TasksListComponent } from './components/tasks-list/tasks-list.component';
 
 
 @NgModule({
   declarations: [
     TasksComponent,
     ViewTaskComponent,
-    AddEditTaskComponent
+    AddEditTaskComponent,
+    TasksListComponent
   ],
   imports: [
     CommonModule,

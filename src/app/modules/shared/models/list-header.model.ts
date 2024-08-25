@@ -1,7 +1,9 @@
 export interface ListHeader {
   type: string;
   header: string;
-  datafiled: string;
+  datafield: string;
+  objectKey?: string;
+  objectValue?: string;
   format?: string;
   defaultImage?: string;
   actions?: {

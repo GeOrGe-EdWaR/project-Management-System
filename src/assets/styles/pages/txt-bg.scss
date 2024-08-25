@@ -5,65 +5,61 @@ $muted-dark-green: rgb(81, 86, 45);
 $grey: rgb(96, 96, 96);
 $active-green: rgb(0, 146, 71);
 $pinky: rgb(176, 106, 100);
-
+$primary-color: #466a63;
 
 .links {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    a {
-        text-decoration: none;
-    }
-
+  a {
+    text-decoration: none;
+  }
 }
 
 // text colors
 .text-main {
-    color: $main-color;
+  color: $main-color;
 }
 
 .text-grey {
-    color: $main-color;
+  color: $main-color;
 }
 
 .text-white {
-    color: $white-color;
+  color: $white-color;
 }
 
 .text-dark-green {
-    color: $dark-green;
+  color: $dark-green;
 }
 
 .text-active-green {
-    color: $active-green;
+  color: $active-green;
 }
 
-
-
-
+.text-primary {
+  color: $primary-color !important;
+}
 
 // bg colors
 .background {
+  .bg-main {
+    background-color: $main-color;
+  }
 
-    .bg-main {
-        background-color: $main-color;
-    }
+  .bg-grey {
+    background-color: $main-color;
+  }
 
-    .bg-grey {
-        background-color: $main-color;
-    }
+  .bg-white {
+    background-color: $white-color;
+  }
 
-    .bg-white {
-        background-color: $white-color;
-    }
+  .bg-dark-green {
+    background-color: $dark-green;
+  }
 
-    .bg-dark-green {
-        background-color: $dark-green;
-    }
-
-    .bg-active-green {
-        background-color: $active-green;
-    }
-
-
+  .bg-active-green {
+    background-color: $active-green;
+  }
 }
