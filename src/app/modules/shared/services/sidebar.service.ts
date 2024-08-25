@@ -1,38 +1,37 @@
 import { Injectable } from '@angular/core';
 import { SideBarItem } from '../models/side-bar-item';
+import { AuthService } from '../../feature/authentication/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SidebarService {
-  constructor() { }
+
 
   getRoleRoutes(): SideBarItem[] {
     return [
       {
+: true,
+      },
+      {
         text: 'Users',
-        iconClass: 'fa-solid fa-users',
-        routeTo: '/dashboard/manager/users/list',
-        present: true,
+        iconName:'group',
+        routeTo: '/dashboard/manager/users',
+        present: this._auth.isManager(),
+
       },
       {
         text: 'Projects',
-        iconClass: 'fa-solid fa-chalkboard-user',
+        iconName:'work',
         routeTo: '/dashboard/manager/projects/list',
         present: true,
       },
       {
         text: 'Tasks',
-        iconClass: 'fa-solid fa-list-check',
-        routeTo: '',
+        iconName:'task_alt',
+        routeTo: '/dashboard/manager/tasks/list',
         present: true,
-      },
-      {
-        text: 'l',
-        iconClass: 'fas fa-user-group',
-        routeTo: '/dashboard/admin/users',
-        present: false,
-      },
+
     ];
   }
 }

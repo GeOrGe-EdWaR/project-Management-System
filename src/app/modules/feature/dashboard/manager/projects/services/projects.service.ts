@@ -16,18 +16,20 @@ export class ProjectsService {
 
   constructor(private _http: HttpClient) { }
 
+  // HTTP Requests
   getProjectsList(
     pageNumber: number,
     pageSize: number,
-    title: string
+    seachKey: string,
+    searchValue: string
   ): Observable<GetProjectsListResponse> {
     let queryParams = new HttpParams();
 
     queryParams = queryParams.append('pageNumber', pageNumber);
     queryParams = queryParams.append('pageSize', pageSize);
 
-    if (title) {
-      queryParams = queryParams.append('title', title);
+    if (seachKey && searchValue) {
+      queryParams = queryParams.append(seachKey, searchValue);
     }
 
     return this._http.get<GetProjectsListResponse>(
@@ -42,29 +44,41 @@ export class ProjectsService {
     return this._http.delete(this.projectBaseUrl + id);
   }
 
+  onAddProject(data: FormGroup): Observable<any> {
+    return this._http.post('Project', data);
+  }
+
+  getProjectById(id: number): Observable<any> {
+    return this._http.get(`Project/${id}`);
+  }
+
+  editProject(id: number, data: FormGroup): Observable<any> {
+    return this._http.put(`Project/${id}`, data);
+  }
+
   // Handle Data
   get listHeaders(): ListHeader[] {
     return [
       {
         type: 'text',
         header: 'Title',
-        datafiled: 'title',
+        datafield: 'title',
       },
       {
         type: 'length',
         header: 'Num Tasks',
-        datafiled: 'task',
+        datafield: 'task',
       },
       {
         type: 'date',
         header: 'Date Created',
-        datafiled: 'creationDate',
+        datafield: 'creationDate',
         format: 'dd/mm/yyyy',
       },
       {
         type: 'actions',
         header: 'Actions',
-        datafiled: 'actions',
+        datafield: 'actions',
         actions: {
           isView: true,
           isEdit: true,
@@ -72,14 +86,5 @@ export class ProjectsService {
         },
       },
     ];
-  }
-  onAddProject(data: FormGroup): Observable<any> {
-    return this._http.post('Project', data);
-  }
-  getProjectById(id: number): Observable<any> {
-    return this._http.get(`Project/${id}`);
-  }
-  editProject(id: number, data: FormGroup): Observable<any> {
-    return this._http.put(`Project/${id}`, data);
   }
 }

@@ -1,19 +1,19 @@
 <app-page-header
-  pageTitle="Projects"
-  actionBtnText="Add Project"
-  (actionBtnEvent)="navigateToAddProject()"
+  pageTitle="Tasks"
+  actionBtnText="Add New Task"
+  (actionBtnEvent)="navigateToAddtask()"
 ></app-page-header>
 
 <div class="px-4">
   <app-filter
-    [filters]="[]"
+    [filters]="filters"
     (search)="onSearchAction($event)"
     (reset)="onResetAction()"
   ></app-filter>
 
   <app-list
     [headers]="headers"
-    [data]="projectsList"
+    [data]="tasksList"
     [length]="length"
     [pageNumber]="pageNumber"
     [pageSize]="pageSize"

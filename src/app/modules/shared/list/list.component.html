@@ -8,7 +8,7 @@
     >
       <ng-container
         *ngFor="let header of headers"
-        [matColumnDef]="header.datafiled"
+        [matColumnDef]="header.datafield"
       >
         <th
           mat-header-cell
@@ -20,35 +20,53 @@
         </th>
         <td mat-cell *matCellDef="let element">
           <ng-container [ngSwitch]="header.type">
-            <span *ngSwitchCase="'text'">{{ element[header.datafiled] }}</span>
+            <span *ngSwitchCase="'text'">{{ element[header.datafield] }}</span>
+
             <img
               *ngSwitchCase="'image'"
               [src]="
-                header.datafiled
-                  ? imageUrl + element[header.datafiled]
+                header.datafield
+                  ? imageUrl + element[header.datafield]
                   : '../../../../../assets/images/' + header.defaultImage
               "
               width="60"
               height="60"
             />
+
             <span *ngSwitchCase="'date'">{{
-              element[header.datafiled] | date : header.format
+              element[header.datafield] | date : header.format
             }}</span>
+
             <span *ngSwitchCase="'list'">
               <span
                 *ngFor="
-                  let item of element[header.datafiled];
+                  let item of element[header.datafield];
                   let isLast = last
                 "
               >
                 {{ item }}<span *ngIf="!isLast">,</span>
               </span>
             </span>
+
             <span *ngSwitchCase="'length'">
               {{
-                element[header.datafiled] && element[header.datafiled].length
+                element[header.datafield] && element[header.datafield].length
               }}
             </span>
+
+            <span *ngSwitchCase="'object'">
+              <span *ngIf="header.objectKey">
+                {{ element[header.datafield][header.objectKey] }}
+              </span>
+            </span>
+
+            <div
+              *ngSwitchCase="'status'"
+              [ngClass]="['status', 'rounded-4', element[header.datafield]]"
+            >
+              {{ element[header.datafield] }}
+            </div>
+
             <span *ngSwitchCase="'actions'">
               <button
                 mat-icon-button

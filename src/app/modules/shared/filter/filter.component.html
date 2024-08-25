@@ -1,0 +1,40 @@
+<div class="bg-white pt-3 px-3 mt-4 rounded rounded-top-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <form [formGroup]="filterForm">
+      <mat-form-field
+        (keydown.enter)="onSearch()"
+        appearance="outline"
+        class="bg-white rounded-form-field-outline"
+      >
+        <mat-icon matPrefix (click)="onSearch()">search</mat-icon>
+        <input
+          matInput
+          formControlName="searchValue"
+          placeholder="Search..."
+          class="py-0"
+        />
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="filters && filters.length"
+        appearance="outline"
+        class="bg-white rounded-form-field-outline mx-3 filter-dropdown"
+      >
+        <mat-icon matPrefix>filter_list</mat-icon>
+
+        <mat-select placeholder="Filter" formControlName="searchKey">
+          <mat-option *ngFor="let filter of filters" [value]="filter">{{
+            filter
+          }}</mat-option>
+        </mat-select></mat-form-field
+      >
+    </form>
+
+    <button
+      (click)="onReset()"
+      class="bg-transparent border-none d-flex justify-content-end align-items-center text-primary"
+    >
+      <mat-icon>refresh</mat-icon>
+      <span class="fs-5 fw-medium ps-1">Reset</span>
+    </button>
+  </div>
+</div>

@@ -66,22 +66,7 @@ export class LoginComponent {
     this.loginForm.markAllAsTouched();
 
     if (this.loginForm.valid) {
-      this._auth.onLogin(this.loginForm.value as LoginRequest).subscribe({
-        next: (res) => {
-          console.log(res);
-          // Save the token received in the response
-          localStorage.setItem('userToken', res.token);
-          // Fetch and store user profile details
-          this._auth.getProfile();
-        },
-        error: (err) => {
-          this.toastr.error(err.error.message, 'Login Failed');
-        },
-        complete: () => {
-          this.toastr.success('Login successful', 'Success');
-          this.router.navigate(['/dashboard']);
-        }
-      });
+
     }
   }
 }

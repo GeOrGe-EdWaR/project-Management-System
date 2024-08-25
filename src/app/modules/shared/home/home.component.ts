@@ -7,11 +7,13 @@ import { AuthService } from '../../feature/authentication/services/auth.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  userName!: string | null;
+  profile!: any;
 
   constructor(private _auth: AuthService) {
-    this._auth.getProfile();
+    this._auth.getUserData();
 
-    this.userName = localStorage.getItem('userName');
+    this.profile = _auth.getProfile().subscribe({next:(res)=>{
+      this.profile = res;      
+    }});
   }
 }

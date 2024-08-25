@@ -52,10 +52,8 @@ export class ListComponent {
   constructor(public _MatPaginatorIntl: MatPaginatorIntl) {}
 
   ngOnInit(): void {
-    this.displayedColumns = this.headers.map((header) => header.datafiled);
+    this.displayedColumns = this.headers.map((header) => header.datafield);
     this.dataSource = new MatTableDataSource(this.data);
-
-    console.log('this.dataSource', this.dataSource);
   }
 
   ngAfterViewInit(): void {
