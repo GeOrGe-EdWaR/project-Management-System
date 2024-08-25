@@ -10,9 +10,10 @@
         class="px-4 py-2 d-flex align-items-center cursor-pointer"
       >
         <div class="avatar d-flex me-2">
+         
           <img
             class="img-fluid"
-            src="../../../../assets/images/man.jpeg"
+            [src]="'https://upskilling-egypt.com:3003/' + this.userProfile.imagePath"
             alt="profile"
           />
         </div>

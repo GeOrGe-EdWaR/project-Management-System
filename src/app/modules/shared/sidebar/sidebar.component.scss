@@ -1,5 +1,5 @@
 .sidebar {
-    // background-color: var(--secondary-color);
+    
     background-color: #0E382F;
   
     position: fixed;
@@ -15,15 +15,15 @@
   
     .toggler {
       cursor: pointer;
-      display: block;
       position: absolute;
-      right: 0;
-      top: 70px;
+      top: 90px;
       background-color: orange;
       color: #fff;
       font-size: larger;
       width:16px;
       height:32px;
+      
+    
     }
   
     .list-group-item {
@@ -66,6 +66,6 @@
   }
   
   .collapsed {
-    width: 50px;
+    width: 60px;
   }
   

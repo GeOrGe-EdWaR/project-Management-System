@@ -43,7 +43,7 @@ export class LoginComponent {
             // here we will save the token as it's in the response we are recieving 
             localStorage.setItem('userToken',res.token)
             // then we will use the function from authservice to store the user details 
-            this._auth.getProfile();
+            this._auth.getUserData();
           },
           error:(err)=>{
             this.toastr.error(err.error.message)
