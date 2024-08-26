@@ -13,7 +13,7 @@ export class TaskService {
   taskBaseUrl = 'Task/';
   getTasksListUrl = 'manager';
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   // HTTP Requests
   getTasksList(
@@ -81,5 +81,10 @@ export class TaskService {
         },
       },
     ];
+  }
+
+
+  deleteTask(id: number): Observable<any> {
+    return this._http.delete(`Task/${id}`);
   }
 }
