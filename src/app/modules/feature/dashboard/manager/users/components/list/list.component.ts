@@ -5,12 +5,16 @@ import { UsersService } from '../../services/users.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  deleteDialogRef: any;
+  dialog: any;
+  _toastr: any;
 
   constructor(
     private _UsersService: UsersService,
@@ -100,4 +104,8 @@ export class ListComponent implements OnInit {
       }
     });
   }
+
+
+
+
 }
