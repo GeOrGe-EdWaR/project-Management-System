@@ -14,7 +14,7 @@ export class TaskService {
   taskBaseUrl = 'Task/';
   getTasksListUrl = 'manager';
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   // HTTP Requests
   getTasksList(
@@ -83,6 +83,7 @@ export class TaskService {
       },
     ];
   }
+
   // get all employees
   getAllEmployees(): Observable<any> {
     return this._http.get('Users', {
@@ -103,5 +104,10 @@ export class TaskService {
   }
   updateTask(id: number, data: FormGroup): Observable<any> {
     return this._http.put(`Task/${id}`, data);
+
+  }
+
+  deleteTask(id: number): Observable<any> {
+    return this._http.delete(`Task/${id}`);
   }
 }

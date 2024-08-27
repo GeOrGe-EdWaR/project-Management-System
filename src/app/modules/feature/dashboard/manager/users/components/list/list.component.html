@@ -44,8 +44,9 @@
                     <span>{{user.isActivated ? 'Block' : 'Unblock'}}</span>
                   </button>
                   <button mat-menu-item [routerLink]="['/dashboard/manager/users/view-user', user.id]">
-                    <mat-icon color="text-main">visibility</mat-icon>
-                    <span>View</span>
+                    <div><mat-icon color="text-main">visibility</mat-icon>
+                      <span>View</span>
+                    </div>
                   </button>
                 </mat-menu>
               </td>
