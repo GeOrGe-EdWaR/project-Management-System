@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { ListHeader } from 'src/app/modules/shared/models/list-header.model';
 import { GetTasksListResponse } from '../models/get-tasks-list-response-model';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -83,6 +84,28 @@ export class TaskService {
     ];
   }
 
+  // get all employees
+  getAllEmployees(): Observable<any> {
+    return this._http.get('Users', {
+      params: { groups: 2, pageSize: 1000, pageNumber: 1 },
+    });
+  }
+  // getAllProjects
+  getAllProjects(): Observable<any> {
+    return this._http.get('Project', {
+      params: { pageSize: 1000, pageNumber: 1 },
+    });
+  }
+  addNewTask(data: FormGroup): Observable<any> {
+    return this._http.post('Task', data);
+  }
+  getTaskById(id: number): Observable<any> {
+    return this._http.get(`Task/${id}`);
+  }
+  updateTask(id: number, data: FormGroup): Observable<any> {
+    return this._http.put(`Task/${id}`, data);
+
+  }
 
   deleteTask(id: number): Observable<any> {
     return this._http.delete(`Task/${id}`);

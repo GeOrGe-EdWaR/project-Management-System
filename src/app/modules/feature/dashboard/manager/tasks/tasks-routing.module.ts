@@ -10,7 +10,9 @@ import { TasksListComponent } from './components/tasks-list/tasks-list.component
 const routes: Routes = [
   { path: '', component: TasksComponent },
   { path: 'add-edit-task', component: AddEditTaskComponent },
+  { path: 'add-edit-task/:id', component: AddEditTaskComponent },
   { path: 'view-task', component: ViewTaskComponent },
+  { path: 'view-task/:id', component: ViewTaskComponent },
   { path: 'list', component: TasksListComponent },
 ];
 

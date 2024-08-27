@@ -120,9 +120,11 @@ export class TasksListComponent {
     if (e) {
       this.searchKey = e.searchKey;
       this.searchValue = e.searchValue;
+
     }
 
     this.getTasksList();
+    
   }
 
   onResetAction(): void {

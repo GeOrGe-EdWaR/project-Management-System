@@ -10,27 +10,21 @@
 <div class="card mx-auto p-5 m-5 col-8">
   <div class="dard-body">
     <form [formGroup]="addNewProjectForm">
-      <div class="py-4">
-        <label class="text-secondary py-3">Title</label>
-        <input
-          formControlName="title"
-          type="text"
-          class="form-control rounded-5 text-secondary"
-          placeholder="Name"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
+      <div class="">
+        <div class="">
+          <mat-form-field class="example-form-field w-100">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" matInput type="text" />
+          </mat-form-field>
+        </div>
       </div>
-      <div class="py-4">
-        <label class="text-secondary py-3">Description</label>
-        <input
-          formControlName="description"
-          type="text"
-          class="form-control rounded-5 text-secondary"
-          placeholder="Description"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
+      <div class="">
+        <div class="">
+          <mat-form-field class="example-form-field w-100">
+            <mat-label>description</mat-label>
+            <input formControlName="description" matInput type="text" />
+          </mat-form-field>
+        </div>
       </div>
     </form>
   </div>
