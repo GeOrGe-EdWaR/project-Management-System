@@ -55,7 +55,7 @@
             </span>
 
             <span *ngSwitchCase="'object'">
-              <span *ngIf="header.objectKey">
+              <span *ngIf="element[header.datafield] && header.objectKey">
                 {{ element[header.datafield][header.objectKey] }}
               </span>
             </span>

@@ -5,7 +5,7 @@ import { SidebarService } from '../services/sidebar.service';
 @Component({
   selector: 'sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
   @Output() collapseSidebar = new EventEmitter();
@@ -16,8 +16,7 @@ export class SidebarComponent {
 
   isCollapsed = false;
 
-  constructor( private _sidebarService: SidebarService) {
-  
+  constructor(private _sidebarService: SidebarService) {
     this.routes = this._sidebarService.getRoleRoutes();
     this.collapseSidebar.emit(this.isCollapsed);
   }
@@ -26,7 +25,7 @@ export class SidebarComponent {
     const sidebar = document.getElementById('sidebar');
 
     this.isCollapsed = !this.isCollapsed;
-    
+
     sidebar?.classList.toggle('collapsed');
     this.collapseSidebar.emit(this.isCollapsed);
   }

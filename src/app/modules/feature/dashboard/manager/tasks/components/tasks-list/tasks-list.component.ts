@@ -66,7 +66,7 @@ export class TasksListComponent {
           this.length = totalNumberOfRecords;
           this.tasksList = data;
         },
-        error: () => { },
+        error: () => {},
       });
   }
 
@@ -82,9 +82,9 @@ export class TasksListComponent {
     this._router.navigateByUrl('/dashboard/manager/tasks/add-edit-task');
   }
 
-  onViewAction(e: any): void { }
+  onViewAction(e: any): void {}
 
-  onEditAction(e: any): void { }
+  onEditAction(e: any): void {}
 
   onDeleteAction(id: number): void {
     this.deleteDialogRef = this.dialog.open(DeleteComponent, {
@@ -98,33 +98,25 @@ export class TasksListComponent {
   projectsSubscription!: Subscription;
   deleteProjectSubscription!: Subscription;
   deleteProject(id: number): void {
-    this.deleteProjectSubscription = this._tasks
-      .deleteTask(id)
-      .subscribe({
-        next: () => {
-          this._toastr.success('Project deleted successfully');
+    this.deleteProjectSubscription = this._tasks.deleteTask(id).subscribe({
+      next: () => {
+        this._toastr.success('Project deleted successfully');
 
-          this.getTasksList();
-        },
-        error: () => {
-          this._toastr.error('Something went wrong', 'Error');
-        },
-      });
+        this.getTasksList();
+      },
+      error: () => {
+        this._toastr.error('Something went wrong', 'Error');
+      },
+    });
   }
-  // getUsersData() {
-  //   throw new Error('Method not implemented.');
-  // }
-
 
   onSearchAction(e: any): void {
     if (e) {
       this.searchKey = e.searchKey;
       this.searchValue = e.searchValue;
-
     }
 
     this.getTasksList();
-    
   }
 
   onResetAction(): void {
