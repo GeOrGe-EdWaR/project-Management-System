@@ -1,1 +1,56 @@
-<p>view-task works!</p>
+<div class="page-header">
+  <a
+    class="header-link text-decoration-none text-dark p-3"
+    routerLink="/dashboard/manager/projects/list"
+  >
+    <i class="fa-solid fa-arrow-left me-2"></i>View All tasks</a
+  >
+  <h1 class="page-title p-3">View task</h1>
+</div>
+<div class="card mx-auto p-5 m-5 col-8">
+  <div class="dard-body">
+    <form [formGroup]="viewTaskForm">
+      <div class="py-4">
+        <label class="text-secondary py-3 text-dark">Title</label>
+        <mat-form-field class="example-form-field w-100">
+          <mat-label>Title</mat-label>
+          <input formControlName="title" matInput type="text" />
+        </mat-form-field>
+      </div>
+      <div class="py-4">
+        <mat-form-field class="example-form-field w-100">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput type="text" />
+        </mat-form-field>
+      </div>
+      <div class="py-4 row">
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>employee</mat-label>
+            <mat-select formControlName="employeeId">
+              <mat-option
+                *ngFor="let employee of employeesList"
+                [value]="employee.id"
+              >
+                {{ employee.userName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>project</mat-label>
+            <mat-select formControlName="projectId">
+              <mat-option
+                *ngFor="let project of ProjectList"
+                [value]="project.id"
+              >
+                {{ project.title }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

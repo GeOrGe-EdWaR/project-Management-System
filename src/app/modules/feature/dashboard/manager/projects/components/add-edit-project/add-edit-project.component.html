@@ -14,26 +14,17 @@
       (ngSubmit)="onSubmit(addNewProjectForm)"
     >
       <div class="py-4">
-        <label class="text-secondary py-3">Title</label>
-        <input
-          formControlName="title"
-          type="text"
-          class="form-control rounded-5 text-secondary"
-          placeholder="Name"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
+        <label class="text-secondary py-3 text-dark">Title</label>
+        <mat-form-field class="example-form-field w-100">
+          <mat-label>Title</mat-label>
+          <input formControlName="title" matInput type="text" />
+        </mat-form-field>
       </div>
       <div class="py-4">
-        <label class="text-secondary py-3">Description</label>
-        <input
-          formControlName="description"
-          type="text"
-          class="form-control rounded-5 text-secondary"
-          placeholder="Description"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
+        <mat-form-field class="example-form-field w-100">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput type="text" />
+        </mat-form-field>
       </div>
       <div class="buttons d-flex justify-content-between py-4">
         <button type="reset" class="rounded-5 p-2 bttn">cancel</button>

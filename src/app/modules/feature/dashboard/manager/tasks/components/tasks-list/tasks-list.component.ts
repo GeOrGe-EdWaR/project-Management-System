@@ -13,6 +13,7 @@ import { TaskService } from '../../services/task.service';
 import { ListHeader } from 'src/app/modules/shared/models/list-header.model';
 import { Task } from '../../models/task-model';
 import { FormControl, FormGroup } from '@angular/forms';
+import { DeleteComponent } from 'src/app/modules/shared/delete/delete.component';
 
 @Component({
   selector: 'app-tasks-list',
@@ -65,7 +66,7 @@ export class TasksListComponent {
           this.length = totalNumberOfRecords;
           this.tasksList = data;
         },
-        error: () => {},
+        error: () => { },
       });
   }
 
@@ -81,19 +82,49 @@ export class TasksListComponent {
     this._router.navigateByUrl('/dashboard/manager/tasks/add-edit-task');
   }
 
-  onViewAction(e: any): void {}
+  onViewAction(e: any): void { }
 
-  onEditAction(e: any): void {}
+  onEditAction(e: any): void { }
 
-  onDeleteAction(id: number) {}
+  onDeleteAction(id: number): void {
+    this.deleteDialogRef = this.dialog.open(DeleteComponent, {
+      data: { id, name: 'Project' },
+    });
+
+    this.deleteDialogRef.afterClosed().subscribe((result: { id: number }) => {
+      this.deleteProject(result.id);
+    });
+  }
+  projectsSubscription!: Subscription;
+  deleteProjectSubscription!: Subscription;
+  deleteProject(id: number): void {
+    this.deleteProjectSubscription = this._tasks
+      .deleteTask(id)
+      .subscribe({
+        next: () => {
+          this._toastr.success('Project deleted successfully');
+
+          this.getTasksList();
+        },
+        error: () => {
+          this._toastr.error('Something went wrong', 'Error');
+        },
+      });
+  }
+  // getUsersData() {
+  //   throw new Error('Method not implemented.');
+  // }
+
 
   onSearchAction(e: any): void {
     if (e) {
       this.searchKey = e.searchKey;
       this.searchValue = e.searchValue;
+
     }
 
     this.getTasksList();
+    
   }
 
   onResetAction(): void {
