@@ -28,6 +28,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { CustomPaginatorComponent } from './list/custom-paginator/custom-paginator.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { FilterComponent } from './filter/filter.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FilterComponent } from './filter/filter.component';
     CustomPaginatorComponent,
     PageHeaderComponent,
     FilterComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,238 @@
+<app-page-header pageTitle="Profile"></app-page-header>
+
+<div class="card mx-auto px-5 py-4 m-5 col-8">
+  <div class="dard-body">
+    <form [formGroup]="profileForm">
+      <!-- img dropzone -->
+      <ngx-dropzone
+        (change)="onSelect($event)"
+        class="bg-transparent border-0 mx-auto overflow-hidden"
+      >
+        <ngx-dropzone-label
+          class="uploadimg w-100 h-100 d-flex justify-content-center align-items-center"
+        >
+          <mat-icon class="mat-18 text-warning">photo_camera</mat-icon>
+        </ngx-dropzone-label>
+        <ng-container *ngIf="isView; editImagePreview">
+          <ngx-dropzone-image-preview
+            class="w-100 m-0 rounded-circle"
+            *ngFor="let f of files"
+            [file]="files[0]"
+            [removable]="true"
+            (removed)="onRemove(f)"
+          >
+          </ngx-dropzone-image-preview>
+        </ng-container>
+      </ngx-dropzone>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field
+            class="w-100 bg-transparent"
+            appearance="outline"
+            floatLabel="always"
+          >
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              formControlName="userName"
+              placeholder="Enter your name"
+            />
+            <ng-container
+              *ngIf="
+                profileForm.get('userName')?.touched &&
+                profileForm.get('userName')?.errors
+              "
+            >
+              <mat-error
+                *ngIf="profileForm.get('userName')?.hasError('required')"
+              >
+                Username is <strong>required</strong>
+              </mat-error>
+            </ng-container>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field
+            class="w-100"
+            appearance="outline"
+            floatLabel="always"
+          >
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              placeholder="Enter your E-mail"
+            />
+            <ng-container
+              *ngIf="
+                profileForm.get('email')?.touched &&
+                profileForm.get('email')?.errors
+              "
+            >
+              <mat-error
+                *ngIf="
+                  profileForm.get('email')?.hasError('email') &&
+                  !profileForm.get('email')?.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error></ng-container
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field
+            class="w-100"
+            appearance="outline"
+            floatLabel="always"
+          >
+            <mat-label>Country</mat-label>
+            <input
+              matInput
+              formControlName="country"
+              placeholder="Enter your country"
+            />
+            <ng-container
+              *ngIf="
+                profileForm.get('country')?.touched &&
+                profileForm.get('country')?.errors
+              "
+            >
+              <mat-error
+                *ngIf="profileForm.get('country')?.hasError('required')"
+              >
+                Country is <strong>required</strong>
+              </mat-error>
+            </ng-container>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field
+            class="w-100"
+            appearance="outline"
+            floatLabel="always"
+          >
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              formControlName="phoneNumber"
+              placeholder="Enter your phone number"
+            />
+            <ng-container
+              *ngIf="
+                profileForm.get('phoneNumber')?.touched &&
+                profileForm.get('phoneNumber')?.errors
+              "
+            >
+              <mat-error
+                *ngIf="profileForm.get('phoneNumber')?.hasError('required')"
+              >
+                Phone number is <strong>required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="profileForm.get('phoneNumber')?.hasError('pattern')"
+              >
+                Phone number is <strong>invalid</strong>
+              </mat-error></ng-container
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-6" [hidden]="isView">
+          <mat-form-field
+            class="w-100"
+            appearance="outline"
+            floatLabel="always"
+          >
+            <mat-label>Password</mat-label>
+            <input
+              [type]="hidePassword ? 'password' : 'text'"
+              matInput
+              type="password"
+              formControlName="password"
+              placeholder="Enter your Password"
+            />
+            <mat-icon
+              class="text-white"
+              matSuffix
+              (click)="hidePassword = !hidePassword"
+              >{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
+            >
+
+            <ng-container
+              *ngIf="
+                profileForm.get('password')?.touched &&
+                profileForm.get('password')?.errors
+              "
+            >
+              <mat-error
+                *ngIf="profileForm.get('password')?.hasError('required')"
+              >
+                Password is <strong>required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="profileForm.get('password')?.hasError('pattern')"
+              >
+                Password minlength is 6 , should contain uppercase and special
+                characters
+              </mat-error></ng-container
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-6" [hidden]="isView">
+          <mat-form-field
+            class="w-100 position-relative"
+            appearance="outline"
+            floatLabel="always"
+          >
+            <mat-label>Confirm Password</mat-label>
+            <input
+              [type]="hidePassword ? 'password' : 'text'"
+              matInput
+              type="password"
+              formControlName="confirmPassword"
+              placeholder="Confirm New Password"
+            />
+            <mat-icon
+              class="text-white"
+              matSuffix
+              (click)="hidePassword = !hidePassword"
+              >{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
+            >
+            <ng-container
+              *ngIf="
+                profileForm.get('confirmPassword')?.touched &&
+                profileForm.get('confirmPassword')?.errors
+              "
+            >
+              <mat-error
+                *ngIf="profileForm.get('confirmPassword')?.hasError('require')"
+              >
+                confirm Password is <strong>required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="profileForm.get('confirmPassword')?.hasError('notsame')"
+              >
+                Confirm Password does not match Password.
+              </mat-error></ng-container
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <ng-container *ngIf="isView; else editButtons">
+          <button type="submit" (click)="navigateToHome()">Cancel</button>
+          <button type="button" (click)="toggleToEdit()">Edit</button>
+        </ng-container>
+
+        <ng-template #editButtons>
+          <button type="submit" (click)="toggleToView()">Cancel</button>
+          <button type="button" (click)="submitEdit()">Submit</button>
+        </ng-template>
+      </div>
+    </form>
+  </div>
+</div>
