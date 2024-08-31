@@ -5,12 +5,12 @@
     </div>
     <div class="cursor-pointer">
       <div
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
         class="px-4 py-2 d-flex align-items-center cursor-pointer"
       >
         <div class="avatar d-flex me-2">
           <img
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
             class="img-fluid"
             [src]="
               'https://upskilling-egypt.com:3003/' + this.userProfile.imagePath
@@ -29,7 +29,7 @@
           <span>Profile</span>
         </button>
         <button mat-menu-item (click)="logout()">
-          <mat-icon>logout</mat-icon>
+          <mat-icon class="icon">logout</mat-icon>
           <span>Logout</span>
         </button>
       </mat-menu>

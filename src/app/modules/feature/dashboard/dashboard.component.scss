@@ -1,3 +1,7 @@
+.content{
+  margin-top: 80px;
+}
+
 .content-on-expanded-sidebar {
   margin-left: 230px;
 
@@ -5,7 +9,7 @@
 }
 
 .content-on-collpased-sidebar {
-  margin-left: 50px;
+  margin-left: 75px;
 
-  min-width: calc(100vw - 50px);
+  min-width: calc(100vw - 95px);
 }

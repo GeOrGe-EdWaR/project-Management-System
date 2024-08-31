@@ -15,7 +15,7 @@
     <ng-container *ngFor="let route of routes">
       <li
         *ngIf="route.present && !route.onClick"
-        class="list-group-item py-3 d-flex align-items-center"
+        class="list-group-item py-3 d-flex align-items-center "
         [routerLink]="route.routeTo"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLinkActive="active"
@@ -26,6 +26,7 @@
         }}</mat-icon>
         <span *ngIf="!isCollapsed" class="mx-2">{{ route.text }}</span>
       </li>
+      
     </ng-container>
   </ul>
 </aside>

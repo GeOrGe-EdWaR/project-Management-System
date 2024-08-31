@@ -6,9 +6,9 @@ import { ManagerRoutingModule } from './manager.routing';
 import { ManagerComponent } from './manager.component';
 import { ManagerChartComponent } from './components/manager-chart/manager-chart.component';
 import { TasksModule } from './tasks/tasks.module';
-import { UsersModule } from './users/users.module';
 import { ProjectsModule } from './projects/projects.module';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
@@ -20,8 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ManagerRoutingModule,
     SharedModule,
     TasksModule,
-    UsersModule,
     ProjectsModule,
+    UsersModule,
     ManagerChartComponent,
     MatDialogModule
   ]

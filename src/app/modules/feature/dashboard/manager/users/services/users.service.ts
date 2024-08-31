@@ -1,34 +1,106 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ListHeader } from 'src/app/modules/shared/models/list-header.model';
+import { GetUsersListResponse } from '../models/get-users-list-response-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+  usersBaseUrl = 'Users/';
+  getUsersListUrl = 'manager';
+
   constructor(
-    private _HttpClient: HttpClient,
+    private _http: HttpClient
   ) { }
 
+  getUsersList(
+    pageNumber: number,
+    pageSize: number,
+    seachKey: string,
+    searchValue: string
+  ): Observable<GetUsersListResponse> { //dontforget the interface here getuserslistsresponse
+    let queryParams = new HttpParams();
 
+    queryParams = queryParams.append('pageNumber', pageNumber);
+    queryParams = queryParams.append('pageSize', pageSize);
 
-  getUserData(myparams: any): Observable<any> {
-    return this._HttpClient.get(`Users/Manager`, { params: myparams })
+    if (seachKey && searchValue) {
+      queryParams = queryParams.append(seachKey, searchValue);
+    }
+
+    return this._http.get<GetUsersListResponse>( // here too don't forget the interface
+      this.usersBaseUrl + this.getUsersListUrl,
+      {
+        params: queryParams,
+      }
+    );
   }
 
-  getUserCount(): Observable<any> {
-    return this._HttpClient.get(`Users/Count`)
+  getUserById(id: number): Observable<any> {
+    return this._http.get(`Users/${id}`);
   }
+ 
 
   onActivateUser(id: number): Observable<any> {
-    return this._HttpClient.put(`Users/${id}`, {});
-  }
-
-  onGetUserById(id: number): Observable<any> {
-    return this._HttpClient.get(`Users/${id}`);
+    return this._http.put(`Users/${id}`, {});
   }
 
 
-
-
+  get listHeaders(): ListHeader[] {
+    return [
+      {
+        type: 'text',
+        header: 'User Name',
+        datafield: 'userName',
+      },
+      {
+        type: 'user status',
+        header: 'Status',
+        datafield: 'isActivated',
+      },
+      {
+        type: 'text',
+        header: 'Phone Number',
+        datafield: 'phoneNumber',
+      },
+      {
+        type: 'text',
+        header: 'Email',
+        datafield: 'email',
+      },
+      {
+        type: 'text',
+        header: 'Country',
+        datafield: 'country',
+      },
+      {
+        type: 'actions',
+        header: 'Actions',
+        datafield: 'actions',
+        actions: {
+          isView: true,
+          isBlock:true,
+        },
+      },
+    ];
+  }
 }
+  // getUserData(myparams: any): Observable<any> {
+  //   return this._HttpClient.get(`Users/Manager`, { params: myparams })
+  // }
+
+  // getUserCount(): Observable<any> {
+  //   return this._HttpClient.get(`Users/Count`)
+  // }
+
+ 
+  // onGetUserById(id: number): Observable<any> {
+  //   return this._HttpClient.get(`Users/${id}`);
+  // }
+
+
+
+
+

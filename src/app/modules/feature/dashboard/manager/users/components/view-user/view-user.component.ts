@@ -12,59 +12,59 @@ import { BlockUserComponent } from '../block-user/block-user.component';
 })
 export class ViewUserComponent {
 
-  userId: number | any;
-  user: any;
-  pathHttps: string = 'https://upskilling-egypt.com:443/';
-  Messgage: string = '';
+  // userId: number | any;
+  // user: any;
+  // pathHttps: string = 'https://upskilling-egypt.com:443/';
+  // Messgage: string = '';
 
-  constructor(
-    private toastr: ToastrService,
-    private _router: Router,
-    private _UsersService: UsersService,
-    private _activatedRoute: ActivatedRoute,
-    private dialog: MatDialog,
-  ) {
-    this.userId = _activatedRoute.snapshot.params['id']
-    this.getUserById(this.userId);
-  }
-  getUserById(id: number) {
-    this._UsersService.onGetUserById(id).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.user = res;
-      },
-      error: (err) => {
-        console.log(err.error.message);
-      },
-      complete: () => {
-      }
-    })
-  }
-  openBlockDialog(item: any): void {
-    const dialogRef = this.dialog.open(BlockUserComponent, {
-      data: item,
-      width: '35%'
-    });
+  // constructor(
+  //   private toastr: ToastrService,
+  //   private _router: Router,
+  //   private _UsersService: UsersService,
+  //   private _activatedRoute: ActivatedRoute,
+  //   private dialog: MatDialog,
+  // ) {
+  //   this.userId = _activatedRoute.snapshot.params['id']
+  //   this.getUserById(this.userId);
+  // }
+  // getUserById(id: number) {
+  //   this._UsersService.onGetUserById(id).subscribe({
+  //     next: (res) => {
+  //       console.log(res);
+  //       this.user = res;
+  //     },
+  //     error: (err) => {
+  //       console.log(err.error.message);
+  //     },
+  //     complete: () => {
+  //     }
+  //   })
+  // }
+  // openBlockDialog(item: any): void {
+  //   const dialogRef = this.dialog.open(BlockUserComponent, {
+  //     data: item,
+  //     width: '35%'
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-      if (result) {
-        this.activateUser(result)
-      }
-    });
-  }
-  activateUser(id: number) {
-    this._UsersService.onActivateUser(id).subscribe({
-      next: (res) => {
-        this.Messgage = res.message;
-      }, error: (err) => {
-        this.toastr.error(err.error.message, 'error')
-      }, complete: () => {
-        this.getUserById(this.userId);
-        this.toastr.success(this.Messgage, 'User Active now');
-      }
-    })
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed', result);
+  //     if (result) {
+  //       this.activateUser(result)
+  //     }
+  //   });
+  // }
+  // activateUser(id: number) {
+  //   this._UsersService.onActivateUser(id).subscribe({
+  //     next: (res) => {
+  //       this.Messgage = res.message;
+  //     }, error: (err) => {
+  //       this.toastr.error(err.error.message, 'error')
+  //     }, complete: () => {
+  //       this.getUserById(this.userId);
+  //       this.toastr.success(this.Messgage, 'User Active now');
+  //     }
+  //   })
+  // }
 
 
 }

@@ -1,11 +1,21 @@
 .navbar {
     background-color: #ffffff;
     z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
 
+    }
     .avatar{
         width: 40px;
         height: 40px;
         border-radius: 50%;
+        cursor: pointer;
     }
-  }
   
+
+    .icon{
+        color: #0e382f !important;
+    }   
+   
