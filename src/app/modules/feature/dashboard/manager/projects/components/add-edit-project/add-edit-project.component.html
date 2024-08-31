@@ -3,9 +3,9 @@
     class="header-link text-decoration-none text-dark p-3"
     routerLink="/dashboard/manager/projects/list"
   >
-    <i class="fa-solid fa-arrow-left me-2"></i>View All Projects</a
+    <i class="fa-solid fa-arrow-left me-2"></i>View all projects</a
   >
-  <h1 class="page-title p-3">Add New Project</h1>
+  <h1 class="page-title p-3">Add new project</h1>
 </div>
 <div class="card mx-auto p-5 m-5 col-8">
   <div class="dard-body">
@@ -14,33 +14,38 @@
       (ngSubmit)="onSubmit(addNewProjectForm)"
     >
       <div class="py-2">
+        <mat-label>Title</mat-label>
         <mat-form-field
           appearance="outline"
           floatLabel="always"
           class="example-form-field w-100"
         >
-          <mat-label>Title</mat-label>
-          <input formControlName="title" matInput type="text" />
+          <input
+            formControlName="title"
+            matInput
+            type="text"
+            placeholder="project title"
+          />
         </mat-form-field>
       </div>
       <div class="py-2">
+        <mat-label>Description</mat-label>
         <mat-form-field
           class="example-full-width w-100"
           appearance="outline"
           floatLabel="always"
         >
-          <mat-label>Description</mat-label>
           <textarea
             rows="3"
             formControlName="description"
             matInput
-            placeholder="Description"
+            placeholder="Project description"
           ></textarea>
         </mat-form-field>
       </div>
       <div class="buttons d-flex justify-content-between py-2">
-        <button type="reset" class="rounded-5 p-2 bttn">cancel</button>
-        <button type="submit" class="rounded-5 p-2 bttn-save">save</button>
+        <button type="reset" class="rounded-5 p-2 bttn">Cancel</button>
+        <button type="submit" class="rounded-5 p-2 bttn-save">Save</button>
       </div>
     </form>
   </div>

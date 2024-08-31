@@ -13,3 +13,10 @@
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: "transparent";
 }
+.mdc-floating-label--required:not(
+    .mdc-floating-label--hide-required-marker
+  )::after {
+  margin-left: 1px;
+  margin-right: 0px;
+  display: none;
+}
