@@ -44,8 +44,6 @@ export class ListComponent {
 
   imageUrl: string = 'https://upskilling-egypt.com:3003/';
 
-  private _liveAnnouncer = inject(LiveAnnouncer);
-
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   displayedColumns: string[] = [];
 
@@ -103,7 +101,7 @@ export class ListComponent {
     const urlBase = hasStatus
       ? '/dashboard/manager/tasks/view-task'
       : '/dashboard/manager/projects/view-project';
-    
+
     return [`${urlBase}`, element.id];
   }
 

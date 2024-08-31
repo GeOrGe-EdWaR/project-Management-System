@@ -10,10 +10,11 @@
         class="px-4 py-2 d-flex align-items-center cursor-pointer"
       >
         <div class="avatar d-flex me-2">
-         
           <img
             class="img-fluid"
-            [src]="'https://upskilling-egypt.com:3003/' + this.userProfile.imagePath"
+            [src]="
+              'https://upskilling-egypt.com:3003/' + this.userProfile.imagePath
+            "
             alt="profile"
           />
         </div>
@@ -23,7 +24,7 @@
         </div>
       </div>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="'/profile'">
+        <button mat-menu-item [routerLink]="'/dashboard/profile'">
           <mat-icon>person</mat-icon>
           <span>Profile</span>
         </button>

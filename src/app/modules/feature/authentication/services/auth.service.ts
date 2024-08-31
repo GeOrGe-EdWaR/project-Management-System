@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { VerifyAccountRequest } from '../models/verify-account-request-model';
 import { ResetPasswordRequest } from '../models/reset-password-request';
 import { LoginRequest } from '../models/login-request';
+import { ProfileResponse } from '../models/profile-response';
 
 import { jwtDecode } from 'jwt-decode';
 
@@ -16,7 +17,7 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   role: string | null = '';
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
   onLogin(data: LoginRequest): Observable<LoginRequest> {
     return this._http.post<LoginRequest>('Users/Login', data);
@@ -40,8 +41,8 @@ export class AuthService {
     return this._http.post('Users/Register', regForm);
   }
 
-  getProfile(): Observable<any> {
-    return this._http.get<any>('Users/currentUser');
+  getProfile(): Observable<ProfileResponse> {
+    return this._http.get<ProfileResponse>('Users/currentUser');
   }
 
   getUserData() {
@@ -53,6 +54,10 @@ export class AuthService {
     localStorage.setItem('userName', decoded.userName);
     localStorage.setItem('role', decoded.userGroup);
     this.getRole();
+  }
+
+  editProfile(form: FormData): Observable<ProfileResponse> {
+    return this._http.put<ProfileResponse>('Users', form);
   }
 
   getRole() {

@@ -1,3 +1,21 @@
 button {
   outline: none !important;
 }
+
+.reset-button {
+  background-color: transparent !important;
+  border: none;
+
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  transform: translateY(-20px);
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0); /* Move to its original position */
+  }
+}

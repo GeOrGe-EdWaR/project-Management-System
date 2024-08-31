@@ -1,0 +1,18 @@
+<app-page-header pageTitle="Projects"></app-page-header>
+
+<div class="px-4">
+  <app-filter
+    [filters]="filters"
+    (search)="onSearchAction($event)"
+    (reset)="onResetAction()"
+  ></app-filter>
+
+  <app-list
+    [headers]="headers"
+    [data]="projectsList"
+    [length]="length"
+    [pageNumber]="pageNumber"
+    [pageSize]="pageSize"
+    (handlePageEvent)="onPageEvent($event)"
+  ></app-list>
+</div>
