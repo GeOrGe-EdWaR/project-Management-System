@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="page-header my-3 py-3 bg-white">
   <a
     class="header-link text-decoration-none text-dark p-3"
     routerLink="/dashboard/manager/projects/list"
@@ -12,7 +12,11 @@
     <form [formGroup]="addNewProjectForm">
       <div class="">
         <div class="">
-          <mat-form-field class="example-form-field w-100">
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            class="example-form-field w-100"
+          >
             <mat-label>Title</mat-label>
             <input formControlName="title" matInput type="text" />
           </mat-form-field>
@@ -20,9 +24,18 @@
       </div>
       <div class="">
         <div class="">
-          <mat-form-field class="example-form-field w-100">
-            <mat-label>description</mat-label>
-            <input formControlName="description" matInput type="text" />
+          <mat-form-field
+            class="example-full-width w-100"
+            appearance="outline"
+            floatLabel="always"
+          >
+            <mat-label>Description</mat-label>
+            <textarea
+              rows="3"
+              formControlName="description"
+              matInput
+              placeholder="Description"
+            ></textarea>
           </mat-form-field>
         </div>
       </div>

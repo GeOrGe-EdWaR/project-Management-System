@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="page-header my-3 py-3 bg-white">
   <a
     class="header-link text-decoration-none text-dark p-3"
     routerLink="/dashboard/manager/projects/list"
@@ -10,22 +10,35 @@
 <div class="card mx-auto p-5 m-5 col-8">
   <div class="dard-body">
     <form [formGroup]="viewTaskForm">
-      <div class="py-4">
+      <div class="py-2">
         <label class="text-secondary py-3 text-dark">Title</label>
-        <mat-form-field class="example-form-field w-100">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          class="example-form-field w-100"
+        >
           <mat-label>Title</mat-label>
           <input formControlName="title" matInput type="text" />
         </mat-form-field>
       </div>
-      <div class="py-4">
-        <mat-form-field class="example-form-field w-100">
+      <div class="py-2">
+        <mat-form-field
+          class="example-full-width w-100"
+          appearance="outline"
+          floatLabel="always"
+        >
           <mat-label>Description</mat-label>
-          <input formControlName="description" matInput type="text" />
+          <textarea
+            rows="3"
+            formControlName="description"
+            matInput
+            placeholder="Description"
+          ></textarea>
         </mat-form-field>
       </div>
-      <div class="py-4 row">
+      <div class="py-2 row">
         <div class="col-md-4">
-          <mat-form-field>
+          <mat-form-field appearance="outline" floatLabel="always">
             <mat-label>employee</mat-label>
             <mat-select formControlName="employeeId">
               <mat-option
@@ -38,7 +51,7 @@
           </mat-form-field>
         </div>
         <div class="col-md-4">
-          <mat-form-field>
+          <mat-form-field appearance="outline" floatLabel="always">
             <mat-label>project</mat-label>
             <mat-select formControlName="projectId">
               <mat-option
