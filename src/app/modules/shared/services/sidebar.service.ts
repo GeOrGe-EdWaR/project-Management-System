@@ -6,7 +6,11 @@ import { AuthService } from '../../feature/authentication/services/auth.service'
   providedIn: 'root',
 })
 export class SidebarService {
-  constructor(private _auth:AuthService) {}
+  userType: string = '';
+
+  constructor(private _auth: AuthService) {
+    this.userType = this._auth.isManager() ? 'manager' : 'employee';
+  }
 
   getRoleRoutes(): SideBarItem[] {
     return [
@@ -21,20 +25,19 @@ export class SidebarService {
         iconName: 'group',
         routeTo: '/dashboard/manager/users/list',
         present: this._auth.isManager(),
-
       },
       {
         text: 'Projects',
-        iconName:'work',
-        routeTo: '/dashboard/manager/projects/list',
+        iconName: 'work',
+        routeTo: `/dashboard/${this.userType}/projects/list`,
         present: true,
       },
       {
         text: 'Tasks',
-        iconName:'task_alt',
-        routeTo: '/dashboard/manager/tasks/list',
+        iconName: 'task_alt',
+        routeTo: `/dashboard/${this.userType}/tasks/list`,
         present: true,
-      }
+      },
     ];
   }
 }
