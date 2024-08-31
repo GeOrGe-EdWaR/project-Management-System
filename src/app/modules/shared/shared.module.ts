@@ -13,6 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -60,6 +61,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
+    MatDividerModule,
     NgxDropzoneModule,
     NgxSpinnerModule,
   ],
@@ -76,6 +78,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
+    MatDividerModule,
     NgxDropzoneModule,
     NgxSpinnerModule,
 
@@ -90,4 +93,4 @@ import { ProfileComponent } from './profile/profile.component';
     FilterComponent,
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

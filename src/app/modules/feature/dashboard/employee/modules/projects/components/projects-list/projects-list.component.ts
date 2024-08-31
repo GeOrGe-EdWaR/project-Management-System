@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { DeleteComponent } from 'src/app/modules/shared/delete/delete.component';
-
 import { Subscription } from 'rxjs';
 
 import { PageEvent } from '@angular/material/paginator';
