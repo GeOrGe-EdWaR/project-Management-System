@@ -12,8 +12,8 @@
       </mat-option>
     </mat-select>
 
-    of {{ paginator.length }} results &nbsp;&nbsp; Page
-    {{ paginator.pageIndex + 1 }} of {{ paginator.getNumberOfPages() }}
+    of {{ paginator.length }} results &nbsp;&nbsp; Page {{ getPageNumber() }} of
+    {{ paginator.getNumberOfPages() }}
   </div>
 
   <mat-paginator

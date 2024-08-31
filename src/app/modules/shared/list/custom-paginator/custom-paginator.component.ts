@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 import { PageEvent } from '@angular/material/paginator';
 
@@ -21,6 +27,12 @@ export class CustomPaginatorComponent {
 
   previousPageIndex!: number;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
+
   paginate(event: PageEvent) {
     this.previousPageIndex = event.previousPageIndex ?? 0;
 
@@ -29,5 +41,9 @@ export class CustomPaginatorComponent {
 
   updatePageSize(): void {
     this.pageSizeChange.emit(this.pageSize);
+  }
+
+  getPageNumber(): number {
+    return Math.ceil(this.length / this.pageSize);
   }
 }

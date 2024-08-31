@@ -1,12 +1,8 @@
-<app-page-header
-  pageTitle="Projects"
-  actionBtnText="Add new Project"
-  (actionBtnEvent)="navigateToAddProject()"
-></app-page-header>
+<app-page-header pageTitle="Projects"></app-page-header>
 
 <div class="px-4">
   <app-filter
-    [filters]="[]"
+    [filters]="filters"
     (search)="onSearchAction($event)"
     (reset)="onResetAction()"
   ></app-filter>
@@ -17,9 +13,6 @@
     [length]="length"
     [pageNumber]="pageNumber"
     [pageSize]="pageSize"
-    (handleViewEvent)="onViewAction($event)"
-    (handleEditEvent)="onEditAction($event)"
-    (handleDeleteEvent)="onDeleteAction($event)"
     (handlePageEvent)="onPageEvent($event)"
   ></app-list>
 </div>
