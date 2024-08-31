@@ -20,11 +20,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppRoutingModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule.forRoot({type:'line-scale'}),
+    NgxSpinnerModule.forRoot({ type: 'ball-fussion' }),
     ToastrModule.forRoot(),
     NgxDropzoneModule,
     HttpClientModule,
-    
   ],
   exports: [NgxDropzoneModule, HttpClientModule],
   providers: [
@@ -36,12 +35,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
       multi: true,
     },
     {
-      provide:HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       //here we add the interceptor we have created
-      useClass:SpinnerInterceptor,
+      useClass: SpinnerInterceptor,
       // this prperty for multible interceptor
-      multi:true,
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
