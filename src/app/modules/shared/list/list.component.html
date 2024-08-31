@@ -67,6 +67,14 @@
               {{ element[header.datafield] }}
             </div>
 
+            <div
+              *ngSwitchCase="'user status'"
+              [ngClass]="['status', 'rounded-4',element[header.datafield] === true ? 'Active' : 'Not-Active']"
+            >
+              {{ element[header.datafield] === true ? 'Active' : 'Not Active' }}
+            </div>
+            
+
             <span *ngSwitchCase="'actions'">
               <button
                 mat-icon-button
@@ -107,8 +115,8 @@
                   *ngIf="header.actions?.isBlock"
                   (click)="block(element)"
                 >
-                  <mat-icon>favorite</mat-icon>
-                  <span>Favorite</span>
+                  <mat-icon>block</mat-icon>
+                  <span>Block</span>
                 </button>
               </mat-menu>
             </span>
