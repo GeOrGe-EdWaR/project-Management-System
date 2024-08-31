@@ -82,9 +82,13 @@ export class TasksListComponent {
     this._router.navigateByUrl('/dashboard/manager/tasks/add-edit-task');
   }
 
-  onViewAction(e: any): void {}
+  onViewAction(e: any): void {
+    this._router.navigateByUrl('/dashboard/manager/tasks/view-task');
+  }
 
-  onEditAction(e: any): void {}
+  onEditAction(e: any): void {
+    this._router.navigateByUrl('/dashboard/manager/tasks/add-edit-task');
+  }
 
   onDeleteAction(id: number): void {
     this.deleteDialogRef = this.dialog.open(DeleteComponent, {

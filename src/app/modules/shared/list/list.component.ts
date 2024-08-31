@@ -96,21 +96,4 @@ export class ListComponent {
   //     this._liveAnnouncer.announce('Sorting cleared');
   //   }
   // }
-  getViewRoute(element: any): any {
-    const hasStatus = element.hasOwnProperty('status');
-    const urlBase = hasStatus
-      ? '/dashboard/manager/tasks/view-task'
-      : '/dashboard/manager/projects/view-project';
-
-    return [`${urlBase}`, element.id];
-  }
-
-  getEditRoute(element: any): any {
-    const hasStatus = element.hasOwnProperty('status');
-    const urlBase = hasStatus
-      ? '/dashboard/manager/tasks/add-edit-task'
-      : '/dashboard/manager/projects/add-edit-project';
-
-    return [`${urlBase}`, element.id];
-  }
 }
