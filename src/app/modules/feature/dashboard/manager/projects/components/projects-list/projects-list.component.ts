@@ -89,6 +89,7 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
   onDeleteAction(id: number): void {
     this.deleteDialogRef = this.dialog.open(DeleteComponent, {
       data: { id, name: 'Project' },
+      width: '45%',
     });
 
     this.deleteDialogRef.afterClosed().subscribe((result: { id: number }) => {

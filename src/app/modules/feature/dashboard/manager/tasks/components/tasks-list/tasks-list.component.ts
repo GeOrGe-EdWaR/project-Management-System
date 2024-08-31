@@ -12,7 +12,7 @@ import { TaskService } from '../../services/task.service';
 
 import { ListHeader } from 'src/app/modules/shared/models/list-header.model';
 import { Task } from '../../models/task-model';
-import { FormControl, FormGroup } from '@angular/forms';
+
 import { DeleteComponent } from 'src/app/modules/shared/delete/delete.component';
 
 @Component({
@@ -92,7 +92,8 @@ export class TasksListComponent {
 
   onDeleteAction(id: number): void {
     this.deleteDialogRef = this.dialog.open(DeleteComponent, {
-      data: { id, name: 'Project' },
+      data: { id, name: 'Task' },
+      width: '40%',
     });
 
     this.deleteDialogRef.afterClosed().subscribe((result: { id: number }) => {

@@ -69,7 +69,7 @@
               element[header.datafield] === true ? 'Active' : 'Not-Active'
             ]"
           >
-            {{ element[header.datafield] === true ? "Active" : "Not Active" }}
+            {{ element[header.datafield] === true ? "Active" : "Inactive" }}
           </div>
 
           <span *ngSwitchCase="'actions'">
@@ -105,14 +105,26 @@
                 <mat-icon>delete</mat-icon>
                 <span>Delete</span>
               </button>
-              <button
-                mat-menu-item
-                *ngIf="header.actions?.isBlock"
-                (click)="block(element)"
-              >
-                <mat-icon>block</mat-icon>
-                <span>Block</span>
-              </button>
+              <ng-container *ngIf="element?.isActivated; else unblock">
+                <button
+                  mat-menu-item
+                  *ngIf="header.actions?.isBlock"
+                  (click)="block(element)"
+                >
+                  <mat-icon>block</mat-icon>
+                  <span>Block</span>
+                </button>
+              </ng-container>
+              <ng-template #unblock>
+                <button
+                  mat-menu-item
+                  *ngIf="header.actions?.isBlock"
+                  (click)="block(element)"
+                >
+                  <mat-icon>check_circle</mat-icon>
+                  <span>Unblock</span>
+                </button>
+              </ng-template>
             </mat-menu>
           </span>
         </ng-container>
