@@ -1,7 +1,6 @@
 import {
   Component,
   EventEmitter,
-  inject,
   Input,
   Output,
   ViewChild,
@@ -9,9 +8,7 @@ import {
 
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort } from '@angular/material/sort';
-
-import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatSort } from '@angular/material/sort';
 
 import { ListHeader } from '../models/list-header.model';
 
@@ -96,21 +93,4 @@ export class ListComponent {
   //     this._liveAnnouncer.announce('Sorting cleared');
   //   }
   // }
-  getViewRoute(element: any): any {
-    const hasStatus = element.hasOwnProperty('status');
-    const urlBase = hasStatus
-      ? '/dashboard/manager/tasks/view-task'
-      : '/dashboard/manager/projects/view-project';
-
-    return [`${urlBase}`, element.id];
-  }
-
-  getEditRoute(element: any): any {
-    const hasStatus = element.hasOwnProperty('status');
-    const urlBase = hasStatus
-      ? '/dashboard/manager/tasks/add-edit-task'
-      : '/dashboard/manager/projects/add-edit-project';
-
-    return [`${urlBase}`, element.id];
-  }
 }

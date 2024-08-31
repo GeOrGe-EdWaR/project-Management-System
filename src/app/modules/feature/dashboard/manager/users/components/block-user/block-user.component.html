@@ -1,17 +1,25 @@
-<div class="auth-card">
-  <div class="text-center text-grey">
-    <h3 class="mb-2"><span>{{data.isActivated ? 'Block' : 'Unblock'}}</span>
-      <span class="text-secondry">{{data.userName}}</span>
-    </h3>
-    <div>
-      <img class="w-100" src="../../../../../../../../assets/images/delete.webp" />
-    </div>
-    <p>Are you sure you want to block this user, If you are sure, just click on block.</p>
+<div class="py-3">
+  <div class="d-flex justify-content-end mb-3 mx-3">
+    <mat-icon mat-dialog-close class="text-danger" (click)="onClose()"
+      >cancel</mat-icon
+    >
   </div>
-  <div class="d-flex justify-content-around mt-4">
-    <button (click)="onClose()" cdkFocusInitial class="outline-grey-btn me-2">Cancel</button>
-    <button [mat-dialog-close]="data.id" cdkFocusInitial class="primary-btn">
-      <span>{{data.isActivated ? 'Block' : 'Unblock'}}</span>
+
+  <div class="text-center">
+    <h4 class="mt-3 fs-3 mb-4">{{ statusText }} {{ user?.userName }} ?</h4>
+
+    <p class="fs-6">
+      Are you sure you want to {{ statusText | lowercase }}
+      {{ user?.userName }} ? If you are sure just click on
+      {{ statusText | lowercase }}
+    </p>
+  </div>
+
+  <mat-divider class="my-4"></mat-divider>
+
+  <div class="d-flex justify-content-end">
+    <button [mat-dialog-close]="data.id" class="grey-btn px-4 py-1 w-auto mx-3">
+      <span> {{ statusText }}</span>
     </button>
   </div>
 </div>

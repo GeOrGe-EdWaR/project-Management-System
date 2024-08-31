@@ -54,56 +54,58 @@
             </span>
           </span>
 
-            <div
-              *ngSwitchCase="'status'"
-              [ngClass]="['status', 'rounded-4', element[header.datafield]]"
-            >
-              {{ element[header.datafield] }}
-            </div>
+          <div
+            *ngSwitchCase="'status'"
+            [ngClass]="['status', 'rounded-4', element[header.datafield]]"
+          >
+            {{ element[header.datafield] }}
+          </div>
 
-            <div
-              *ngSwitchCase="'user status'"
-              [ngClass]="['status', 'rounded-4',element[header.datafield] === true ? 'Active' : 'Not-Active']"
-            >
-              {{ element[header.datafield] === true ? 'Active' : 'Not Active' }}
-            </div>
-            
+          <div
+            *ngSwitchCase="'user status'"
+            [ngClass]="[
+              'status',
+              'rounded-4',
+              element[header.datafield] === true ? 'Active' : 'Not-Active'
+            ]"
+          >
+            {{ element[header.datafield] === true ? "Active" : "Inactive" }}
+          </div>
 
-            <span *ngSwitchCase="'actions'">
+          <span *ngSwitchCase="'actions'">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
               <button
-                mat-icon-button
-                [matMenuTriggerFor]="menu"
-                aria-label="Example icon-button with a menu"
+                mat-menu-item
+                *ngIf="header.actions?.isView"
+                (click)="view(element)"
               >
-                <mat-icon>more_vert</mat-icon>
+                <mat-icon>visibility</mat-icon>
+                <span>View</span>
               </button>
-              <mat-menu #menu="matMenu">
-                <button
-                  [routerLink]="getViewRoute(element)"
-                  mat-menu-item
-                  *ngIf="header.actions?.isView"
-                  (click)="view(element)"
-                >
-                  <mat-icon>visibility</mat-icon>
-                  <span>View</span>
-                </button>
-                <button
-                  [routerLink]="getEditRoute(element)"
-                  mat-menu-item
-                  *ngIf="header.actions?.isEdit"
-                  (click)="edit(element)"
-                >
-                  <mat-icon>edit</mat-icon>
-                  <span>Edit</span>
-                </button>
-                <button
-                  mat-menu-item
-                  *ngIf="header.actions?.isDelete"
-                  (click)="delete(element?.id)"
-                >
-                  <mat-icon>delete</mat-icon>
-                  <span>Delete</span>
-                </button>
+              <button
+                mat-menu-item
+                *ngIf="header.actions?.isEdit"
+                (click)="edit(element)"
+              >
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button
+                mat-menu-item
+                *ngIf="header.actions?.isDelete"
+                (click)="delete(element?.id)"
+              >
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+              <ng-container *ngIf="element?.isActivated; else unblock">
                 <button
                   mat-menu-item
                   *ngIf="header.actions?.isBlock"
@@ -112,11 +114,22 @@
                   <mat-icon>block</mat-icon>
                   <span>Block</span>
                 </button>
-              </mat-menu>
-            </span>
-          </ng-container>
-        </td>
-      </ng-container>
+              </ng-container>
+              <ng-template #unblock>
+                <button
+                  mat-menu-item
+                  *ngIf="header.actions?.isBlock"
+                  (click)="block(element)"
+                >
+                  <mat-icon>check_circle</mat-icon>
+                  <span>Unblock</span>
+                </button>
+              </ng-template>
+            </mat-menu>
+          </span>
+        </ng-container>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mx-0"></tr>
     <tr

@@ -16,7 +16,7 @@
   [length]="length"
   [pageNumber]="pageNumber"
   [pageSize]="pageSize"
-
+  (handleViewEvent)="onViewAction($event)"
   (handleBlockEvent)="onBlockAction($event)"
   (handlePageEvent)="onPageEvent($event)"
 ></app-list>
