@@ -14,6 +14,15 @@
   background-color: "transparent";
 }
 
+.mdc-floating-label--required:not(
+    .mdc-floating-label--hide-required-marker
+  )::after {
+  margin-left: 1px;
+  margin-right: 0px;
+  display: none;
+
+
 ::ng-deep .mdc-text-field__input {
   text-transform: none !important;
+
 }
