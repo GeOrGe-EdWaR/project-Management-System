@@ -66,7 +66,7 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
           this.length = totalNumberOfRecords;
           this.projectsList = data;
         },
-        error: () => { },
+        error: () => {},
       });
   }
 
@@ -78,13 +78,18 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
     this.getProjectsList();
   }
 
-  onViewAction(e: any): void { }
+  onViewAction(e: any): void {
+    this._router.navigateByUrl('/dashboard/manager/projects/view-project');
+  }
 
-  onEditAction(e: any): void { }
+  onEditAction(e: any): void {
+    this._router.navigateByUrl('/dashboard/manager/projects/add-edit-project');
+  }
 
   onDeleteAction(id: number): void {
     this.deleteDialogRef = this.dialog.open(DeleteComponent, {
       data: { id, name: 'Project' },
+      width: '45%',
     });
 
     this.deleteDialogRef.afterClosed().subscribe((result: { id: number }) => {

@@ -70,10 +70,14 @@
             ]"
           >
             {{ element[header.datafield] === true ? "Active" : "Not Active" }}
+
+            {{ element[header.datafield] === true ? "Active" : "Inactive" }}
+
           </div>
 
           <span *ngSwitchCase="'actions'">
             <button
+
               class="rounded-5"
               mat-icon-button
               [matMenuTriggerFor]="menu"
@@ -84,6 +88,14 @@
             <mat-menu #menu="matMenu" class="rounded-4">
               <button
                 [routerLink]="getViewRoute(element)"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button
                 mat-menu-item
                 *ngIf="header.actions?.isView"
                 (click)="view(element)"
@@ -93,12 +105,17 @@
               </button>
               <button
                 [routerLink]="getEditRoute(element)"
+                <mat-icon>visibility</mat-icon>
+                <span>View</span>
+              </button>
+              <button
                 mat-menu-item
                 *ngIf="header.actions?.isEdit"
                 (click)="edit(element)"
               >
-                <mat-icon class="icon">edit</mat-icon>
                 <span class="icon">Edit</span>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
               </button>
               <button
                 mat-menu-item
@@ -116,6 +133,29 @@
                 <mat-icon>block</mat-icon>
                 <span>Block</span>
               </button>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+              <ng-container *ngIf="element?.isActivated; else unblock">
+                <button
+                  mat-menu-item
+                  *ngIf="header.actions?.isBlock"
+                  (click)="block(element)"
+                >
+                  <mat-icon>block</mat-icon>
+                  <span>Block</span>
+                </button>
+              </ng-container>
+              <ng-template #unblock>
+                <button
+                  mat-menu-item
+                  *ngIf="header.actions?.isBlock"
+                  (click)="block(element)"
+                >
+                  <mat-icon>check_circle</mat-icon>
+                  <span>Unblock</span>
+                </button>
+              </ng-template>
             </mat-menu>
           </span>
         </ng-container>
