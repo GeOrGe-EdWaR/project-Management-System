@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptors/global.interceptor';
 import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxSpinnerModule.forRoot({ type: 'ball-fussion' }),
     ToastrModule.forRoot(),
     NgxDropzoneModule,
+    NgxChartsModule,
     HttpClientModule,
   ],
   exports: [NgxDropzoneModule, HttpClientModule],

@@ -34,6 +34,7 @@ import { CustomPaginatorComponent } from './list/custom-paginator/custom-paginat
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { FilterComponent } from './filter/filter.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
   hideRequiredMarker: true,
@@ -72,6 +73,7 @@ const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
     MatDividerModule,
     NgxDropzoneModule,
     NgxSpinnerModule,
+    NgxChartsModule
   ],
   exports: [
     FormsModule,
