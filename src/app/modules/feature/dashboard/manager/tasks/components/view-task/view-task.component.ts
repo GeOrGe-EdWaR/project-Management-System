@@ -84,8 +84,8 @@ export class ViewTaskComponent implements OnInit {
         this.viewTaskForm.patchValue({
           title: res.title,
           description: res.description,
-          employeeId: res.employeeId,
-          projectId: res.projectId,
+          employeeId: res?.employee?.id,
+          projectId: res?.project?.id,
         });
       },
       error: (err) => {
@@ -95,5 +95,9 @@ export class ViewTaskComponent implements OnInit {
         console.log('completed');
       },
     });
+  }
+
+  navigateToTasksList(): void {
+    this._Router.navigateByUrl('/dashboard/manager/tasks/list');
   }
 }

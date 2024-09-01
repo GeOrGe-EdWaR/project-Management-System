@@ -1,16 +1,13 @@
-<div class="page-header bg-white my-3 py-3">
-  <a
-    class="header-link text-decoration-none text-dark p-3"
-    routerLink="/dashboard/manager/projects/list"
-  >
-    <i class="fa-solid fa-arrow-left me-2"></i>View all tasks</a
-  >
-  <h1 class="page-title p-3">Add new task</h1>
-</div>
-<div class="card mx-auto p-5 m-5 col-8">
+<app-page-header
+  [pageTitle]="taskId ? 'Edit task' : 'Add new task'"
+  navigateBackText="View all tasks"
+  (navigateBackEvent)="navigateToTasksList()"
+></app-page-header>
+
+<div class="card mx-auto py-5 m-5 col-8">
   <div class="dard-body">
-    <form [formGroup]="addEditTaskForm" (ngSubmit)="onSubmit(addEditTaskForm)">
-      <div class="py-2">
+    <form class="px-5" [formGroup]="addEditTaskForm">
+      <div>
         <mat-label>Title</mat-label>
         <mat-form-field
           appearance="outline"
@@ -21,11 +18,26 @@
             formControlName="title"
             matInput
             type="text"
-            placeholder="Task title"
+            placeholder="Enter task's title"
           />
+
+          <mat-error
+            *ngIf="
+              addEditTaskForm.controls.title.touched &&
+              addEditTaskForm.controls.title.errors
+            "
+          >
+            <ng-container
+              [ngSwitch]="addEditTaskForm.controls.title | processFormErrors"
+            >
+              <ng-container *ngSwitchCase="'required'"
+                >Title is required</ng-container
+              >
+            </ng-container>
+          </mat-error>
         </mat-form-field>
       </div>
-      <div class="py-2">
+      <div>
         <mat-label>Description</mat-label>
         <mat-form-field
           class="example-full-width w-100"
@@ -36,12 +48,29 @@
             rows="3"
             formControlName="description"
             matInput
-            placeholder=" Task description"
+            placeholder="Enter task's description"
           ></textarea>
+
+          <mat-error
+            *ngIf="
+              addEditTaskForm.controls.description.touched &&
+              addEditTaskForm.controls.description.errors
+            "
+          >
+            <ng-container
+              [ngSwitch]="
+                addEditTaskForm.controls.description | processFormErrors
+              "
+            >
+              <ng-container *ngSwitchCase="'required'"
+                >Description is required</ng-container
+              >
+            </ng-container>
+          </mat-error>
         </mat-form-field>
       </div>
 
-      <div class="py-2 row">
+      <div class="row">
         <div class="col-md-6">
           <mat-label>Employee</mat-label>
           <mat-form-field
@@ -49,14 +78,35 @@
             appearance="outline"
             floatLabel="always"
           >
-            <mat-select formControlName="employeeId" name="food">
+            <mat-select
+              formControlName="employeeId"
+              name="employee"
+              placeholder="Select task's employee"
+            >
               <mat-option
                 *ngFor="let employee of employeesList"
-                [value]="employee.userName"
+                [value]="employee.id"
               >
                 {{ employee.userName }}
               </mat-option>
             </mat-select>
+
+            <mat-error
+              *ngIf="
+                addEditTaskForm.controls.employeeId.touched &&
+                addEditTaskForm.controls.employeeId.errors
+              "
+            >
+              <ng-container
+                [ngSwitch]="
+                  addEditTaskForm.controls.employeeId | processFormErrors
+                "
+              >
+                <ng-container *ngSwitchCase="'required'"
+                  >Employee is required</ng-container
+                >
+              </ng-container>
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -67,7 +117,11 @@
             appearance="outline"
             floatLabel="always"
           >
-            <mat-select formControlName="projectId" name="food">
+            <mat-select
+              formControlName="projectId"
+              name="project"
+              placeholder="Select task's project"
+            >
               <mat-option
                 *ngFor="let project of ProjectList"
                 [value]="project.id"
@@ -75,13 +129,39 @@
                 {{ project.title }}
               </mat-option>
             </mat-select>
+
+            <mat-error
+              *ngIf="
+                addEditTaskForm.controls.projectId.touched &&
+                addEditTaskForm.controls.projectId.errors
+              "
+            >
+              <ng-container
+                [ngSwitch]="
+                  addEditTaskForm.controls.projectId | processFormErrors
+                "
+              >
+                <ng-container *ngSwitchCase="'required'"
+                  >Project is required</ng-container
+                >
+              </ng-container>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
-      <div class="buttons d-flex justify-content-between py-4">
-        <button type="reset" class="rounded-5 p-2 bttn">Cancel</button>
-        <button type="submit" class="rounded-5 p-2 bttn-save">Save</button>
-      </div>
     </form>
+
+    <mat-divider></mat-divider>
+
+    <div class="buttons d-flex justify-content-between px-5 py-4">
+      <button type="reset" class="rounded-5 p-2 bttn">Cancel</button>
+      <button
+        type="submit"
+        class="rounded-5 p-2 bttn-save"
+        (click)="onSubmit(addEditTaskForm)"
+      >
+        Save
+      </button>
+    </div>
   </div>
 </div>

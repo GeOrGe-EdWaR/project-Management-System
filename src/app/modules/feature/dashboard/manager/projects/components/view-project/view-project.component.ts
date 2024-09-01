@@ -48,4 +48,8 @@ export class ViewProjectComponent implements OnInit {
       },
     });
   }
+
+  navigateToProjectsList(): void {
+    this._Router.navigateByUrl('/dashboard/manager/projects/list');
+  }
 }

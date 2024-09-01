@@ -24,7 +24,7 @@
             <!-- img dropzone -->
             <ngx-dropzone
               (change)="onSelect($event)"
-              class="bg-transparent border-0 mx-auto my-3 overflow-hidden  rounded-3"
+              class="bg-transparent border-0 mx-auto my-3 overflow-hidden rounded-3"
             >
               <ngx-dropzone-label
                 class="uploadimg w-100 h-100 d-flex justify-content-center  align-items-center"
@@ -49,24 +49,24 @@
                   appearance="fill"
                   floatLabel="always"
                 >
-                  <mat-label>User name</mat-label>
+                  <mat-label>Username</mat-label>
                   <input
                     matInput
                     formControlName="userName"
                     placeholder="Enter your name"
                   />
-                  <ng-container
+                  <mat-error
                     *ngIf="
                       registerForm.get('userName')?.touched &&
                       registerForm.get('userName')?.errors
                     "
                   >
-                    <mat-error
+                    <ng-container
                       *ngIf="registerForm.get('userName')?.hasError('required')"
                     >
-                      Username is <strong>required</strong>
-                    </mat-error>
-                  </ng-container>
+                      Username is required
+                    </ng-container>
+                  </mat-error>
                 </mat-form-field>
               </div>
               <div class="col-md-6">
@@ -79,27 +79,27 @@
                   <input
                     matInput
                     formControlName="email"
-                    placeholder="Enter your e-mail"
+                    placeholder="Enter your email"
                   />
-                  <ng-container
+                  <mat-error
                     *ngIf="
                       registerForm.get('email')?.touched &&
                       registerForm.get('email')?.errors
                     "
                   >
-                    <mat-error
+                    <ng-container
                       *ngIf="
                         registerForm.get('email')?.hasError('email') &&
                         !registerForm.get('email')?.hasError('required')
                       "
                     >
                       Please enter a valid email address
-                    </mat-error>
-                    <mat-error
+                    </ng-container>
+                    <ng-container
                       *ngIf="registerForm.get('email')?.hasError('required')"
                     >
-                      Email is <strong>required</strong>
-                    </mat-error></ng-container
+                      Email is required
+                    </ng-container></mat-error
                   >
                 </mat-form-field>
               </div>
@@ -118,18 +118,18 @@
                     formControlName="country"
                     placeholder="Enter your country"
                   />
-                  <ng-container
+                  <mat-error
                     *ngIf="
                       registerForm.get('country')?.touched &&
                       registerForm.get('country')?.errors
                     "
                   >
-                    <mat-error
+                    <ng-container
                       *ngIf="registerForm.get('country')?.hasError('required')"
                     >
-                      Country is <strong>required</strong>
-                    </mat-error>
-                  </ng-container>
+                      Country is required
+                    </ng-container>
+                  </mat-error>
                 </mat-form-field>
               </div>
               <div class="col-md-6">
@@ -144,26 +144,26 @@
                     formControlName="phoneNumber"
                     placeholder="Enter your phone number"
                   />
-                  <ng-container
+                  <mat-error
                     *ngIf="
                       registerForm.get('phoneNumber')?.touched &&
                       registerForm.get('phoneNumber')?.errors
                     "
                   >
-                    <mat-error
+                    <ng-container
                       *ngIf="
                         registerForm.get('phoneNumber')?.hasError('required')
                       "
                     >
-                      Phone number is <strong>required</strong>
-                    </mat-error>
-                    <mat-error
+                      Phone number is required
+                    </ng-container>
+                    <ng-container
                       *ngIf="
                         registerForm.get('phoneNumber')?.hasError('pattern')
                       "
                     >
                       Phone number is <strong>invalid</strong>
-                    </mat-error></ng-container
+                    </ng-container></mat-error
                   >
                 </mat-form-field>
               </div>
@@ -191,23 +191,23 @@
                     >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
                   >
 
-                  <ng-container
+                  <mat-error
                     *ngIf="
                       registerForm.get('password')?.touched &&
                       registerForm.get('password')?.errors
                     "
                   >
-                    <mat-error
+                    <ng-container
                       *ngIf="registerForm.get('password')?.hasError('required')"
                     >
-                      Password is <strong>required</strong>
-                    </mat-error>
-                    <mat-error
+                      Password is required
+                    </ng-container>
+                    <ng-container
                       *ngIf="registerForm.get('password')?.hasError('pattern')"
                     >
                       Password minlength is 6 , should contain uppercase and
                       special characters
-                    </mat-error></ng-container
+                    </ng-container></mat-error
                   >
                 </mat-form-field>
               </div>
@@ -223,7 +223,7 @@
                     matInput
                     type="password"
                     formControlName="confirmPassword"
-                    placeholder="Confirm new password"
+                    placeholder="Enter confirm password"
                   />
                   <mat-icon
                     class="text-white"
@@ -231,26 +231,26 @@
                     (click)="hide = !hide"
                     >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
                   >
-                  <ng-container
+                  <mat-error
                     *ngIf="
                       registerForm.get('confirmPassword')?.touched &&
                       registerForm.get('confirmPassword')?.errors
                     "
                   >
-                    <mat-error
+                    <ng-container
                       *ngIf="
                         registerForm.get('confirmPassword')?.hasError('require')
                       "
                     >
-                      confirm Password is <strong>required</strong>
-                    </mat-error>
-                    <mat-error
+                      confirm Password is required
+                    </ng-container>
+                    <ng-container
                       *ngIf="
                         registerForm.get('confirmPassword')?.hasError('notsame')
                       "
                     >
                       Confirm Password does not match Password.
-                    </mat-error></ng-container
+                    </ng-container></mat-error
                   >
                 </mat-form-field>
               </div>

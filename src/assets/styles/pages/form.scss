@@ -20,9 +20,12 @@
   margin-left: 1px;
   margin-right: 0px;
   display: none;
-  }
+}
+
 ::ng-deep .mdc-text-field__input {
   text-transform: none !important;
-
 }
-  
+
+.mat-mdc-form-field-error-wrapper {
+  padding: 0 !important;
+}

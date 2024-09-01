@@ -1,12 +1,11 @@
-import { FormControl, FormGroupDirective, NgForm } from "@angular/forms";
-import { ErrorStateMatcher } from "@angular/material/core";
+import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 export const AuthErrorMessages: any = {
   user: {
     required: 'it is required',
     minlength: 'it is min length',
-  }
-  ,
+  },
   email: {
     required: 'Email is required',
     pattern: 'Please enter valid email',
@@ -15,23 +14,27 @@ export const AuthErrorMessages: any = {
     required: 'Code is required',
     pattern: 'Code should be 4 characters',
   },
-  password:{
+  password: {
     required: 'Password is required',
     pattern: 'Password should be (fill it when we have regex)',
   },
-  confirmPassword:{
+  confirmPassword: {
     required: 'Password is required',
     pattern: 'Password should be (fill it when we have regex)',
-    notMatch: 'Your Passwords should Match !'
+    notMatch: 'your passwords should Match !',
   },
-
-  
 };
 
-
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
   }
 }

@@ -46,37 +46,40 @@ export class AddEditProjectComponent {
   }
 
   onSubmit(data: FormGroup) {
-    if (this.pageId) {
-      // add new project function
-      this._ProjectsService.editProject(this.pageId, data.value).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-        complete: () => {
-          console.log('completed');
-          this.toastr.success('Success', 'project edited successfully');
-          this._Router.navigate(['/dashboard/manager/projects/list']);
-        },
-      });
-    } else {
-      // add project function
+    data.markAllAsTouched();
 
-      this._ProjectsService.onAddProject(data.value).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          // console.log(err);
-        },
-        complete: () => {
-          console.log('completed');
-          this.toastr.success('Success', 'project Added successfully');
-          this._Router.navigate(['/dashboard/manager/projects/list']);
-        },
-      });
+    if (data.valid) {
+      if (this.pageId) {
+        // edit project
+        this.onEditProject(data);
+      } else {
+        // add project
+        this.onAddProject(data);
+      }
     }
+  }
+
+  onEditProject(data: FormGroup): void {
+    this._ProjectsService.editProject(this.pageId, data.value).subscribe({
+      complete: () => {
+        this.toastr.success('Success', 'Project editted successfully');
+
+        this.navigateToProjectsList();
+      },
+    });
+  }
+
+  onAddProject(data: FormGroup): void {
+    this._ProjectsService.onAddProject(data.value).subscribe({
+      complete: () => {
+        this.toastr.success('Success', 'Project added successfully');
+
+        this.navigateToProjectsList();
+      },
+    });
+  }
+
+  navigateToProjectsList(): void {
+    this._Router.navigate(['/dashboard/manager/projects/list']);
   }
 }

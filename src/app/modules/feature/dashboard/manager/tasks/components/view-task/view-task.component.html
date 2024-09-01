@@ -1,33 +1,29 @@
-<div class="page-header my-3 py-3 bg-white">
-  <a
-    class="header-link text-decoration-none text-dark p-3"
-    routerLink="/dashboard/manager/projects/list"
-  >
-    <i class="fa-solid fa-arrow-left me-2"></i>View All tasks</a
-  >
-  <h1 class="page-title p-3">View task</h1>
-</div>
+<app-page-header
+  pageTitle="View task"
+  navigateBackText="View all tasks"
+  (navigateBackEvent)="navigateToTasksList()"
+></app-page-header>
+
 <div class="card mx-auto p-5 m-5 col-8">
   <div class="dard-body">
     <form [formGroup]="viewTaskForm">
-      <div class="py-2">
-        <label class="text-secondary py-3 text-dark">Title</label>
+      <div>
+        <mat-label>Title</mat-label>
         <mat-form-field
           appearance="outline"
           floatLabel="always"
           class="example-form-field w-100"
         >
-          <mat-label>Title</mat-label>
           <input formControlName="title" matInput type="text" />
         </mat-form-field>
       </div>
-      <div class="py-2">
+      <div>
+        <mat-label>Description</mat-label>
         <mat-form-field
           class="example-full-width w-100"
           appearance="outline"
           floatLabel="always"
         >
-          <mat-label>Description</mat-label>
           <textarea
             rows="3"
             formControlName="description"
@@ -36,10 +32,14 @@
           ></textarea>
         </mat-form-field>
       </div>
-      <div class="py-2 row">
-        <div class="col-md-4">
-          <mat-form-field appearance="outline" floatLabel="always">
-            <mat-label>employee</mat-label>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-label class="d-block">Employee</mat-label>
+          <mat-form-field
+            class="w-100"
+            appearance="outline"
+            floatLabel="always"
+          >
             <mat-select formControlName="employeeId">
               <mat-option
                 *ngFor="let employee of employeesList"
@@ -50,9 +50,13 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-md-4">
-          <mat-form-field appearance="outline" floatLabel="always">
-            <mat-label>project</mat-label>
+        <div class="col-md-6">
+          <mat-label class="d-block">Project</mat-label>
+          <mat-form-field
+            class="w-100"
+            appearance="outline"
+            floatLabel="always"
+          >
             <mat-select formControlName="projectId">
               <mat-option
                 *ngFor="let project of ProjectList"

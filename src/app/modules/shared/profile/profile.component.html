@@ -37,18 +37,18 @@
               formControlName="userName"
               placeholder="Enter your name"
             />
-            <ng-container
+            <mat-error
               *ngIf="
                 profileForm.get('userName')?.touched &&
                 profileForm.get('userName')?.errors
               "
             >
-              <mat-error
+              <ng-container
                 *ngIf="profileForm.get('userName')?.hasError('required')"
               >
-                Username is <strong>required</strong>
-              </mat-error>
-            </ng-container>
+                Username is required
+              </ng-container>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">
@@ -61,25 +61,27 @@
             <input
               matInput
               formControlName="email"
-              placeholder="Enter your E-mail"
+              placeholder="Enter your email"
             />
-            <ng-container
+            <mat-error
               *ngIf="
                 profileForm.get('email')?.touched &&
                 profileForm.get('email')?.errors
               "
             >
-              <mat-error
+              <ng-container
                 *ngIf="
                   profileForm.get('email')?.hasError('email') &&
                   !profileForm.get('email')?.hasError('required')
                 "
               >
                 Please enter a valid email address
-              </mat-error>
-              <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
-                Email is <strong>required</strong>
-              </mat-error></ng-container
+              </ng-container>
+              <ng-container
+                *ngIf="profileForm.get('email')?.hasError('required')"
+              >
+                Email is required
+              </ng-container></mat-error
             >
           </mat-form-field>
         </div>
@@ -95,18 +97,18 @@
               formControlName="country"
               placeholder="Enter your country"
             />
-            <ng-container
+            <mat-error
               *ngIf="
                 profileForm.get('country')?.touched &&
                 profileForm.get('country')?.errors
               "
             >
-              <mat-error
+              <ng-container
                 *ngIf="profileForm.get('country')?.hasError('required')"
               >
-                Country is <strong>required</strong>
-              </mat-error>
-            </ng-container>
+                Country is required
+              </ng-container>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">
@@ -121,22 +123,22 @@
               formControlName="phoneNumber"
               placeholder="Enter your phone number"
             />
-            <ng-container
+            <mat-error
               *ngIf="
                 profileForm.get('phoneNumber')?.touched &&
                 profileForm.get('phoneNumber')?.errors
               "
             >
-              <mat-error
+              <ng-container
                 *ngIf="profileForm.get('phoneNumber')?.hasError('required')"
               >
-                Phone number is <strong>required</strong>
-              </mat-error>
-              <mat-error
+                Phone number is required
+              </ng-container>
+              <ng-container
                 *ngIf="profileForm.get('phoneNumber')?.hasError('pattern')"
               >
                 Phone number is <strong>invalid</strong>
-              </mat-error></ng-container
+              </ng-container></mat-error
             >
           </mat-form-field>
         </div>
@@ -152,7 +154,7 @@
               matInput
               type="password"
               formControlName="password"
-              placeholder="Enter your Password"
+              placeholder="Enter your password"
             />
             <mat-icon
               class="text-white"
@@ -161,23 +163,23 @@
               >{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
             >
 
-            <ng-container
+            <mat-error
               *ngIf="
                 profileForm.get('password')?.touched &&
                 profileForm.get('password')?.errors
               "
             >
-              <mat-error
+              <ng-container
                 *ngIf="profileForm.get('password')?.hasError('required')"
               >
-                Password is <strong>required</strong>
-              </mat-error>
-              <mat-error
+                Password is required
+              </ng-container>
+              <ng-container
                 *ngIf="profileForm.get('password')?.hasError('pattern')"
               >
                 Password minlength is 6 , should contain uppercase and special
                 characters
-              </mat-error></ng-container
+              </ng-container></mat-error
             >
           </mat-form-field>
         </div>
@@ -201,22 +203,22 @@
               (click)="hidePassword = !hidePassword"
               >{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
             >
-            <ng-container
+            <mat-error
               *ngIf="
                 profileForm.get('confirmPassword')?.touched &&
                 profileForm.get('confirmPassword')?.errors
               "
             >
-              <mat-error
+              <ng-container
                 *ngIf="profileForm.get('confirmPassword')?.hasError('require')"
               >
-                confirm Password is <strong>required</strong>
-              </mat-error>
-              <mat-error
+                confirm Password is required
+              </ng-container>
+              <ng-container
                 *ngIf="profileForm.get('confirmPassword')?.hasError('notsame')"
               >
                 Confirm Password does not match Password.
-              </mat-error></ng-container
+              </ng-container></mat-error
             >
           </mat-form-field>
         </div>

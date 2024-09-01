@@ -83,11 +83,13 @@ export class TasksListComponent {
   }
 
   onViewAction(e: any): void {
-    this._router.navigateByUrl('/dashboard/manager/tasks/view-task');
+    this._router.navigateByUrl('/dashboard/manager/tasks/view-task/' + e.id);
   }
 
   onEditAction(e: any): void {
-    this._router.navigateByUrl('/dashboard/manager/tasks/add-edit-task');
+    this._router.navigateByUrl(
+      '/dashboard/manager/tasks/add-edit-task/' + e.id
+    );
   }
 
   onDeleteAction(id: number): void {

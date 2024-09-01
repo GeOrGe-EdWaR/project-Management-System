@@ -24,10 +24,10 @@
                 type="email"
                 formControlName="email"
                 matInput
-                placeholder="Enter your Email"
+                placeholder="Enter your email"
                 [errorStateMatcher]="matcher"
               />
-              <div
+              <mat-error
                 *ngIf="
                   loginForm.controls.email.touched &&
                   loginForm.controls.email.errors
@@ -36,14 +36,14 @@
                 <ng-container
                   [ngSwitch]="loginForm.controls.email | processFormErrors"
                 >
-                  <mat-error *ngSwitchCase="'required'">{{
+                  <ng-container *ngSwitchCase="'required'">{{
                     AuthErrorMessages.email.required
-                  }}</mat-error>
-                  <mat-error *ngSwitchCase="'email'">{{
+                  }}</ng-container>
+                  <ng-container *ngSwitchCase="'email'">{{
                     AuthErrorMessages.email.pattern
-                  }}</mat-error>
+                  }}</ng-container>
                 </ng-container>
-              </div>
+              </mat-error>
             </mat-form-field>
 
             <!-- Code Field -->
@@ -53,12 +53,12 @@
                 [type]="hide ? 'password' : 'text'"
                 formControlName="password"
                 matInput
-                placeholder="Enter Your Password"
+                placeholder="Enter your password"
               />
               <mat-icon class="text-white" matSuffix (click)="hide = !hide">{{
                 hide ? "visibility_off" : "visibility"
               }}</mat-icon>
-              <div
+              <mat-error
                 *ngIf="
                   loginForm.controls.password.touched &&
                   loginForm.controls.password.errors
@@ -67,14 +67,14 @@
                 <ng-container
                   [ngSwitch]="loginForm.controls.password | processFormErrors"
                 >
-                  <mat-error *ngSwitchCase="'required'">{{
+                  <ng-container *ngSwitchCase="'required'">{{
                     AuthErrorMessages.password.required
-                  }}</mat-error>
-                  <mat-error *ngSwitchCase="'pattern'">{{
+                  }}</ng-container>
+                  <ng-container *ngSwitchCase="'pattern'">{{
                     AuthErrorMessages.password.pattern
-                  }}</mat-error>
+                  }}</ng-container>
                 </ng-container>
-              </div>
+              </mat-error>
             </mat-form-field>
 
             <!-- Submit Button -->
@@ -93,7 +93,7 @@
                 class="text-white w-100 primary-btn"
                 (click)="submit()"
               >
-                Log In
+                Login
               </button>
             </div>
           </form>
