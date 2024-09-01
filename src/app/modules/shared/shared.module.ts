@@ -6,7 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+  MatFormFieldDefaultOptions,
+  MatFormFieldModule,
+} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -30,6 +34,10 @@ import { CustomPaginatorComponent } from './list/custom-paginator/custom-paginat
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { FilterComponent } from './filter/filter.component';
 import { ProfileComponent } from './profile/profile.component';
+
+const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
+  hideRequiredMarker: true,
+};
 
 @NgModule({
   declarations: [
@@ -91,6 +99,12 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     PageHeaderComponent,
     FilterComponent,
+  ],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: matFormFieldDefaultOptions,
+    },
   ],
 })
 export class SharedModule {}
