@@ -22,7 +22,7 @@
             <p class="text-white mb-0">welcome in PMS</p>
             <h4 class="text-main">
               <span class="border-bottom border-4 border-warning">V</span>erify
-              account
+              Account
             </h4>
           </div>
           <form [formGroup]="verifyForm">
@@ -33,7 +33,7 @@
                 type="email"
                 formControlName="email"
                 matInput
-                placeholder="Enter your email"
+                placeholder="Enter your Email"
                 [errorStateMatcher]="matcher"
               />
               <ng-container
@@ -62,7 +62,7 @@
                 type="text"
                 formControlName="code"
                 matInput
-                placeholder="Enter verification code"
+                placeholder="Enter Verification Code"
               />
               <ng-container
                 *ngIf="
