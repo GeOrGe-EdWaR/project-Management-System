@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div
     class="my-3 banner border d-flex justify-content-between align-items-center rounded-4"
   >
@@ -12,6 +12,48 @@
       <p class="fs-1 text-light">
         You can add project and assign tasks to your team
       </p>
+    </div>
+  </div>
+</div> -->
+
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="main-img my-3 rounded-4 col-md-12"> 
+        <h1 class="fs-1 ms-4 mt-5 text-light">
+          Welcome
+          <strong class="text-main fw-normal">
+            {{ this.profile.userName }}
+          </strong>
+        </h1>
+        <p class="fs-1 ms-4 text-light">
+          You can add project and assign tasks to your team
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-around">
+
+      <div class="chart col-md-5 shadow p-3 d-flex flex-column justify-content-center align-items-center">
+        <h3>Tasks Overview</h3>
+        <ngx-charts-pie-chart
+        [results]="allTaskStatus"
+        [animations]="animationPC"
+        [scheme]="colorScheme"
+        [labels]="labelsPC"
+        [doughnut]="doughnut"
+        [tooltipText]="percentageFormatterPC"
+      ></ngx-charts-pie-chart>
+      </div>
+      <div class="chart col-md-5 shadow p-3 d-flex flex-column justify-content-center align-items-center">
+        <h3>Users Overview</h3>
+        <ngx-charts-number-card
+       
+        [animations]="animationPC"
+        [results]="allUsers"
+        [scheme]="colorScheme"
+        
+      ></ngx-charts-number-card>
+      </div>
     </div>
   </div>
 </div>
