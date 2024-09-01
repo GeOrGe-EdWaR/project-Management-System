@@ -39,4 +39,35 @@
       border-radius: 8px;
     }
   }
+
+  .status {
+    width: 100px;
+    text-align: center;
+    padding: 3px 0;
+    color: white;
+  }
+  .Active{
+    background-color: #009247;
+  }
+  .Not-Active{
+    background-color: #d20303;
+
+  }
+
+
+
+  .Done {
+    background-color: #009247;
+  }
+
+  .ToDo {
+    background-color: #E4E1F5;
+  }
+
+  .InProgress {
+    background-color: rgba(#ef9b28a3, 0.65);
+  }
+}
+.icon {
+  color: #315951;
 }
