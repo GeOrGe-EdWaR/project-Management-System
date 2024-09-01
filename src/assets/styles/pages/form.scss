@@ -1,5 +1,9 @@
-.rounded-form-field-outline .mdc-text-field--outlined {
+.rounded-form-field-outline-lg .mdc-text-field--outlined {
   --mdc-outlined-text-field-container-shape: 28px !important;
+}
+
+.rounded-form-field-outline-sm .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 16px !important;
 }
 
 .filter-dropdown {
@@ -28,4 +32,11 @@
 
 .mat-mdc-form-field-error-wrapper {
   padding: 0 !important;
+}
+
+.outline-form-field-top-label {
+  font-size: 1rem;
+  font-family: Quicksand-Medium;
+  color: #4f4f4f;
+  font-weight: 400;
 }

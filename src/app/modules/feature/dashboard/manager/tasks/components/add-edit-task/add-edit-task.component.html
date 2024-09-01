@@ -4,15 +4,15 @@
   (navigateBackEvent)="navigateToTasksList()"
 ></app-page-header>
 
-<div class="card mx-auto py-5 m-5 col-8">
+<div class="card mx-auto pt-4 m-5 col-8">
   <div class="dard-body">
     <form class="px-5" [formGroup]="addEditTaskForm">
       <div>
-        <mat-label>Title</mat-label>
+        <mat-label class="outline-form-field-top-label">Title</mat-label>
         <mat-form-field
           appearance="outline"
           floatLabel="always"
-          class="example-form-field w-100 dark-green"
+          class="w-100 rounded-form-field-outline-sm"
         >
           <input
             formControlName="title"
@@ -38,9 +38,9 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-label>Description</mat-label>
+        <mat-label class="outline-form-field-top-label">Description</mat-label>
         <mat-form-field
-          class="example-full-width w-100"
+          class="w-100 rounded-form-field-outline-sm"
           appearance="outline"
           floatLabel="always"
         >
@@ -72,9 +72,9 @@
 
       <div class="row">
         <div class="col-md-6">
-          <mat-label>Employee</mat-label>
+          <mat-label class="outline-form-field-top-label">Employee</mat-label>
           <mat-form-field
-            class="w-100"
+            class="w-100 rounded-form-field-outline-sm"
             appearance="outline"
             floatLabel="always"
           >
@@ -111,9 +111,9 @@
         </div>
 
         <div class="col-md-6">
-          <mat-label>Project</mat-label>
+          <mat-label class="outline-form-field-top-label">Project</mat-label>
           <mat-form-field
-            class="w-100"
+            class="w-100 rounded-form-field-outline-sm"
             appearance="outline"
             floatLabel="always"
           >
@@ -153,11 +153,13 @@
 
     <mat-divider></mat-divider>
 
-    <div class="buttons d-flex justify-content-between px-5 py-4">
-      <button type="reset" class="rounded-5 p-2 bttn">Cancel</button>
+    <div class="d-flex justify-content-between px-5 py-4">
+      <button type="reset" class="outline-grey-btn px-4 py-2 w-auto">
+        Cancel
+      </button>
       <button
         type="submit"
-        class="rounded-5 p-2 bttn-save"
+        class="primary-btn px-4 py-2 w-auto"
         (click)="onSubmit(addEditTaskForm)"
       >
         Save
