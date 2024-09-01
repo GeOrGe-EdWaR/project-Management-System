@@ -22,20 +22,17 @@
             (ngSubmit)="onRegister(registerForm)"
           >
             <!-- img dropzone -->
-
             <ngx-dropzone
               (change)="onSelect($event)"
-              class="bg-transparent border-0 mx-auto my-3 overflow-hidden dropzone"
+              class="bg-transparent border-0 mx-auto my-3 overflow-hidden  rounded-3"
             >
               <ngx-dropzone-label
-                class="uploadimg w-100 h-100 d-flex justify-content-center align-items-center"
+                class="uploadimg w-100 h-100 d-flex justify-content-center  align-items-center"
               >
-                <mat-icon class="mat-18 text-warning rounded-3"
-                  >photo_camera</mat-icon
-                >
+                <mat-icon class="mat-18 text-warning  rounded-3">photo_camera</mat-icon>
               </ngx-dropzone-label>
               <ngx-dropzone-image-preview
-                class="w-100 m-0 dropzone"
+                class="w-100 m-0 rounded-circle"
                 *ngFor="let f of files"
                 [file]="files[0]"
                 [removable]="true"
@@ -44,7 +41,6 @@
                 {{ f.name }} ({{ f.type }})
               </ngx-dropzone-image-preview>
             </ngx-dropzone>
-
             <!-- input fields -->
             <div class="row">
               <div class="col-md-6">
@@ -53,7 +49,7 @@
                   appearance="fill"
                   floatLabel="always"
                 >
-                  <mat-label>User name</mat-label>
+                  <mat-label>Username</mat-label>
                   <input
                     matInput
                     formControlName="userName"
@@ -68,7 +64,7 @@
                     <mat-error
                       *ngIf="registerForm.get('userName')?.hasError('required')"
                     >
-                      User name is <strong>required</strong>
+                      Username is <strong>required</strong>
                     </mat-error>
                   </ng-container>
                 </mat-form-field>
@@ -83,7 +79,7 @@
                   <input
                     matInput
                     formControlName="email"
-                    placeholder="Enter your e-mail"
+                    placeholder="Enter your E-mail"
                   />
                   <ng-container
                     *ngIf="
@@ -142,7 +138,7 @@
                   appearance="fill"
                   floatLabel="always"
                 >
-                  <mat-label>Phone number</mat-label>
+                  <mat-label>Phone Number</mat-label>
                   <input
                     matInput
                     formControlName="phoneNumber"
@@ -221,13 +217,13 @@
                   appearance="fill"
                   floatLabel="always"
                 >
-                  <mat-label>Confirm password</mat-label>
+                  <mat-label>Confirm Password</mat-label>
                   <input
                     [type]="hide ? 'password' : 'text'"
                     matInput
                     type="password"
                     formControlName="confirmPassword"
-                    placeholder="Confirm new password"
+                    placeholder="Confirm New Password"
                   />
                   <mat-icon
                     class="text-white"
@@ -260,7 +256,7 @@
               </div>
             </div>
             <div class="links">
-              <a class="text-main" routerLink="/auth/login">Login now!</a>
+              <a class="text-main" routerLink="/auth/login">Login Now!</a>
               <a class="text-white" routerLink="/auth/verify-account"
                 >Have a Code?</a
               >
