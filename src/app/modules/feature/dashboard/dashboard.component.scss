@@ -1,4 +1,4 @@
-.content{
+.content {
   margin-top: 80px;
 }
 
@@ -12,4 +12,8 @@
   margin-left: 75px;
 
   min-width: calc(100vw - 95px);
+}
+
+.dashboard-container{
+  min-height: 100vh;
 }

@@ -1,8 +1,8 @@
 <app-page-header pageTitle="Profile"></app-page-header>
 
-<div class="card mx-auto px-5 py-4 m-5 col-8">
+<div class="card mx-auto pt-4 m-5 col-8">
   <div class="dard-body">
-    <form [formGroup]="profileForm">
+    <form class="px-5" [formGroup]="profileForm">
       <!-- img dropzone -->
       <ngx-dropzone
         (change)="onSelect($event)"
@@ -26,12 +26,12 @@
       </ngx-dropzone>
       <div class="row">
         <div class="col-md-6">
+          <mat-label class="outline-form-field-top-label">Username</mat-label>
           <mat-form-field
             class="w-100 bg-transparent"
             appearance="outline"
             floatLabel="always"
           >
-            <mat-label>Username</mat-label>
             <input
               matInput
               formControlName="userName"
@@ -52,12 +52,12 @@
           </mat-form-field>
         </div>
         <div class="col-md-6">
+          <mat-label class="outline-form-field-top-label">Email</mat-label>
           <mat-form-field
             class="w-100"
             appearance="outline"
             floatLabel="always"
           >
-            <mat-label>Email</mat-label>
             <input
               matInput
               formControlName="email"
@@ -86,12 +86,12 @@
           </mat-form-field>
         </div>
         <div class="col-md-6">
+          <mat-label class="outline-form-field-top-label">Country</mat-label>
           <mat-form-field
             class="w-100"
             appearance="outline"
             floatLabel="always"
           >
-            <mat-label>Country</mat-label>
             <input
               matInput
               formControlName="country"
@@ -112,12 +112,14 @@
           </mat-form-field>
         </div>
         <div class="col-md-6">
+          <mat-label class="outline-form-field-top-label"
+            >Phone Number</mat-label
+          >
           <mat-form-field
             class="w-100"
             appearance="outline"
             floatLabel="always"
           >
-            <mat-label>Phone Number</mat-label>
             <input
               matInput
               formControlName="phoneNumber"
@@ -143,12 +145,12 @@
           </mat-form-field>
         </div>
         <div class="col-md-6" [hidden]="isView">
+          <mat-label class="outline-form-field-top-label">Password</mat-label>
           <mat-form-field
             class="w-100"
             appearance="outline"
             floatLabel="always"
           >
-            <mat-label>Password</mat-label>
             <input
               [type]="hidePassword ? 'password' : 'text'"
               matInput
@@ -184,18 +186,20 @@
           </mat-form-field>
         </div>
         <div class="col-md-6" [hidden]="isView">
+          <mat-label class="outline-form-field-top-label"
+            >Confirm Password</mat-label
+          >
           <mat-form-field
             class="w-100 position-relative"
             appearance="outline"
             floatLabel="always"
           >
-            <mat-label>Confirm Password</mat-label>
             <input
               [type]="hidePassword ? 'password' : 'text'"
               matInput
               type="password"
               formControlName="confirmPassword"
-              placeholder="Confirm New Password"
+              placeholder="Enter confirm password"
             />
             <mat-icon
               class="text-white"
@@ -223,18 +227,44 @@
           </mat-form-field>
         </div>
       </div>
-
-      <div class="d-flex justify-content-between">
-        <ng-container *ngIf="isView; else editButtons">
-          <button type="submit" (click)="navigateToHome()">Cancel</button>
-          <button type="button" (click)="toggleToEdit()">Edit</button>
-        </ng-container>
-
-        <ng-template #editButtons>
-          <button type="submit" (click)="toggleToView()">Cancel</button>
-          <button type="button" (click)="submitEdit()">Submit</button>
-        </ng-template>
-      </div>
     </form>
+
+    <mat-divider></mat-divider>
+
+    <div class="d-flex justify-content-between px-5 py-4">
+      <ng-container *ngIf="isView; else editButtons">
+        <button
+          type="submit"
+          class="outline-grey-btn px-4 py-2 w-auto"
+          (click)="navigateToHome()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="primary-btn px-4 py-2 w-auto"
+          (click)="toggleToEdit()"
+        >
+          Edit
+        </button>
+      </ng-container>
+
+      <ng-template #editButtons>
+        <button
+          type="submit"
+          class="outline-grey-btn px-4 py-2 w-auto"
+          (click)="toggleToView()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="primary-btn px-4 py-2 w-auto"
+          (click)="submitEdit()"
+        >
+          Submit
+        </button>
+      </ng-template>
+    </div>
   </div>
 </div>
