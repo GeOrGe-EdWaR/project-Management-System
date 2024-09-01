@@ -1,12 +1,9 @@
-<div class="page-header my-3 py-3 bg-white">
-  <a
-    class="header-link text-decoration-none text-dark p-3"
-    routerLink="/dashboard/manager/projects/list"
-  >
-    <i class="fa-solid fa-arrow-left me-2"></i>View all projects</a
-  >
-  <h1 class="page-title p-3">Add new project</h1>
-</div>
+<app-page-header
+  [pageTitle]="pageId ? 'Edit project' : 'Add new project'"
+  navigateBackText="View all projects"
+  (navigateBackEvent)="navigateToProjectsList()"
+></app-page-header>
+
 <div class="card mx-auto p-5 m-5 col-8">
   <div class="dard-body">
     <form
@@ -24,8 +21,23 @@
             formControlName="title"
             matInput
             type="text"
-            placeholder="project title"
+            placeholder="Enter project title"
           />
+
+          <mat-error
+            *ngIf="
+              addNewProjectForm.controls.title.touched &&
+              addNewProjectForm.controls.title.errors
+            "
+          >
+            <ng-container
+              [ngSwitch]="addNewProjectForm.controls.title | processFormErrors"
+            >
+              <ng-container *ngSwitchCase="'required'"
+                >Title is required</ng-container
+              >
+            </ng-container>
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="py-2">
@@ -39,8 +51,25 @@
             rows="3"
             formControlName="description"
             matInput
-            placeholder="Project description"
+            placeholder="Enter project description"
           ></textarea>
+
+          <mat-error
+            *ngIf="
+              addNewProjectForm.controls.description.touched &&
+              addNewProjectForm.controls.description.errors
+            "
+          >
+            <ng-container
+              [ngSwitch]="
+                addNewProjectForm.controls.description | processFormErrors
+              "
+            >
+              <ng-container *ngSwitchCase="'required'"
+                >Description is required</ng-container
+              >
+            </ng-container>
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="buttons d-flex justify-content-between py-2">

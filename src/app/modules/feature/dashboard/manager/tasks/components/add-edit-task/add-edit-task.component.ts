@@ -81,12 +81,11 @@ export class AddEditTaskComponent implements OnInit {
   getTaskById(id: number) {
     this._TaskService.getTaskById(id).subscribe({
       next: (res) => {
-        console.log(res);
         this.addEditTaskForm.patchValue({
           title: res.title,
           description: res.description,
-          employeeId: res.employeeId,
-          projectId: res.projectId,
+          employeeId: res?.employee?.id,
+          projectId: res?.project?.id,
         });
       },
       error: (err) => {
@@ -97,35 +96,40 @@ export class AddEditTaskComponent implements OnInit {
       },
     });
   }
+
   onSubmit(data: FormGroup) {
-    if (this.taskId) {
-      this._TaskService.updateTask(this.taskId, data.value).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-        complete: () => {
-          console.log('completed');
-          this.ToastrService.success('Success', 'Task Updated successfully');
-          this._Router.navigate(['/dashboard/manager/tasks/list']);
-        },
-      });
-    } else {
-      this._TaskService.addNewTask(data.value).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-        complete: () => {
-          console.log('completed');
-          this.ToastrService.success('Success', 'Task Added successfully');
-          this._Router.navigate(['/dashboard/manager/tasks/list']);
-        },
-      });
+    data.markAllAsTouched();
+
+    if (data.valid) {
+      if (this.taskId) {
+        this.onEditTask(data);
+      } else {
+        this.onAddTask(data);
+      }
     }
+  }
+
+  onEditTask(data: FormGroup): void {
+    this._TaskService.updateTask(this.taskId, data.value).subscribe({
+      complete: () => {
+        this.ToastrService.success('Success', 'Task editted successfully');
+
+        this.navigateToTasksList();
+      },
+    });
+  }
+
+  onAddTask(data: FormGroup): void {
+    this._TaskService.addNewTask(data.value).subscribe({
+      complete: () => {
+        this.ToastrService.success('Success', 'Task added successfully');
+
+        this.navigateToTasksList();
+      },
+    });
+  }
+
+  navigateToTasksList(): void {
+    this._Router.navigate(['/dashboard/manager/tasks/list']);
   }
 }

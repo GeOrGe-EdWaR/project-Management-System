@@ -1,12 +1,9 @@
-<div class="page-header my-3 py-3 bg-white">
-  <a
-    class="header-link text-decoration-none text-dark p-3"
-    routerLink="/dashboard/manager/projects/list"
-  >
-    <i class="fa-solid fa-arrow-left me-2"></i>View All Projects</a
-  >
-  <h1 class="page-title p-3">view project</h1>
-</div>
+<app-page-header
+  pageTitle="View project"
+  navigateBackText="View all projects"
+  (navigateBackEvent)="navigateToProjectsList()"
+></app-page-header>
+
 <div class="card mx-auto p-5 m-5 col-8">
   <div class="dard-body">
     <form [formGroup]="addNewProjectForm">

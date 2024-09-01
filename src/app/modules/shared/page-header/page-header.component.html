@@ -1,8 +1,15 @@
-<div class="d-flex justify-content-between align-items-center bg-white p-4">
+<div
+  class="d-flex justify-content-between align-items-center bg-white py-4 px-5"
+>
   <div>
-    <a *ngIf="navigateBackText" (click)="handleNavigateBackClick()">{{
-      navigateBackText
-    }}</a>
+    <a
+      class="navigate-back mb-2"
+      *ngIf="navigateBackText"
+      (click)="handleNavigateBackClick()"
+    >
+      <mat-icon>chevron_left</mat-icon>
+      <span class="px-1">{{ navigateBackText }}</span></a
+    >
     <h4 class="title">{{ pageTitle }}</h4>
   </div>
 
