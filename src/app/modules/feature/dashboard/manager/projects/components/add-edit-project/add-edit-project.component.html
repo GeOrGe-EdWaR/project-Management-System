@@ -4,18 +4,15 @@
   (navigateBackEvent)="navigateToProjectsList()"
 ></app-page-header>
 
-<div class="card mx-auto p-5 m-5 col-8">
+<div class="card mx-auto pt-4 m-5 col-8">
   <div class="dard-body">
-    <form
-      [formGroup]="addNewProjectForm"
-      (ngSubmit)="onSubmit(addNewProjectForm)"
-    >
-      <div class="py-2">
-        <mat-label>Title</mat-label>
+    <form class="px-5" [formGroup]="addNewProjectForm">
+      <div>
+        <mat-label class="outline-form-field-top-label">Title</mat-label>
         <mat-form-field
           appearance="outline"
           floatLabel="always"
-          class="example-form-field w-100"
+          class="example-form-field w-100 rounded-form-field-outline-sm"
         >
           <input
             formControlName="title"
@@ -40,10 +37,10 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="py-2">
-        <mat-label>Description</mat-label>
+      <div>
+        <mat-label class="outline-form-field-top-label">Description</mat-label>
         <mat-form-field
-          class="example-full-width w-100"
+          class="example-full-width w-100 rounded-form-field-outline-sm"
           appearance="outline"
           floatLabel="always"
         >
@@ -72,10 +69,21 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="buttons d-flex justify-content-between py-2">
-        <button type="reset" class="rounded-5 p-2 bttn">Cancel</button>
-        <button type="submit" class="rounded-5 p-2 bttn-save">Save</button>
-      </div>
     </form>
+
+    <mat-divider></mat-divider>
+
+    <div class="d-flex justify-content-between px-5 py-4">
+      <button type="reset" class="outline-grey-btn px-4 py-2 w-auto">
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="primary-btn px-4 py-2 w-auto"
+        (click)="onSubmit(addNewProjectForm)"
+      >
+        Save
+      </button>
+    </div>
   </div>
 </div>

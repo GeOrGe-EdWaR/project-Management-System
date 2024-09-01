@@ -1,11 +1,44 @@
-
-
 .main-img {
-    background: url("../../../../assets/images/projects.jpeg");
-  
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 45vh;
+  background: url("../../../../assets/images/projects.jpeg");
+
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 40vh;
+
+  .title {
+    font-size: 36px;
+    font-family: Montserrat;
+    font-weight: 400;
   }
-  
+
+  .subtitle {
+    font-size: 30px;
+    font-family: Montserrat;
+    font-weight: 400;
+  }
+}
+
+.chart {
+  background-color: #f8f9fb;
+
+  .title {
+    font-size: 16px;
+    font-family: Inter-Medium;
+    color: #000000;
+    font-weight: 500;
+  }
+
+  ::ng-deep .pie-label {
+    font-size: 15px;
+    font-family: Inter-Medium;
+    color: #000000;
+    font-weight: 500;
+  }
+}
+
+.full-width-chart {
+  display: block;
+  width: 100% !important;
+  height: auto;
+}

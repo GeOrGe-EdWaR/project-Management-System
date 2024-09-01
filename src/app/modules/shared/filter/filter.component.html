@@ -4,7 +4,7 @@
       <mat-form-field
         (keydown.enter)="onSearch()"
         appearance="outline"
-        class="bg-white rounded-form-field-outline"
+        class="bg-white rounded-form-field-outline-lg"
       >
         <mat-icon matPrefix (click)="onSearch()">search</mat-icon>
         <input
@@ -22,7 +22,7 @@
       <mat-form-field
         *ngIf="filters && filters.length"
         appearance="outline"
-        class="bg-white rounded-form-field-outline mx-3 filter-dropdown"
+        class="bg-white rounded-form-field-outline-lg mx-3 filter-dropdown"
       >
         <mat-icon matPrefix>filter_list</mat-icon>
 

@@ -19,8 +19,6 @@
   background-color: transparent !important;
 }
 
-
-
 // Global styles
 
 .mat-typography {
@@ -49,9 +47,16 @@ body {
   --mdc-filled-text-field-hover-active-indicator-color: white;
   --mdc-filled-text-field-input-text-placeholder-color: white;
   --mdc-filled-text-field-label-text-size: 15px;
-  --mdc-extended-fab-label-text-font: inter;
   --mdc-filled-text-field-label-text-font: Inter-Bold;
   --mdc-filled-text-field-label-text-size: 20px !important;
-  // --mdc-filled-text-field-label-text-tracking: 0.03125em;
+
+  --mdc-extended-fab-label-text-font: inter;
+
   --mdc-outlined-text-field-label-text-font: Inter;
+  --mdc-outlined-text-field-outline-color: #ececec;
+  --mdc-outlined-text-field-focus-outline-color: #ececec;
+  --mdc-outlined-text-field-hover-outline-color: #ececec;
+  --mdc-outlined-text-field-input-text-placeholder-color: #c1c1c1;
+  --mat-select-placeholder-text-color: #c1c1c1;
+  --mat-select-trigger-text-size: 15px;
 }
