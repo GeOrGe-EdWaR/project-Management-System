@@ -1,6 +1,7 @@
 // Import Angular Material theming and custom fonts
 @use "@angular/material" as mat;
 @import url("./assets/styles/fonts.scss");
+@import "./assets/styles/layouts.scss";
 
 // Include core styles for Angular Material
 @include mat.core();
@@ -18,7 +19,7 @@
   background-color: transparent !important;
 }
 
-@import "./assets/styles/layouts.scss";
+
 
 // Global styles
 

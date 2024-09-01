@@ -5,3 +5,14 @@
     border-radius: 50% !important;
   }
 }
+.mat-form-field-required-marker span{
+  display: none;
+}
+.mat-label span{
+  display: none;
+
+}
+.mdc-floating-label--required:not(.mdc-floating-label--hide-required-marker)::after {
+  margin-left: 1px;
+  margin-right: 0px;
+}

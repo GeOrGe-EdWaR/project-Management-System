@@ -10,8 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-edit-task.component.scss'],
 })
 export class AddEditTaskComponent implements OnInit {
-
-
+  option: any[] = [];
 
   selectFormControl = new FormControl('', Validators.required);
   //project ID list
