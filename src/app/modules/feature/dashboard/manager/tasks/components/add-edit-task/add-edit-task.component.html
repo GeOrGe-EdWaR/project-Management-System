@@ -1,11 +1,11 @@
 <div class="page-header bg-white my-3 py-3">
   <a
-    class="header-link text-decoration-none text-dark p-3"
+    class="header-link text-decoration-none text-dark p-4"
     routerLink="/dashboard/manager/projects/list"
   >
     <i class="fa-solid fa-arrow-left me-2"></i>View all tasks</a
   >
-  <h1 class="page-title p-3">Add new task</h1>
+  <h1 class="page-title p-4">Add new task</h1>
 </div>
 <div class="card mx-auto p-5 m-5 col-8">
   <div class="dard-body">
@@ -52,7 +52,7 @@
             <mat-select formControlName="employeeId" name="food">
               <mat-option
                 *ngFor="let employee of employeesList"
-                [value]="employee.userName"
+                [value]="employee.id"
               >
                 {{ employee.userName }}
               </mat-option>
