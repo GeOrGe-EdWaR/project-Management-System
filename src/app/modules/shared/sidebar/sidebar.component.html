@@ -15,13 +15,13 @@
     <ng-container *ngFor="let route of routes">
       <li
         *ngIf="route.present && !route.onClick"
-        class="list-group-item py-3 d-flex align-items-center "
+        class="list-group-item py-3 d-flex align-items-center mb-2 "
         [routerLink]="route.routeTo"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLinkActive="active"
         [class.px-4]="!isCollapsed"
       >
-        <mat-icon aria-hidden="false" aria-label="Example home icon">{{
+        <mat-icon class="sidebar-icon" aria-hidden="false" aria-label="Example home icon">{{
           route.iconName
         }}</mat-icon>
         <span *ngIf="!isCollapsed" class="mx-2">{{ route.text }}</span>
