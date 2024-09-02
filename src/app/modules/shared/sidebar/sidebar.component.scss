@@ -56,7 +56,8 @@
     &.active {
       background-color: rgba(#ef9b28, 0.3);
       border-radius: 15px;
-      width:fit-content;
+      max-width: 200px;
+      
 
       // &::before {
       //   width: 4px;
@@ -67,4 +68,16 @@
 
 .collapsed {
   width: 75px;
+
+  .list-group-item:hover,.active{
+    width: 55px;
+  }
+
+  // .sidebar-icon:hover,
+  // .sidebar-icon:active{
+  //   background-color: rgba(#ef9b28, 0.3);
+  //   border-radius: 15px;
+  //   max-width: 10px;
+    
+  // }
 }

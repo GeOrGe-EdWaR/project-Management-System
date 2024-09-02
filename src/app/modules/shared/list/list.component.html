@@ -78,15 +78,15 @@
               [matMenuTriggerFor]="menu"
               aria-label="Example icon-button with a menu"
             >
-              <mat-icon>more_vert</mat-icon>
+              <mat-icon class="text-success">more_vert</mat-icon>
             </button>
-            <mat-menu #menu="matMenu">
+            <mat-menu class="rounded-3" #menu="matMenu">
               <button
                 mat-menu-item
                 *ngIf="header.actions?.isView"
                 (click)="view(element)"
               >
-                <mat-icon>visibility</mat-icon>
+                <mat-icon class="text-success">visibility</mat-icon>
                 <span>View</span>
               </button>
               <button
@@ -102,7 +102,7 @@
                 *ngIf="header.actions?.isDelete"
                 (click)="delete(element?.id)"
               >
-                <mat-icon>delete</mat-icon>
+                <mat-icon class="text-danger">delete</mat-icon>
                 <span>Delete</span>
               </button>
               <ng-container *ngIf="element?.isActivated; else unblock">
@@ -111,7 +111,7 @@
                   *ngIf="header.actions?.isBlock"
                   (click)="block(element)"
                 >
-                  <mat-icon>block</mat-icon>
+                  <mat-icon class="text-danger">block</mat-icon>
                   <span>Block</span>
                 </button>
               </ng-container>
@@ -121,7 +121,7 @@
                   *ngIf="header.actions?.isBlock"
                   (click)="block(element)"
                 >
-                  <mat-icon>check_circle</mat-icon>
+                  <mat-icon class="text-success">check_circle</mat-icon>
                   <span>Unblock</span>
                 </button>
               </ng-template>
