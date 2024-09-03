@@ -16,6 +16,13 @@ const routes: Routes = [
             (m) => m.ProjectsModule
           ),
       },
+      {
+        path: 'tasks',
+        loadChildren: () =>
+          import('./modules/emp-tasks/emp-tasks.module').then(
+            (m) => m.EmpTasksModule
+          ),
+      },
     ],
   },
 ];
@@ -24,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class EmployeeRoutingModule {}
+export class EmployeeRoutingModule { }
