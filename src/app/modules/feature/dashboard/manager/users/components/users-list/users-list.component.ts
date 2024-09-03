@@ -25,7 +25,7 @@ export class UsersListComponent {
   searchValue: string = '';
   searchKey: string = '';
 
-  filters = ['userName', 'email', 'status'];
+  filters = ['email', 'status'];
   statusList = [
     {
       label: 'Active',

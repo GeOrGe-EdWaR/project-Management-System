@@ -1,6 +1,6 @@
-<div class="bg-white pt-3 pb-2 mt-4 rounded rounded-top-3">
+<div class="bg-white pt-3 pb-2 px-3 mt-4 rounded rounded-top-3">
   <div class="d-flex justify-content-between align-items-center">
-    <form [formGroup]="filterForm" class="filters px-3">
+    <form [formGroup]="filterForm" class="filters">
       <mat-form-field
         *ngIf="!isStatusFiltering"
         (keydown.enter)="onSearch()"
@@ -24,13 +24,14 @@
       <mat-form-field
         *ngIf="isStatusFiltering"
         appearance="outline"
-        class="bg-white rounded-form-field-outline-lg filter-dropdown toggleInputs"
+        class="bg-white rounded-form-field-outline-lg mx-2 filter-dropdown"
       >
-        <mat-select placeholder="Filter" formControlName="searchValue">
+        <mat-icon matPrefix (click)="onSearch()">search</mat-icon>
+        <mat-select placeholder="Select status" formControlName="searchValue">
           <mat-option
             *ngFor="let status of statusList"
             [value]="status.value"
-            >{{ status.label }}</mat-option
+            >{{ status.label | titlecase }}</mat-option
           >
         </mat-select>
         <mat-error
@@ -49,12 +50,12 @@
         <mat-icon matPrefix>filter_list</mat-icon>
 
         <mat-select
-          placeholder="Filter"
+          placeholder="Filter by"
           formControlName="searchKey"
           (ngModelChange)="updateStatusFiltering()"
         >
           <mat-option *ngFor="let filter of filters" [value]="filter">{{
-            filter
+            filter | titlecase
           }}</mat-option>
         </mat-select>
         <mat-error

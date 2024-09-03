@@ -36,6 +36,10 @@ export class TasksListComponent {
       label: 'Done',
       value: 'Done',
     },
+    {
+      label: 'In progress',
+      value: 'InProgress',
+    },
   ];
 
   length: number = 0;
