@@ -80,6 +80,12 @@ export class UsersService {
         datafield: 'country',
       },
       {
+        type: 'list',
+        header: 'Task',
+        datafield: 'title',
+        // objectKey:'title'
+      },
+      {
         type: 'actions',
         header: 'Actions',
         datafield: 'actions',
