@@ -27,6 +27,16 @@ export class TasksListComponent {
   searchKey: string = '';
 
   filters = ['title', 'status'];
+  statusList = [
+    {
+      label: 'To do',
+      value: 'ToDo',
+    },
+    {
+      label: 'Done',
+      value: 'Done',
+    },
+  ];
 
   length: number = 0;
   pageSize = 10;

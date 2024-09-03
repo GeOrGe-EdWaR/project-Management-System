@@ -12,6 +12,9 @@ export class FilterComponent implements OnInit {
   @Output() reset = new EventEmitter();
 
   @Input() filters!: string[];
+  @Input() statusList: any;
+
+  isStatusFiltering: boolean = false;
 
   filterForm: FormGroup = new FormGroup({
     searchValue: new FormControl('', Validators.required),
@@ -31,6 +34,11 @@ export class FilterComponent implements OnInit {
       this.filterForm.get('searchValue')?.value ||
       this.filterForm.get('searchKey')?.value
     );
+  }
+
+  updateStatusFiltering(): void {
+    this.isStatusFiltering =
+      this.filterForm.controls?.['searchKey']?.value == 'status';
   }
 
   onSearch(): void {

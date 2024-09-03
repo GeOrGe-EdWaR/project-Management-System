@@ -1,10 +1,11 @@
 <div class="bg-white pt-3 pb-2 mt-4 rounded rounded-top-3">
   <div class="d-flex justify-content-between align-items-center">
-    <form [formGroup]="filterForm" class="filters">
+    <form [formGroup]="filterForm" class="filters px-3">
       <mat-form-field
+        *ngIf="!isStatusFiltering"
         (keydown.enter)="onSearch()"
         appearance="outline"
-        class="bg-white rounded-form-field-outline-lg"
+        class="bg-white rounded-form-field-outline-lg toggleInputs"
       >
         <mat-icon matPrefix (click)="onSearch()">search</mat-icon>
         <input
@@ -19,14 +20,39 @@
           Please enter value
         </mat-error>
       </mat-form-field>
+
+      <mat-form-field
+        *ngIf="isStatusFiltering"
+        appearance="outline"
+        class="bg-white rounded-form-field-outline-lg filter-dropdown toggleInputs"
+      >
+        <mat-select placeholder="Filter" formControlName="searchValue">
+          <mat-option
+            *ngFor="let status of statusList"
+            [value]="status.value"
+            >{{ status.label }}</mat-option
+          >
+        </mat-select>
+        <mat-error
+          class="mb-3"
+          *ngIf="filterForm.get('searchKey')?.touched&&filterForm.get('searchKey')?.errors?.['required']"
+        >
+          Please choose value to filter by
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field
         *ngIf="filters && filters.length"
         appearance="outline"
-        class="bg-white rounded-form-field-outline-lg mx-3 filter-dropdown"
+        class="bg-white rounded-form-field-outline-lg mx-2 filter-dropdown"
       >
         <mat-icon matPrefix>filter_list</mat-icon>
 
-        <mat-select placeholder="Filter" formControlName="searchKey">
+        <mat-select
+          placeholder="Filter"
+          formControlName="searchKey"
+          (ngModelChange)="updateStatusFiltering()"
+        >
           <mat-option *ngFor="let filter of filters" [value]="filter">{{
             filter
           }}</mat-option>

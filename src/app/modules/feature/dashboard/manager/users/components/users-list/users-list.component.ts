@@ -25,7 +25,17 @@ export class UsersListComponent {
   searchValue: string = '';
   searchKey: string = '';
 
-  filters = ['userName', 'phoneNumber', 'email'];
+  filters = ['userName', 'email', 'status'];
+  statusList = [
+    {
+      label: 'Active',
+      value: 'Active',
+    },
+    {
+      label: 'Inactive',
+      value: 'Inactive',
+    },
+  ];
 
   length: number = 0;
   pageSize = 10;
