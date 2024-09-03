@@ -73,7 +73,7 @@ const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
     MatDividerModule,
     NgxDropzoneModule,
     NgxSpinnerModule,
-    NgxChartsModule
+    NgxChartsModule,
   ],
   exports: [
     FormsModule,
@@ -91,6 +91,7 @@ const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
     MatDividerModule,
     NgxDropzoneModule,
     NgxSpinnerModule,
+    NgxChartsModule,
 
     ProcessFormErrorsPipe,
 

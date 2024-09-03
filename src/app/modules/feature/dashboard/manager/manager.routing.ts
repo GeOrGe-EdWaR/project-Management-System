@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManagerComponent } from './manager.component';
-import { ManagerChartComponent } from './components/manager-chart/manager-chart.component';
-
 
 const routes: Routes = [
   {
@@ -24,7 +22,6 @@ const routes: Routes = [
         loadChildren: () =>
           import('./tasks/tasks.module').then((m) => m.TasksModule),
       },
-      { path: 'manager-chart', component: ManagerChartComponent },
     ],
   },
 ];
@@ -33,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ManagerRoutingModule { }
+export class ManagerRoutingModule {}

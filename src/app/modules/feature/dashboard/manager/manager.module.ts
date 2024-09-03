@@ -1,20 +1,16 @@
 import { SharedModule } from './../../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ManagerRoutingModule } from './manager.routing';
-import { ManagerComponent } from './manager.component';
-import { ManagerChartComponent } from './components/manager-chart/manager-chart.component';
 import { TasksModule } from './tasks/tasks.module';
 import { ProjectsModule } from './projects/projects.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UsersModule } from './users/users.module';
 
+import { ManagerComponent } from './manager.component';
 
 @NgModule({
-  declarations: [
-    ManagerComponent,
-  ],
+  declarations: [ManagerComponent],
   imports: [
     CommonModule,
     ManagerRoutingModule,
@@ -22,8 +18,7 @@ import { UsersModule } from './users/users.module';
     TasksModule,
     ProjectsModule,
     UsersModule,
-    ManagerChartComponent,
-    MatDialogModule
-  ]
+    MatDialogModule,
+  ],
 })
-export class ManagerModule { }
+export class ManagerModule {}
