@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   EventEmitter,
@@ -12,6 +13,7 @@ import { PageEvent } from '@angular/material/paginator';
   selector: 'app-custom-paginator',
   templateUrl: './custom-paginator.component.html',
   styleUrls: ['./custom-paginator.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomPaginatorComponent {
   @Input() length: number = 0;
@@ -30,7 +32,7 @@ export class CustomPaginatorComponent {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
-    this.cdr.detectChanges();
+    setTimeout(() => this.cdr.detectChanges(), 0);
   }
 
   paginate(event: PageEvent) {

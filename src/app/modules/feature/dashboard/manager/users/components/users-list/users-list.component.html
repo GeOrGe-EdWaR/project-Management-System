@@ -1,25 +1,23 @@
-
-<app-page-header
-  pageTitle="Users"
-></app-page-header>
+<app-page-header pageTitle="Users"></app-page-header>
 
 <div class="px-4">
   <app-filter
     [filters]="filters"
+    [statusList]="statusList"
     (search)="onSearchAction($event)"
     (reset)="onResetAction()"
   ></app-filter>
 
   <app-list
-  [headers]="headers"
-  [data]="usersList"
-  [length]="length"
-  [pageNumber]="pageNumber"
-  [pageSize]="pageSize"
-  (handleViewEvent)="onViewAction($event)"
-  (handleBlockEvent)="onBlockAction($event)"
-  (handlePageEvent)="onPageEvent($event)"
-></app-list>
+    [headers]="headers"
+    [data]="usersList"
+    [length]="length"
+    [pageNumber]="pageNumber"
+    [pageSize]="pageSize"
+    (handleViewEvent)="onViewAction($event)"
+    (handleBlockEvent)="onBlockAction($event)"
+    (handlePageEvent)="onPageEvent($event)"
+  ></app-list>
 </div>
 
 <!--  

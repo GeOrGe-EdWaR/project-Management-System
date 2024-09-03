@@ -1,11 +1,11 @@
 <div class="main-content px-4 py-2">
   <div class="row mx-0">
-    <div class="main-img my-3 rounded-4 col-md-12 d-flex align-items-center">
+    <div class="main-img my-2 rounded-4 col-md-12 d-flex align-items-center">
       <div class="px-3">
         <h1 class="title text-white mb-3">
           Welcome
           <span class="text-main">
-            {{ this.profile.userName }}
+            {{ this.profile?.userName }}
           </span>
         </h1>
         <p class="subtitle text-white">
@@ -14,34 +14,42 @@
       </div>
     </div>
   </div>
-  <div class="row mx-0 justify-content-between">
+  <div
+    class="row mx-0 justify-content-center"
+    *ngIf="profile?.group?.name == 'Manager'"
+  >
     <div
-      class="chart col-md-5 rounded-4 shadow px-3 pt-3 d-flex flex-column justify-content-between"
-    >
-      <label class="title">Tasks Overview</label>
-      <ngx-charts-pie-chart
-        [results]="allTaskStatus"
-        [animations]="animationPC"
-        [scheme]="colorScheme"
-        [labels]="labelsPC"
-        [doughnut]="doughnut"
-        [tooltipText]="percentageFormatterPC"
-        class="w-100 d-inline"
-      ></ngx-charts-pie-chart>
-    </div>
-    <div
-      class="chart col-md-5 rounded-5 shadow px-3 pt-3 d-flex flex-column justify-content-between"
+      class="chart col-md-8 my-2 rounded-4 shadow p-3 d-flex flex-column justify-content-between"
     >
       <label class="title">Users Overview</label>
       <div
         class="chart-container d-flex justify-content-center align-items-center"
       >
-        <ngx-charts-number-card
+        -
+        <ngx-charts-pie-chart
+          [results]="users"
           [animations]="animationPC"
-          [results]="allUsers"
           [scheme]="colorScheme"
-        ></ngx-charts-number-card>
+          [customColors]="userColors"
+          [labels]="labelsPC"
+          [doughnut]="doughnut"
+          [tooltipText]="percentageFormatterPC"
+        ></ngx-charts-pie-chart>
       </div>
+    </div>
+
+    <div
+      class="chart col-md-8 p-3 my-2 rounded-4 shadow d-flex flex-column justify-content-between"
+    >
+      <label class="title mb-3">Tasks Overview</label>
+      <ngx-charts-bar-vertical
+        [results]="tasks"
+        [animations]="animationPC"
+        [scheme]="colorScheme"
+        [xAxis]="true"
+        [yAxis]="true"
+        [customColors]="taskColors"
+      ></ngx-charts-bar-vertical>
     </div>
   </div>
 </div>

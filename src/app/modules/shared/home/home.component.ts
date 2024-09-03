@@ -9,66 +9,58 @@ import { ChartsService } from '../services/charts.service';
 })
 export class HomeComponent {
   profile!: any;
-  allTaskStatus: any = [];
-  allUsersStatus: any = [];
-  allUsers: any = [];
-  // viewPC: [number, number] = [700, 400];
-  animationPC = true;
-  colorScheme = 'forest';
+
+  tasks: any[] = [];
+  users: any[] = [];
+
+  taskColors: any[] = [];
+  userColors: any[] = [];
 
   labelsPC = true;
   doughnut = true;
+  animationPC = true;
+  colorScheme = 'forest';
 
   constructor(private _auth: AuthService, private _charts: ChartsService) {
     this._auth.getUserData();
 
-    this.profile = _auth.getProfile().subscribe({
+    this.taskColors = this._charts.taskColors;
+    this.userColors = this._charts.userColors;
+  }
+
+  ngOnInit(): void {
+    this.getProfile();
+  }
+
+  getProfile(): void {
+    this._auth.getProfile().subscribe({
       next: (res) => {
         this.profile = res;
+
+        if (this.profile?.group?.name === 'Manager') {
+          this.getTasksStatus();
+          this.getUsersData();
+        }
       },
     });
-
-    this.getTasksStatus();
-    this.getUsersData();
-    this.getUsersStatus();
   }
 
   percentageFormatterPC(data: any): string {
-    return data.value + '%';
+    return data.value;
   }
 
   getUsersData() {
-    this.allUsers = this._charts.getUsersData().subscribe({
-      next: (res) => {
-        this.allUsers = Object.entries(res).map(([key, value]) => ({
-          name: key,
-          value,
-        }));
-        console.log(this.allUsers, 'for charts');
+    this._charts.getUsersData().subscribe({
+      next: (response) => {
+        this.users = response;
       },
     });
   }
 
   getTasksStatus() {
-    this.allTaskStatus = this._charts.getTasksData().subscribe({
-      next: (res) => {
-        this.allTaskStatus = Object.entries(res).map(([key, value]) => ({
-          name: key,
-          value,
-        }));
-        console.log(this.allTaskStatus, 'for charts');
-      },
-    });
-  }
-
-  getUsersStatus() {
-    this.allUsersStatus = this._charts.getUsersData().subscribe({
-      next: (res) => {
-        this.allUsersStatus = Object.entries(res).map(([key, value]) => ({
-          name: key,
-          value,
-        }));
-        console.log(this.allUsersStatus, 'for charts');
+    this._charts.getTasksData().subscribe({
+      next: (response) => {
+        this.tasks = response;
       },
     });
   }

@@ -5,29 +5,35 @@ import { ListHeader } from 'src/app/modules/shared/models/list-header.model';
 import { GetUsersListResponse } from '../models/get-users-list-response-model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   usersBaseUrl = 'Users/';
-  getUsersListUrl = 'manager';
+  getUsersListUrl = 'Manager';
 
-  constructor(
-    private _http: HttpClient
-  ) { }
+  constructor(private _http: HttpClient) {}
 
   getUsersList(
     pageNumber: number,
     pageSize: number,
     seachKey: string,
     searchValue: string
-  ): Observable<GetUsersListResponse> { //dontforget the interface here getuserslistsresponse
+  ): Observable<GetUsersListResponse> {
+    //dontforget the interface here getuserslistsresponse
     let queryParams = new HttpParams();
 
     queryParams = queryParams.append('pageNumber', pageNumber);
     queryParams = queryParams.append('pageSize', pageSize);
 
     if (seachKey && searchValue) {
-      queryParams = queryParams.append(seachKey, searchValue);
+      if (seachKey != 'status')
+        queryParams = queryParams.append(seachKey, searchValue);
+      else {
+        queryParams = queryParams.append(
+          'isActivated',
+          searchValue == 'Active'
+        );
+      }
     }
 
     return this._http.get<GetUsersListResponse>( // here too don't forget the interface
@@ -41,12 +47,10 @@ export class UsersService {
   getUserById(id: number): Observable<any> {
     return this._http.get(`Users/${id}`);
   }
- 
 
   onActivateUser(id: number): Observable<any> {
     return this._http.put(`Users/${id}`, {});
   }
-
 
   get listHeaders(): ListHeader[] {
     return [
@@ -81,26 +85,20 @@ export class UsersService {
         datafield: 'actions',
         actions: {
           isView: true,
-          isBlock:true,
+          isBlock: true,
         },
       },
     ];
   }
 }
-  // getUserData(myparams: any): Observable<any> {
-  //   return this._HttpClient.get(`Users/Manager`, { params: myparams })
-  // }
+// getUserData(myparams: any): Observable<any> {
+//   return this._HttpClient.get(`Users/Manager`, { params: myparams })
+// }
 
-  // getUserCount(): Observable<any> {
-  //   return this._HttpClient.get(`Users/Count`)
-  // }
+// getUserCount(): Observable<any> {
+//   return this._HttpClient.get(`Users/Count`)
+// }
 
- 
-  // onGetUserById(id: number): Observable<any> {
-  //   return this._HttpClient.get(`Users/${id}`);
-  // }
-
-
-
-
-
+// onGetUserById(id: number): Observable<any> {
+//   return this._HttpClient.get(`Users/${id}`);
+// }
