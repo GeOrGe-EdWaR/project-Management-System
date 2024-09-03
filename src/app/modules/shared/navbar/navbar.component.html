@@ -1,22 +1,14 @@
 <div class="container- ms-0">
   <nav class="navbar d-flex justify-content-between mb-2 shadow-sm">
     <div class="logo-img">
-      <img src="../../../../assets/images/logo.png" alt="" />
+      <img src="./assets/images/logo.png" alt="" />
     </div>
     <div class="cursor-pointer">
-      <div
-        class="px-4 py-2 d-flex align-items-center cursor-pointer"
-      >
+      <div class="px-4 py-2 d-flex align-items-center cursor-pointer">
         <div class="avatar d-flex me-2">
-          <img
-          mat-icon-button
-          [matMenuTriggerFor]="menu"
-            class="img-fluid"
-            [src]="
+          <img mat-icon-button [matMenuTriggerFor]="menu" class="img-fluid" [src]="
               'https://upskilling-egypt.com:3003/' + this.userProfile.imagePath
-            "
-            alt="profile"
-          />
+            " alt="profile" />
         </div>
         <div class="d-flex flex-column">
           <span class="mx-2">{{ userName }}</span>
