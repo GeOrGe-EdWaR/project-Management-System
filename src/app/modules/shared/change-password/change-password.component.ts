@@ -44,17 +44,22 @@ export class ChangePasswordComponent {
   });
 
   onSubmit(data: FormGroup) {
-    this._ChangePasswordService.changePassword(data.value).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {
-        this.toastr.error(err.error.message);
-      },
-      complete: () => {
-        this.toastr.success('Success', 'Change password successfully');
-        this.router.navigate(['/dashboard']);
-      },
-    });
+    data.markAllAsTouched();
+
+    if (data.valid) {
+      this._ChangePasswordService.changePassword(data.value).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          this.toastr.error(err.error.message);
+        },
+        complete: () => {
+          this.toastr.success('Success', 'Change password successfully');
+
+          this.dialogRef.close();
+        },
+      });
+    }
   }
 }

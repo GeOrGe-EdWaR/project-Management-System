@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './core/Gaurds/auth.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'auth', pathMatch: 'full' },
-    {
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  {
     path: 'auth',
     loadChildren: () =>
       import('./modules/feature/authentication/authentication.module').then(
@@ -12,7 +12,8 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'dashboard', canActivate:[authGuard],
+    path: 'dashboard',
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./modules/feature/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
@@ -26,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
