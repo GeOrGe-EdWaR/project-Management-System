@@ -79,11 +79,11 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
   }
 
   onViewAction(e: any): void {
-    this._router.navigateByUrl('/dashboard/manager/projects/view-project');
+    this._router.navigateByUrl('/dashboard/manager/projects/view-project/' + e.id);
   }
 
   onEditAction(e: any): void {
-    this._router.navigateByUrl('/dashboard/manager/projects/add-edit-project');
+    this._router.navigateByUrl('/dashboard/manager/projects/add-edit-project/' + e.id);
   }
 
   onDeleteAction(id: number): void {
