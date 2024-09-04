@@ -23,7 +23,7 @@
                         <div cdkDropList [cdkDropListData]="inProg" class="example-list"
                             (cdkDropListDropped)="drop($event)" id="InProgress">
                             <div class="example-box" id={{item.id}} [cdkDragData]="item.id" *ngFor="let item of inProg"
-                                cdkDrag (click)="item.id">{{item.title}}</div>
+                                cdkDrag (click)="viewTask(item.id)">{{item.title}}</div>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         <div cdkDropList [cdkDropListData]="done" class="example-list"
                             (cdkDropListDropped)="drop($event)" id="Done">
                             <div class="example-box" id={{item.id}} [cdkDragData]="item.id" *ngFor="let item of done"
-                                cdkDrag (click)="item.id">{{item.title}}</div>
+                                cdkDrag (click)="viewTask(item.id)">{{item.title}}</div>
                         </div>
                     </div>
                 </div>
