@@ -41,7 +41,7 @@ export class NavbarComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ChangePasswordComponent, {
-      // data: {name: this.name, animal: this.animal},
+      width: '45%',
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {

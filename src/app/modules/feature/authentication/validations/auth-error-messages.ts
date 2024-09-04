@@ -16,11 +16,11 @@ export const AuthErrorMessages: any = {
   },
   password: {
     required: 'Password is required',
-    pattern: 'Password should be (fill it when we have regex)',
+    pattern: 'Enter valid password',
   },
   confirmPassword: {
     required: 'Password is required',
-    pattern: 'Password should be (fill it when we have regex)',
+    pattern: 'Enter valid password',
     notMatch: 'your passwords should Match !',
   },
 };
