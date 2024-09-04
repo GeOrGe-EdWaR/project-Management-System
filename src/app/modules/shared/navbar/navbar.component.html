@@ -6,9 +6,15 @@
     <div class="cursor-pointer">
       <div class="px-4 py-2 d-flex align-items-center cursor-pointer">
         <div class="avatar d-flex me-2">
-          <img mat-icon-button [matMenuTriggerFor]="menu" class="img-fluid" [src]="
+          <img
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            class="img-fluid"
+            [src]="
               'https://upskilling-egypt.com:3003/' + this.userProfile.imagePath
-            " alt="profile" />
+            "
+            alt="profile"
+          />
         </div>
         <div class="d-flex flex-column">
           <span class="mx-2">{{ userName }}</span>
@@ -19,6 +25,11 @@
         <button mat-menu-item [routerLink]="'/dashboard/profile'">
           <mat-icon class="text-success">person</mat-icon>
           <span>Profile</span>
+        </button>
+
+        <button mat-menu-item (click)="openDialog()">
+          <mat-icon class="text-secondary">lock_open</mat-icon>
+          <span>Change-password</span>
         </button>
         <button mat-menu-item (click)="logout()">
           <mat-icon class="text-danger">logout</mat-icon>

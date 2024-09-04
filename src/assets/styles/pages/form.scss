@@ -40,3 +40,7 @@
   color: #4f4f4f;
   font-weight: 400;
 }
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  /* color: black; */
+  background-color: var(--mdc-theme black);
+}
