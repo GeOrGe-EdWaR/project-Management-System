@@ -9,7 +9,6 @@ import { GetUsersListResponse } from '../models/get-users-list-response-model';
 })
 export class UsersService {
   usersBaseUrl = 'Users/';
-  getUsersListUrl = 'Manager';
 
   constructor(private _http: HttpClient) {}
 
@@ -36,12 +35,10 @@ export class UsersService {
       }
     }
 
-    return this._http.get<GetUsersListResponse>( // here too don't forget the interface
-      this.usersBaseUrl + this.getUsersListUrl,
-      {
-        params: queryParams,
-      }
-    );
+    return this._http.get<GetUsersListResponse>('Users', {
+      // here too don't forget the interface
+      params: queryParams,
+    });
   }
 
   getUserById(id: number): Observable<any> {
