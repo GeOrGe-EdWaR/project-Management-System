@@ -11,20 +11,27 @@ import { MatchPasswordValidator } from '../../validations/match-password-validat
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.scss']
+  styleUrls: ['./reset-password.component.scss'],
 })
 export class ResetPasswordComponent {
-public AuthErrorMessages = AuthErrorMessages;
-matcher = new ErrorStateMatcher();
-hide:boolean=true; 
+  public AuthErrorMessages = AuthErrorMessages;
+  matcher = new ErrorStateMatcher();
+  hide: boolean = true;
 
-resetPasswordForm = new FormGroup({
-  email: new FormControl('', [Validators.required, Validators.email]),
-  seed:new FormControl('',Validators.required),
-  password:new FormControl('',[Validators.required,Validators.pattern(AuthValidations.password.pattern)]),
-  confirmpassword:new FormControl('',[Validators.required,Validators.pattern(AuthValidations.password.pattern)]),
-  },
-    [MatchPasswordValidator('password', 'confirmpassword')]
+  resetPasswordForm = new FormGroup(
+    {
+      email: new FormControl('', [Validators.required, Validators.email]),
+      seed: new FormControl('', Validators.required),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(AuthValidations.password.pattern),
+      ]),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+        Validators.pattern(AuthValidations.password.pattern),
+      ]),
+    },
+    [MatchPasswordValidator('password', 'confirmPassword')]
   );
 
   constructor(private _auth: AuthService, private router: Router) {}
